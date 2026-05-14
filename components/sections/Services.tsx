@@ -5,7 +5,7 @@ const services = [
     Icon: BookOpen,
     title: "Bookkeeping",
     description:
-      "Bookkeeping: Keeping your financial records accurate, organised, and up to date.",
+      "Keeping your financial records accurate, organised, and up to date.",
   },
   {
     Icon: User,

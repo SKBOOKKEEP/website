@@ -2,10 +2,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="scroll-mt-20 py-20 bg-surface-container-low"
-    >
+    <section id="about" className="scroll-mt-20 py-20 bg-surface-container-low">
       <div className="max-w-7xl mx-auto px-5 md:px-16 grid md:grid-cols-2 gap-20 items-center">
         <div className="relative aspect-square">
           <Image
@@ -22,7 +19,8 @@ export default function About() {
 
         <div>
           <h2 className="font-serif text-[32px] leading-10 font-semibold text-primary mb-8">
-            Professional Accounting with a Personal Approach
+            Professional Accounting with{" "}
+            <span className="whitespace-nowrap">a Personal</span> Approach
           </h2>
           <div className="space-y-4 text-on-surface-variant">
             <p className="text-lg leading-7">
