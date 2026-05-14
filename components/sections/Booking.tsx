@@ -1,4 +1,5 @@
 import CalendlyWidget from "../CalendlyWidget";
+import { CheckCircle } from "../ui/icons";
 
 const features = [
   "Professional financial assessment",
@@ -10,7 +11,7 @@ export default function Booking() {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "";
 
   return (
-    <section id="booking" className="py-20 bg-primary-container">
+    <section id="booking" className="scroll-mt-20 py-20 bg-primary-container">
       <div className="max-w-7xl mx-auto px-5 md:px-16">
         <div className="grid md:grid-cols-2 gap-20 items-center">
           <div>
@@ -25,9 +26,7 @@ export default function Booking() {
             <ul className="space-y-3" aria-label="What's included">
               {features.map((item) => (
                 <li key={item} className="flex items-center gap-2 text-on-primary-container">
-                  <span className="material-symbols-outlined text-secondary" aria-hidden="true">
-                    check_circle
-                  </span>
+                  <CheckCircle className="w-5 h-5 text-secondary shrink-0" aria-hidden="true" />
                   {item}
                 </li>
               ))}

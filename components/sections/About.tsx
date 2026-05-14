@@ -2,15 +2,17 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-surface-container-low">
+    <section
+      id="about"
+      className="scroll-mt-20 py-20 bg-surface-container-low"
+    >
       <div className="max-w-7xl mx-auto px-5 md:px-16 grid md:grid-cols-2 gap-20 items-center">
         <div className="relative aspect-square">
           <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo3pCEguI5bNuCaDtTXv8lEcxAcOv3zcOJMbxZ3ARnMbJ0Dh2Vd_CNMGG1dP1TIMivMqcA-NmlNxLaAZuYDBCwT4fCIolXmfI-Fh-aNnKRN0tAQyBo8XCilVzz6HgGZq2--T5oYPV-mp6JkwN6hYZc9ZRD4qwVufbtW2YidBGyaBHz9SwoMmoHLMGoBryImQxvG3b6WGbsEdHkFeF1p1UpPMjxby00aY_z6bN1OVuM4focFO2Ui_rOrB6NAsGTPZV0xPZ7zYlMEMA"
+            src="/Sabina.jpeg"
             alt="Sabina Krajewska — professional accountant and bookkeeper in Liverpool"
-            fill
-            className="object-cover grayscale-[10%]"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            width={500}
+            height={1000}
           />
           <div
             className="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary-container -z-10"
@@ -20,24 +22,38 @@ export default function About() {
 
         <div>
           <h2 className="font-serif text-[32px] leading-10 font-semibold text-primary mb-8">
-            Expertise Meets Local Knowledge
+            Professional Accounting with a Personal Approach
           </h2>
           <div className="space-y-4 text-on-surface-variant">
             <p className="text-lg leading-7">
-              Sabina Krajewska is a Polish-born accountant who has built a
-              reputation for meticulous accuracy and strategic insight within the
-              Liverpool business community.
+              My name is Sabina Krajewska, and I am an Polish accountant working
+              with clients across the United Kingdom. Based in St. Helens and
+              working remotely, I provide professional and reliable accounting
+              support to businesses nationwide.
             </p>
             <p className="text-lg leading-7">
-              With perfect English proficiency and deep UK market knowledge, she
-              bridges the gap for diverse businesses navigating complex financial
-              landscapes. Her commitment to precision ensures that every ledger is
-              balanced and every tax filing is optimised.
+              I help business owners keep their finances organised, compliant,
+              and stress-free through a service tailored to the individual needs
+              of each client. With a strong understanding of the UK financial
+              system, I combine accuracy and professionalism with a personal and
+              approachable way of working.
+            </p>
+            <p className="text-lg leading-7">
+              I understand that behind every business there is a person, which
+              is why I value relationships built on trust, understanding, and
+              clear communication. For me, accounting is about more than
+              numbers- it is about providing long-term support that helps my
+              clients feel confident in their business decisions.
+            </p>
+            <p className="text-lg leading-7">
+              My priority is to ensure your accounting is managed carefully and
+              efficiently, giving you more time to focus on growing your
+              business with confidence and peace of mind.
             </p>
             <p className="text-lg leading-7 italic border-l-2 border-secondary pl-4">
-              &ldquo;My goal isn&apos;t just to manage your books, but to provide
-              the financial foundation your business needs to thrive locally and
-              beyond.&rdquo;
+              &ldquo;I believe that well-managed accounting brings not only
+              financial clarity, but also confidence and peace of mind in
+              running a business.&rdquo;
             </p>
           </div>
         </div>

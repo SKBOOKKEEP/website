@@ -1,34 +1,85 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Button from "./ui/Button";
+import { Menu, XClose } from "./ui/icons";
 
 const navLinks = [
   { href: "#", label: "Home" },
-  { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
   { href: "#contact", label: "Contact" },
 ];
+
+/** Section ids in document order (after hero), for scroll-spy */
+const SECTION_IDS = ["about", "services", "booking", "contact"] as const;
+
+const NAVBAR_HEIGHT_PX = 80;
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#");
 
   useEffect(() => {
-    const sections = ["services", "about", "booking", "contact"];
-    const observers = sections.map((id) => {
-      const el = document.getElementById(id);
-      if (!el) return null;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActive(`#${id}`);
-        },
-        { rootMargin: "-40% 0px -40% 0px" }
-      );
-      observer.observe(el);
-      return observer;
-    });
-    return () => observers.forEach((o) => o?.disconnect());
+    let raf = 0;
+
+    const updateActiveFromScroll = () => {
+      // Activation line: just below fixed navbar. Pick the section that owns this
+      // scroll position [top, nextTop), so short sections (e.g. Services) still highlight.
+      const line = window.scrollY + NAVBAR_HEIGHT_PX + 12;
+
+      const first = document.getElementById(SECTION_IDS[0]);
+      if (!first) {
+        setActive("#");
+        return;
+      }
+      const firstTop = first.getBoundingClientRect().top + window.scrollY;
+      if (line < firstTop) {
+        setActive((prev) => (prev === "#" ? prev : "#"));
+        return;
+      }
+
+      for (let i = 0; i < SECTION_IDS.length; i++) {
+        const id = SECTION_IDS[i];
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        const nextId = SECTION_IDS[i + 1];
+        const nextEl = nextId ? document.getElementById(nextId) : null;
+        const nextTop = nextEl
+          ? nextEl.getBoundingClientRect().top + window.scrollY
+          : Number.POSITIVE_INFINITY;
+
+        if (line >= top && line < nextTop) {
+          const next = `#${id}`;
+          setActive((prev) => (prev === next ? prev : next));
+          return;
+        }
+      }
+
+      const lastId = SECTION_IDS[SECTION_IDS.length - 1];
+      setActive((prev) => (prev === `#${lastId}` ? prev : `#${lastId}`));
+    };
+
+    const onScrollOrResize = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        updateActiveFromScroll();
+      });
+    };
+
+    updateActiveFromScroll();
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+    window.addEventListener("hashchange", onScrollOrResize);
+    return () => {
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+      window.removeEventListener("hashchange", onScrollOrResize);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
@@ -39,9 +90,19 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-5 md:px-16 h-20 flex items-center justify-between">
         <a
           href="#"
-          className="font-serif text-2xl font-bold text-primary"
+          className="flex items-center gap-3 font-serif text-2xl font-bold text-primary"
           aria-label="Sabina Krajewska — home"
         >
+          <span className="relative h-10 w-10 shrink-0">
+            <Image
+              src="/logo.png"
+              alt=""
+              fill
+              className="object-contain"
+              sizes="40px"
+              priority
+            />
+          </span>
           Sabina Krajewska
         </a>
 
@@ -71,7 +132,11 @@ export default function NavBar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
-          <span className="material-symbols-outlined">{open ? "close" : "menu"}</span>
+          {open ? (
+            <XClose className="w-6 h-6" aria-hidden="true" />
+          ) : (
+            <Menu className="w-6 h-6" aria-hidden="true" />
+          )}
         </button>
       </div>
 
