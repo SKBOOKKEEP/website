@@ -12,7 +12,10 @@ export async function POST(request: NextRequest) {
   const { name, email, phone, message } = body as Record<string, string>;
 
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
-    return Response.json({ error: "name, email, and message are required" }, { status: 400 });
+    return Response.json(
+      { error: "name, email, and message are required" },
+      { status: 400 },
+    );
   }
 
   const to = process.env.CONTACT_EMAIL;
@@ -21,7 +24,7 @@ export async function POST(request: NextRequest) {
   }
 
   const { error } = await resend.emails.send({
-    from: "Sabina Krajewska Website <onboarding@resend.dev>",
+    from: "Sabina Krajewska Website <contact@simple-bookkeeping.co.uk>",
     to: [to],
     replyTo: email,
     subject: `New enquiry from ${name}`,

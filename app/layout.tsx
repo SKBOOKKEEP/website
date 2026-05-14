@@ -17,35 +17,55 @@ const libreCaslon = Libre_Caslon_Text({
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "AccountingService",
-  name: "Sabina Krajewska Bookkeeping",
-  description:
-    "Professional bookkeeping and HMRC consulting services in Liverpool and Merseyside.",
-  url: "https://sabinakrajewska.co.uk",
-  areaServed: [
-    { "@type": "City", name: "Liverpool" },
-    { "@type": "AdministrativeArea", name: "Merseyside" },
-  ],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Liverpool",
-    addressRegion: "Merseyside",
-    addressCountry: "GB",
-  },
-  priceRange: "££",
-  knowsLanguage: ["en", "pl"],
-  serviceType: [
-    "Bookkeeping",
-    "HMRC Consulting",
-    "VAT Returns",
-    "Payroll",
-    "Corporate Tax Planning",
-    "Sole Trader Accounts",
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "https://sabinakrajewska.co.uk/#business",
+      name: "Sabina Krajewska Bookkeeping",
+      description:
+        "Professional bookkeeping and HMRC consulting services in Liverpool and Merseyside.",
+      url: "https://sabinakrajewska.co.uk",
+      telephone: "+447312026090",
+      email: "contact@simple-bookkeeping.co.uk",
+      image: "https://sabinakrajewska.co.uk/Sabina.jpeg",
+      sameAs: ["https://www.facebook.com/share/1EWvARkhhL/"],
+      areaServed: [
+        { "@type": "City", name: "Liverpool" },
+        { "@type": "AdministrativeArea", name: "Merseyside" },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Liverpool",
+        addressRegion: "Merseyside",
+        addressCountry: "GB",
+      },
+      priceRange: "££",
+      knowsLanguage: ["en", "pl"],
+      serviceType: [
+        "Bookkeeping",
+        "HMRC Consulting",
+        "VAT Returns",
+        "Payroll",
+        "Corporate Tax Planning",
+        "Sole Trader Accounts",
+      ],
+      founder: { "@id": "https://sabinakrajewska.co.uk/#person" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sabinakrajewska.co.uk/#person",
+      name: "Sabina Krajewska",
+      jobTitle: "Accountant & Bookkeeper",
+      image: "https://sabinakrajewska.co.uk/Sabina.jpeg",
+      knowsLanguage: ["en", "pl"],
+      worksFor: { "@id": "https://sabinakrajewska.co.uk/#business" },
+    },
   ],
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sabinakrajewska.co.uk"),
+  applicationName: "Sabina Krajewska Bookkeeping",
   title: {
     default: "Sabina Krajewska | Accountant & Bookkeeper Liverpool",
     template: "%s | Sabina Krajewska Bookkeeping",
@@ -73,6 +93,8 @@ export const metadata: Metadata = {
     title: "Sabina Krajewska | Accountant & Bookkeeper Liverpool",
     description:
       "Expert bookkeeping and HMRC consulting tailored to Liverpool businesses. Clarity in your accounts so you can focus on growth.",
+    url: "https://sabinakrajewska.co.uk",
+    siteName: "Sabina Krajewska Bookkeeping",
     type: "website",
     locale: "en_GB",
   },
@@ -85,7 +107,12 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: {
     canonical: "/",

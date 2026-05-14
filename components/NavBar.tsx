@@ -103,10 +103,18 @@ export default function NavBar() {
               priority
             />
           </span>
-          Sabina Krajewska
+          <div className="flex flex-col">
+            <span>Simple Bookkeeping</span>
+            <span className="text-xs text-on-surface-variant">
+              Sabina Krajewska
+            </span>
+          </div>
         </a>
 
-        <nav className="hidden md:flex gap-6 items-center" aria-label="Main navigation">
+        <nav
+          className="hidden md:flex gap-6 items-center"
+          aria-label="Main navigation"
+        >
           {navLinks.map(({ href, label }) => (
             <a
               key={label}
