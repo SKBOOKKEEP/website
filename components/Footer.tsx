@@ -22,18 +22,6 @@ export default function Footer() {
           aria-label="Footer navigation"
         >
           <a
-            href="/privacy-policy"
-            className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="/terms-of-service"
-            className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"
-          >
-            Terms of Service
-          </a>
-          <a
             href="https://www.gov.uk/government/organisations/hm-revenue-customs"
             target="_blank"
             rel="noopener noreferrer"
