@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/api/",
       },
     ],
-    sitemap: "https://sabinakrajewska.co.uk/sitemap.xml",
+    sitemap: "https://simple-bookkeeping.co.uk/sitemap.xml",
   };
 }
