@@ -84,16 +84,16 @@ export default function NavBar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-outline-variant"
+      className="fixed inset-x-0 top-0 z-50 w-full overflow-x-hidden bg-white border-b border-outline-variant"
       role="banner"
     >
-      <div className="max-w-7xl mx-auto px-5 md:px-16 h-20 flex items-center justify-between">
+      <div className="mx-auto flex h-20 w-full max-w-7xl min-w-0 items-center justify-between gap-2 px-5 md:gap-6 md:px-16">
         <a
           href="#"
-          className="flex items-center gap-3 font-serif text-2xl font-bold text-primary"
+          className="flex min-w-0 flex-1 items-center gap-2 font-serif font-bold text-primary sm:gap-3"
           aria-label="Sabina Krajewska — home"
         >
-          <span className="relative h-10 w-10 shrink-0">
+          <span className="relative h-9 w-9 shrink-0 sm:h-10 sm:w-10">
             <Image
               src="/logo.png"
               alt=""
@@ -103,39 +103,40 @@ export default function NavBar() {
               priority
             />
           </span>
-          <div className="flex flex-col">
-            <span>Simple Bookkeeping</span>
-            <span className="text-xs text-on-surface-variant">
+          <div className="min-w-0">
+            <span className="block truncate text-base leading-tight sm:text-xl md:text-2xl">
+              Simple Bookkeeping
+            </span>
+            <span className="block truncate text-xs text-on-surface-variant">
               Sabina Krajewska
             </span>
           </div>
         </a>
 
-        <nav
-          className="hidden md:flex gap-6 items-center"
-          aria-label="Main navigation"
-        >
-          {navLinks.map(({ href, label }) => (
-            <a
-              key={label}
-              href={href}
-              className={`font-semibold text-xs tracking-widest uppercase transition-colors pb-0.5 ${
-                active === href
-                  ? "text-primary border-b-2 border-primary"
-                  : "text-on-surface-variant hover:text-primary"
-              }`}
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        <Button href="#booking" className="hidden md:inline-flex">
-          Book Consultation
-        </Button>
+        <div className="hidden shrink-0 items-center gap-6 md:flex">
+          <nav className="flex gap-6 items-center" aria-label="Main navigation">
+            {navLinks.map(({ href, label }) => (
+              <a
+                key={label}
+                href={href}
+                className={`font-semibold text-xs tracking-widest uppercase transition-colors pb-0.5 ${
+                  active === href
+                    ? "text-primary border-b-2 border-primary"
+                    : "text-on-surface-variant hover:text-primary"
+                }`}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+          <Button href="#booking" className="shrink-0">
+            Book Consultation
+          </Button>
+        </div>
 
         <button
-          className="md:hidden p-2 text-primary"
+          type="button"
+          className="shrink-0 p-2 text-primary md:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -164,7 +165,7 @@ export default function NavBar() {
             <a
               href="#booking"
               onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center w-full font-semibold text-xs tracking-widest uppercase px-6 py-3 bg-primary text-on-primary hover:opacity-90 transition-all"
+              className="inline-flex w-fit items-center justify-center bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-widest text-on-primary transition-all hover:opacity-90"
             >
               Book Consultation
             </a>

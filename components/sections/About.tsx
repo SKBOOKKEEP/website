@@ -10,6 +10,7 @@ export default function About() {
             alt="Sabina Krajewska — professional accountant and bookkeeper in Liverpool"
             width={500}
             height={1000}
+            className="h-auto w-full max-w-full"
           />
           <div
             className="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary-container -z-10"

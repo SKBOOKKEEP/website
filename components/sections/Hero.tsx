@@ -16,8 +16,8 @@ export default function Hero() {
         sizes="100vw"
       />
 
-      <div className="relative z-10 py-10 w-fit ml-10 px-5 md:px-16 bg-white/60 rounded-lg">
-        <div className="max-w-2xl">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-16">
+        <div className="max-w-2xl rounded-lg bg-white/60 px-5 py-10 md:px-8">
           <h1 className="font-serif text-[clamp(36px,5vw,48px)] leading-tight tracking-tight font-bold text-primary mb-4">
             Professional Accounting Support Across the UK
           </h1>
