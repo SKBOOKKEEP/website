@@ -4,20 +4,59 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import Button from "./ui/Button";
 import { Menu, XClose } from "./ui/icons";
-
-const navLinks = [
-  { href: "#", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#contact", label: "Contact" },
-];
+import type { Content, Locale } from "@/content/copy";
 
 /** Section ids in document order (after hero), for scroll-spy */
 const SECTION_IDS = ["about", "services", "booking", "contact"] as const;
 
 const NAVBAR_HEIGHT_PX = 80;
 
-export default function NavBar() {
+const LOCALES: { code: Locale; href: string; label: string }[] = [
+  { code: "en", href: "/", label: "EN" },
+  { code: "pl", href: "/pl", label: "PL" },
+];
+
+function LanguageSwitcher({
+  locale,
+  ariaLabel,
+}: {
+  locale: Locale;
+  ariaLabel: string;
+}) {
+  return (
+    <div
+      className="flex items-center gap-1 text-xs font-semibold tracking-widest uppercase"
+      aria-label={ariaLabel}
+    >
+      {LOCALES.map(({ code, href, label }, i) => (
+        <span key={code} className="flex items-center gap-1">
+          {i > 0 && <span className="text-outline-variant">/</span>}
+          {code === locale ? (
+            <span aria-current="true" className="text-primary">
+              {label}
+            </span>
+          ) : (
+            <a
+              href={href}
+              className="text-on-surface-variant hover:text-primary transition-colors"
+              hrefLang={code === "pl" ? "pl-PL" : "en-GB"}
+            >
+              {label}
+            </a>
+          )}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export default function NavBar({
+  content,
+  locale,
+}: {
+  content: Content["nav"];
+  locale: Locale;
+}) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#");
 
@@ -91,7 +130,7 @@ export default function NavBar() {
         <a
           href="#"
           className="flex min-w-0 flex-1 items-center gap-2 font-serif font-bold text-primary sm:gap-3"
-          aria-label="Sabina Krajewska — home"
+          aria-label={content.homeAriaLabel}
         >
           <span className="relative h-9 w-9 shrink-0 sm:h-10 sm:w-10">
             <Image
@@ -105,19 +144,22 @@ export default function NavBar() {
           </span>
           <div className="min-w-0">
             <span className="block truncate text-base leading-tight sm:text-xl md:text-2xl">
-              Simple Bookkeeping
+              {content.brand}
             </span>
             <span className="block truncate text-xs text-on-surface-variant">
-              Sabina Krajewska
+              {content.brandSub}
             </span>
           </div>
         </a>
 
         <div className="hidden shrink-0 items-center gap-6 md:flex">
-          <nav className="flex gap-6 items-center" aria-label="Main navigation">
-            {navLinks.map(({ href, label }) => (
+          <nav
+            className="flex gap-6 items-center"
+            aria-label={content.mainNavAriaLabel}
+          >
+            {content.links.map(({ href, label }) => (
               <a
-                key={label}
+                key={href}
                 href={href}
                 className={`font-semibold text-xs tracking-widest uppercase transition-colors pb-0.5 ${
                   active === href
@@ -129,8 +171,12 @@ export default function NavBar() {
               </a>
             ))}
           </nav>
+          <LanguageSwitcher
+            locale={locale}
+            ariaLabel={content.langSwitchAriaLabel}
+          />
           <Button href="#booking" className="shrink-0">
-            Book Consultation
+            {content.bookCta}
           </Button>
         </div>
 
@@ -138,7 +184,7 @@ export default function NavBar() {
           type="button"
           className="shrink-0 p-2 text-primary md:hidden"
           onClick={() => setOpen(!open)}
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? content.closeMenu : content.openMenu}
           aria-expanded={open}
         >
           {open ? (
@@ -151,9 +197,9 @@ export default function NavBar() {
 
       {open && (
         <div className="md:hidden bg-white border-t border-outline-variant px-5 py-4 space-y-1">
-          {navLinks.map(({ href, label }) => (
+          {content.links.map(({ href, label }) => (
             <a
-              key={label}
+              key={href}
               href={href}
               onClick={() => setOpen(false)}
               className="block font-semibold text-xs tracking-widest uppercase text-on-surface-variant hover:text-primary py-3 border-b border-outline-variant last:border-0"
@@ -161,14 +207,18 @@ export default function NavBar() {
               {label}
             </a>
           ))}
-          <div className="pt-3">
+          <div className="flex items-center justify-between pt-3">
             <a
               href="#booking"
               onClick={() => setOpen(false)}
               className="inline-flex w-fit items-center justify-center bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-widest text-on-primary transition-all hover:opacity-90"
             >
-              Book Consultation
+              {content.bookCta}
             </a>
+            <LanguageSwitcher
+              locale={locale}
+              ariaLabel={content.langSwitchAriaLabel}
+            />
           </div>
         </div>
       )}

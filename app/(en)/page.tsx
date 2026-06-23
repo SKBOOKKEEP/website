@@ -5,19 +5,20 @@ import Services from "@/components/sections/Services";
 import Booking from "@/components/sections/Booking";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
+import { en } from "@/content/copy";
 
 export default function Home() {
   return (
     <>
-      <NavBar />
+      <NavBar content={en.nav} locale="en" />
       <main className="mt-20">
-        <Hero />
-        <About />
-        <Services />
-        <Booking />
-        <Contact />
+        <Hero content={en.hero} />
+        <About content={en.about} />
+        <Services content={en.services} />
+        <Booking content={en.booking} />
+        <Contact content={en.contact} />
       </main>
-      <Footer />
+      <Footer content={en.footer} />
     </>
   );
 }

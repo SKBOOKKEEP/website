@@ -9,6 +9,7 @@ import {
 } from "react";
 import Button from "../ui/Button";
 import { CheckCircle, Phone, Mail, Check, Copy } from "../ui/icons";
+import type { Content } from "@/content/copy";
 
 const PHONE_E164 = "+447312026090";
 const PHONE_DISPLAY = "+44 731 202 6090";
@@ -23,7 +24,7 @@ interface FormState {
 
 const emptyForm: FormState = { name: "", email: "", phone: "", message: "" };
 
-export default function Contact() {
+export default function Contact({ content }: { content: Content["contact"] }) {
   const [form, setForm] = useState<FormState>(emptyForm);
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -87,29 +88,27 @@ export default function Contact() {
       <div className="max-w-3xl mx-auto px-5">
         <div className="text-center mb-8">
           <h2 className="font-serif text-[32px] leading-10 font-semibold text-primary">
-            Get in Touch
+            {content.heading}
           </h2>
 
           <p className="text-base leading-6 text-on-surface-variant mt-2">
-            Have a general inquiry? Fill out the form below and I&apos;ll get
-            back to you within 24 hours.
+            {content.subtitle}
           </p>
         </div>
 
         {status === "success" ? (
           <div className="bg-secondary-container text-on-secondary-container p-10 text-center">
             <CheckCircle className="w-12 h-12 mb-3 inline-block" aria-hidden="true" />
-            <p className="font-serif text-xl font-semibold mb-1">Thank you!</p>
-            <p className="text-sm">
-              Your message has been received. I&apos;ll be in touch within 24
-              hours.
+            <p className="font-serif text-xl font-semibold mb-1">
+              {content.successTitle}
             </p>
+            <p className="text-sm">{content.successMessage}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} noValidate className="space-y-4">
             <div>
               <label className={labelClass} htmlFor="name">
-                Full Name
+                {content.nameLabel}
               </label>
               <input
                 id="name"
@@ -119,14 +118,14 @@ export default function Contact() {
                 autoComplete="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="John Smith"
+                placeholder={content.namePlaceholder}
                 className={fieldClass}
               />
             </div>
 
             <div>
               <label className={labelClass} htmlFor="email">
-                Email Address
+                {content.emailLabel}
               </label>
               <input
                 id="email"
@@ -136,15 +135,17 @@ export default function Contact() {
                 autoComplete="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="john@example.com"
+                placeholder={content.emailPlaceholder}
                 className={fieldClass}
               />
             </div>
 
             <div>
               <label className={labelClass} htmlFor="phone">
-                Phone Number{" "}
-                <span className="normal-case font-normal">(optional)</span>
+                {content.phoneLabel}{" "}
+                <span className="normal-case font-normal">
+                  {content.phoneOptional}
+                </span>
               </label>
               <input
                 id="phone"
@@ -153,14 +154,14 @@ export default function Contact() {
                 autoComplete="tel"
                 value={form.phone}
                 onChange={handleChange}
-                placeholder="+44 0000 000000"
+                placeholder={content.phonePlaceholder}
                 className={fieldClass}
               />
             </div>
 
             <div>
               <label className={labelClass} htmlFor="message">
-                Message
+                {content.messageLabel}
               </label>
               <textarea
                 id="message"
@@ -169,14 +170,14 @@ export default function Contact() {
                 rows={5}
                 value={form.message}
                 onChange={handleChange}
-                placeholder="How can I help your business?"
+                placeholder={content.messagePlaceholder}
                 className={`${fieldClass} resize-none`}
               />
             </div>
 
             {status === "error" && (
               <p className="text-red-600 text-sm" role="alert">
-                Something went wrong. Please try again or email me directly.
+                {content.errorMessage}
               </p>
             )}
 
@@ -186,14 +187,14 @@ export default function Contact() {
               className="w-full"
               disabled={status === "loading"}
             >
-              {status === "loading" ? "Sending…" : "Send Inquiry"}
+              {status === "loading" ? content.submitting : content.submit}
             </Button>
           </form>
         )}
 
         <div className="">
           <p className="py-8 text-center font-semibold text-xs tracking-widest uppercase text-on-surface-variant mb-4">
-            Or reach me directly
+            {content.orReachDirectly}
           </p>
           <div className="flex flex-col gap-4">
             <div className="group relative border border-outline bg-white shadow-sm transition-all duration-200 hover:border-primary hover:shadow-md focus-within:border-primary focus-within:shadow-md">
@@ -202,19 +203,19 @@ export default function Contact() {
                 className="block px-5 py-5 pr-14 text-left outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
                 <Phone className="w-6 h-6 text-secondary mb-2" aria-hidden="true" />
-                <span className={labelClass}>Phone</span>
+                <span className={labelClass}>{content.phoneTitle}</span>
                 <span className="mt-1 block font-serif text-lg font-semibold text-primary group-hover:underline decoration-1 underline-offset-4">
                   {PHONE_DISPLAY}
                 </span>
                 <span className="mt-2 block text-sm text-on-surface-variant">
-                  Tap to call
+                  {content.tapToCall}
                 </span>
               </a>
               <button
                 type="button"
                 onClick={(e) => copyToClipboard(PHONE_E164, "phone", e)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center border border-outline bg-surface-container-low text-on-surface transition-colors hover:bg-surface-container hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                aria-label="Copy phone number"
+                aria-label={content.copyPhoneAria}
               >
                 {copied === "phone" ? (
                   <Check className="w-5 h-5" aria-hidden="true" />
@@ -230,19 +231,19 @@ export default function Contact() {
                 className="block px-5 py-5 pr-14 text-left outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white break-words"
               >
                 <Mail className="w-6 h-6 text-secondary mb-2" aria-hidden="true" />
-                <span className={labelClass}>Email</span>
+                <span className={labelClass}>{content.emailTitle}</span>
                 <span className="mt-1 block font-serif text-lg font-semibold text-primary group-hover:underline decoration-1 underline-offset-4">
                   {CONTACT_EMAIL}
                 </span>
                 <span className="mt-2 block text-sm text-on-surface-variant">
-                  Tap to compose
+                  {content.tapToCompose}
                 </span>
               </a>
               <button
                 type="button"
                 onClick={(e) => copyToClipboard(CONTACT_EMAIL, "email", e)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center border border-outline bg-surface-container-low text-on-surface transition-colors hover:bg-surface-container hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                aria-label="Copy email address"
+                aria-label={content.copyEmailAria}
               >
                 {copied === "email" ? (
                   <Check className="w-5 h-5" aria-hidden="true" />
