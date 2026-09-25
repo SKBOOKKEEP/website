@@ -92,9 +92,9 @@ export const en: Content = {
   hero: {
     ariaLabel: "Introduction",
     imageAlt: "Professional office workspace",
-    title: "Professional Accounting Support Across the UK",
+    title: "Accountant & Bookkeeper in Liverpool",
     subtitle:
-      "Reliable accounting support designed to bring clarity, confidence, and peace of mind to your business.",
+      "Bookkeeping, company tax, VAT and Self Assessment for sole traders and limited companies across Liverpool, Merseyside and the UK — bringing clarity, confidence, and peace of mind to your business.",
     ctaPrimary: "Get in touch",
     ctaSecondary: "Our Services",
   },
@@ -103,7 +103,7 @@ export const en: Content = {
       "Sabina Krajewska — professional accountant and bookkeeper in Liverpool",
     heading: "Professional Accounting with a Personal Approach",
     paragraphs: [
-      "My name is Sabina Krajewska, and I am an Polish accountant working with clients across the United Kingdom. Based in St. Helens and working remotely, I provide professional and reliable accounting support to businesses nationwide.",
+      "My name is Sabina Krajewska, and I am a Polish accountant and bookkeeper serving Liverpool, Merseyside and clients across the United Kingdom. Based in St Helens and also working remotely, I provide professional and reliable accounting support to businesses locally and nationwide.",
       "I help business owners keep their finances organised, compliant, and stress-free through a service tailored to the individual needs of each client. With a strong understanding of the UK financial system, I combine accuracy and professionalism with a personal and approachable way of working.",
       "I understand that behind every business there is a person, which is why I value relationships built on trust, understanding, and clear communication. For me, accounting is about more than numbers- it is about providing long-term support that helps my clients feel confident in their business decisions.",
       "My priority is to ensure your accounting is managed carefully and efficiently, giving you more time to focus on growing your business with confidence and peace of mind.",
@@ -112,13 +112,13 @@ export const en: Content = {
       "“I believe that well-managed accounting brings not only financial clarity, but also confidence and peace of mind in running a business.”",
   },
   services: {
-    heading: "Accounting Services Designed Around Your Business",
+    heading: "Accounting & Bookkeeping Services in Liverpool",
     items: [
       {
         icon: "bookOpen",
         title: "Bookkeeping",
         description:
-          "Keeping your financial records accurate, organised, and up to date.",
+          "Keeping your financial records accurate, organised, and up to date, with VAT returns and Making Tax Digital compliance.",
       },
       {
         icon: "user",
@@ -128,9 +128,9 @@ export const en: Content = {
       },
       {
         icon: "building",
-        title: "Limited Company Services",
+        title: "Limited Company Accounts & Company Tax",
         description:
-          "Professional support for limited companies, including accounts, payroll, tax returns, and ongoing compliance.",
+          "Annual accounts, corporation tax returns (CT600), payroll, and ongoing compliance for limited companies.",
       },
       {
         icon: "bank",
@@ -182,7 +182,7 @@ export const en: Content = {
   footer: {
     name: "Sabina Krajewska",
     copyright:
-      "© {year} Sabina Krajewska Bookkeeping. Professional financial precision in Liverpool.",
+      "© {year} Sabina Krajewska Bookkeeping. Accountant & bookkeeper in Liverpool, St Helens and Merseyside.",
     navAriaLabel: "Footer navigation",
     hmrcLink: "HMRC Guidance",
     facebookLink: "Facebook",
@@ -209,7 +209,7 @@ export const pl: Content = {
   hero: {
     ariaLabel: "Wprowadzenie",
     imageAlt: "Profesjonalne biuro",
-    title: "Profesjonalna księgowość dla Polaków w UK",
+    title: "Polska księgowa w Liverpoolu — księgowość dla Polaków w UK",
     subtitle:
       "Rzetelne wsparcie księgowe po polsku — jasność, pewność i spokój w prowadzeniu Twojego biznesu w Wielkiej Brytanii.",
     ctaPrimary: "Skontaktuj się",
@@ -219,7 +219,7 @@ export const pl: Content = {
     imageAlt: "Sabina Krajewska — polska księgowa w Liverpoolu",
     heading: "Profesjonalna księgowość z indywidualnym podejściem",
     paragraphs: [
-      "Nazywam się Sabina Krajewska i jestem polską księgową obsługującą klientów w całej Wielkiej Brytanii. Pracuję zdalnie z okolic St. Helens, zapewniając profesjonalne i rzetelne wsparcie księgowe firmom w całym kraju.",
+      "Nazywam się Sabina Krajewska i jestem polską księgową obsługującą klientów w całej Wielkiej Brytanii. Działam w St Helens, obsługuję Liverpool i Merseyside, a zdalnie — firmy w całym kraju.",
       "Pomagam właścicielom firm utrzymać finanse w porządku, zgodnie z przepisami i bez stresu — dzięki usłudze dopasowanej do indywidualnych potrzeb każdego klienta. Dobrze znam brytyjski system podatkowy (HMRC), łącząc dokładność i profesjonalizm z osobistym, przyjaznym podejściem.",
       "Rozumiem, że za każdą firmą stoi człowiek, dlatego cenię relacje oparte na zaufaniu, zrozumieniu i jasnej komunikacji — po polsku. Dla mnie księgowość to coś więcej niż liczby: to długofalowe wsparcie, dzięki któremu czujesz się pewnie w decyzjach biznesowych.",
       "Moim priorytetem jest zadbanie o Twoją księgowość starannie i sprawnie, byś miał więcej czasu na rozwijanie firmy ze spokojem i pewnością.",
@@ -246,7 +246,7 @@ export const pl: Content = {
         icon: "building",
         title: "Spółki Limited (Ltd)",
         description:
-          "Profesjonalna obsługa spółek Ltd: sprawozdania, payroll, deklaracje podatkowe i bieżąca zgodność z przepisami.",
+          "Profesjonalna obsługa spółek Ltd: roczne sprawozdania, podatek od spółek (Corporation Tax, CT600), payroll i bieżąca zgodność z przepisami.",
       },
       {
         icon: "bank",

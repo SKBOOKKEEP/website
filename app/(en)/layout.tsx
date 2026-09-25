@@ -11,15 +11,20 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: "Sabina Krajewska Bookkeeping",
   title: {
-    default: "Sabina Krajewska | Accountant & Bookkeeper Liverpool",
+    default:
+      "Accountant & Bookkeeper Liverpool | Company Tax & VAT | Sabina Krajewska",
     template: "%s | Sabina Krajewska Bookkeeping",
   },
   description:
-    "Expert bookkeeping and HMRC consulting in Liverpool. Sabina Krajewska provides professional accounting services for sole traders, Ltd companies, and self-employed professionals across Merseyside.",
+    "Accountant and bookkeeper in Liverpool. Bookkeeping, company tax (corporation tax), VAT returns, payroll and Self Assessment for sole traders and Ltd companies across Liverpool and Merseyside. Free 15-minute consultation.",
   keywords: [
     "accountant Liverpool",
     "bookkeeping Liverpool",
     "bookkeeper Liverpool",
+    "company tax Liverpool",
+    "corporation tax accountant Liverpool",
+    "limited company accountant Liverpool",
+    "accountant St Helens",
     "HMRC consulting Liverpool",
     "sole trader accountant Liverpool",
     "Ltd company accounts Liverpool",
@@ -34,9 +39,9 @@ export const metadata: Metadata = {
     "affordable accountant Liverpool",
   ],
   openGraph: {
-    title: "Sabina Krajewska | Accountant & Bookkeeper Liverpool",
+    title: "Accountant & Bookkeeper Liverpool | Company Tax & VAT | Sabina Krajewska",
     description:
-      "Expert bookkeeping and HMRC consulting tailored to Liverpool businesses. Clarity in your accounts so you can focus on growth.",
+      "Bookkeeping, company tax, VAT and HMRC support for Liverpool businesses. Clarity in your accounts so you can focus on growth.",
     url: SITE_URL,
     siteName: "Sabina Krajewska Bookkeeping",
     type: "website",
@@ -45,9 +50,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sabina Krajewska | Accountant & Bookkeeper Liverpool",
+    title: "Accountant & Bookkeeper Liverpool | Sabina Krajewska",
     description:
-      "Expert bookkeeping and HMRC consulting for Liverpool businesses.",
+      "Bookkeeping, company tax, VAT and HMRC support for Liverpool businesses.",
   },
   robots: sharedRobots,
   alternates: {

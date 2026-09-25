@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Sabina Krajewska Bookkeeping",
     short_name: "SK Bookkeeping",
     description:
-      "Professional bookkeeping and HMRC consulting in Liverpool and Merseyside.",
+      "Accountant & bookkeeper in Liverpool — bookkeeping, company tax, VAT and HMRC support.",
     start_url: "/",
     display: "standalone",
     background_color: "#f8f9ff",

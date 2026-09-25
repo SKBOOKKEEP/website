@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   applicationName: "Sabina Krajewska Bookkeeping",
   title: {
     default:
-      "Polski Księgowy w UK | Sabina Krajewska — Księgowość po Polsku",
+      "Polski Księgowy Liverpool i UK | Sabina Krajewska — Księgowość po Polsku",
     template: "%s | Sabina Krajewska Księgowość",
   },
   description:
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "księgowy dla samozatrudnionych UK",
   ],
   openGraph: {
-    title: "Polski Księgowy w UK | Sabina Krajewska — Księgowość po Polsku",
+    title: "Polski Księgowy Liverpool i UK | Sabina Krajewska — Księgowość po Polsku",
     description:
       "Rozliczenia Self Assessment, spółki Ltd, VAT i pomoc z HMRC — po polsku, dla Polaków w Wielkiej Brytanii.",
     url: `${SITE_URL}/pl`,

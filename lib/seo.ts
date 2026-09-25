@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/content/copy";
 
-export const SITE_URL = "https://simple-bookkeeping.co.uk";
+// Must match the primary domain configured on the host (apex redirects to www),
+// otherwise canonicals and the sitemap point at a redirecting URL.
+export const SITE_URL = "https://www.simple-bookkeeping.co.uk";
 
 /**
  * Reciprocal hreflang map shared by every localized page. Both the English (/)
@@ -39,7 +41,7 @@ export function buildJsonLd(locale: Locale) {
         name: "Sabina Krajewska Bookkeeping",
         description: isPl
           ? "Polska księgowa w Liverpoolu i Merseyside — rozliczenia, VAT i doradztwo HMRC po polsku."
-          : "Professional bookkeeping and HMRC consulting services in Liverpool and Merseyside.",
+          : "Accountant and bookkeeper in Liverpool and Merseyside — bookkeeping, company tax, VAT returns, payroll and HMRC support.",
         url: isPl ? `${SITE_URL}/pl` : SITE_URL,
         inLanguage: isPl ? "pl-PL" : "en-GB",
         telephone: "+447312026090",
@@ -48,6 +50,7 @@ export function buildJsonLd(locale: Locale) {
         sameAs: ["https://www.facebook.com/share/1EWvARkhhL/"],
         areaServed: [
           { "@type": "City", name: "Liverpool" },
+          { "@type": "City", name: "St Helens" },
           { "@type": "AdministrativeArea", name: "Merseyside" },
         ],
         address: {
@@ -63,7 +66,9 @@ export function buildJsonLd(locale: Locale) {
           "HMRC Consulting",
           "VAT Returns",
           "Payroll",
-          "Corporate Tax Planning",
+          "Corporation Tax Returns",
+          "Company Tax Planning",
+          "Limited Company Accounts",
           "Sole Trader Accounts",
         ],
         founder: { "@id": `${SITE_URL}/#person` },
