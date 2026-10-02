@@ -29,6 +29,7 @@ export default function Contact({ content }: { content: Content["contact"] }) {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState<"phone" | "email" | null>(null);
   const copyResetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -59,6 +60,7 @@ export default function Contact({ content }: { content: Content["contact"] }) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("loading");
+    setErrorMessage(null);
 
     try {
       const res = await fetch("/api/contact", {
@@ -71,6 +73,10 @@ export default function Contact({ content }: { content: Content["contact"] }) {
         setStatus("success");
         setForm(emptyForm);
       } else {
+        const data = await res.json().catch(() => null);
+        setErrorMessage(
+          typeof data?.error === "string" && data.error ? data.error : null,
+        );
         setStatus("error");
       }
     } catch {
@@ -105,7 +111,7 @@ export default function Contact({ content }: { content: Content["contact"] }) {
             <p className="text-sm">{content.successMessage}</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} noValidate className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className={labelClass} htmlFor="name">
                 {content.nameLabel}
@@ -142,15 +148,13 @@ export default function Contact({ content }: { content: Content["contact"] }) {
 
             <div>
               <label className={labelClass} htmlFor="phone">
-                {content.phoneLabel}{" "}
-                <span className="normal-case font-normal">
-                  {content.phoneOptional}
-                </span>
+                {content.phoneLabel}
               </label>
               <input
                 id="phone"
                 name="phone"
                 type="tel"
+                required
                 autoComplete="tel"
                 value={form.phone}
                 onChange={handleChange}
@@ -177,7 +181,7 @@ export default function Contact({ content }: { content: Content["contact"] }) {
 
             {status === "error" && (
               <p className="text-red-600 text-sm" role="alert">
-                {content.errorMessage}
+                {errorMessage ?? content.errorMessage}
               </p>
             )}
 

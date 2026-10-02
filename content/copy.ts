@@ -48,7 +48,6 @@ export interface Content {
     emailLabel: string;
     emailPlaceholder: string;
     phoneLabel: string;
-    phoneOptional: string;
     phonePlaceholder: string;
     messageLabel: string;
     messagePlaceholder: string;
@@ -163,7 +162,6 @@ export const en: Content = {
     emailLabel: "Email Address",
     emailPlaceholder: "john@example.com",
     phoneLabel: "Phone Number",
-    phoneOptional: "(optional)",
     phonePlaceholder: "+44 0000 000000",
     messageLabel: "Message",
     messagePlaceholder: "How can I help your business?",
@@ -279,7 +277,6 @@ export const pl: Content = {
     emailLabel: "Adres e-mail",
     emailPlaceholder: "jan@przyklad.pl",
     phoneLabel: "Numer telefonu",
-    phoneOptional: "(opcjonalnie)",
     phonePlaceholder: "+44 0000 000000",
     messageLabel: "Wiadomość",
     messagePlaceholder: "W czym mogę pomóc Twojej firmie?",

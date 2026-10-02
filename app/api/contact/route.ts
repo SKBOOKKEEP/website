@@ -11,9 +11,9 @@ export async function POST(request: NextRequest) {
 
   const { name, email, phone, message } = body as Record<string, string>;
 
-  if (!name?.trim() || !email?.trim() || !message?.trim()) {
+  if (!name?.trim() || !email?.trim() || !phone?.trim() || !message?.trim()) {
     return Response.json(
-      { error: "name, email, and message are required" },
+      { error: "Name, email, phone and message are required" },
       { status: 400 },
     );
   }
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       <table style="font-family:sans-serif;border-collapse:collapse;width:100%;max-width:600px">
         <tr><td style="padding:8px 0;color:#45464d;width:120px"><strong>Name</strong></td><td style="padding:8px 0">${escapeHtml(name)}</td></tr>
         <tr><td style="padding:8px 0;color:#45464d"><strong>Email</strong></td><td style="padding:8px 0"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
-        <tr><td style="padding:8px 0;color:#45464d"><strong>Phone</strong></td><td style="padding:8px 0">${escapeHtml(phone || "Not provided")}</td></tr>
+        <tr><td style="padding:8px 0;color:#45464d"><strong>Phone</strong></td><td style="padding:8px 0">${escapeHtml(phone)}</td></tr>
         <tr><td style="padding:8px 0;color:#45464d;vertical-align:top"><strong>Message</strong></td><td style="padding:8px 0;white-space:pre-wrap">${escapeHtml(message)}</td></tr>
       </table>
     `,
