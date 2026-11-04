@@ -10,6 +10,7 @@ import {
 import Button from "../ui/Button";
 import { CheckCircle, Phone, Mail, Check, Copy } from "../ui/icons";
 import type { Content } from "@/content/copy";
+import { trackEnquiryFormSubmit, trackPhoneClick } from "@/lib/analytics";
 
 const PHONE_E164 = "+447312026090";
 const PHONE_DISPLAY = "+44 731 202 6090";
@@ -72,6 +73,7 @@ export default function Contact({ content }: { content: Content["contact"] }) {
       if (res.ok) {
         setStatus("success");
         setForm(emptyForm);
+        trackEnquiryFormSubmit();
       } else {
         const data = await res.json().catch(() => null);
         setErrorMessage(
@@ -82,6 +84,10 @@ export default function Contact({ content }: { content: Content["contact"] }) {
     } catch {
       setStatus("error");
     }
+  };
+
+  const handlePhoneClick = () => {
+    trackPhoneClick();
   };
 
   const fieldClass =
@@ -204,6 +210,7 @@ export default function Contact({ content }: { content: Content["contact"] }) {
             <div className="group relative border border-outline bg-white shadow-sm transition-all duration-200 hover:border-primary hover:shadow-md focus-within:border-primary focus-within:shadow-md">
               <a
                 href={`tel:${PHONE_E164}`}
+                onClick={handlePhoneClick}
                 className="block px-5 py-5 pr-14 text-left outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
                 <Phone className="w-6 h-6 text-secondary mb-2" aria-hidden="true" />

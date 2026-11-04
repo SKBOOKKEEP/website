@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useSyncExternalStore, useCallback } from "react";
+import { getGaMeasurementId } from "@/lib/analytics";
 
 const CONSENT_KEY = "cookie_consent";
 const CONSENT_GRANTED = "granted";
@@ -11,35 +12,6 @@ declare global {
     dataLayer: unknown[];
     gtag: (...args: unknown[]) => void;
   }
-}
-
-function setConsentMode(granted: boolean) {
-  if (typeof window === "undefined") return;
-
-  window.dataLayer = window.dataLayer || [];
-  function gtag(...args: unknown[]) {
-    window.dataLayer.push(args);
-  }
-  window.gtag = gtag;
-
-  const consent = granted ? "granted" : "denied";
-
-  gtag("consent", "default", {
-    ad_storage: consent,
-    ad_user_data: consent,
-    ad_personalization: consent,
-    analytics_storage: consent,
-    wait_for_update: 500,
-  });
-}
-
-export function initConsentMode() {
-  if (typeof window === "undefined") return false;
-
-  const stored = localStorage.getItem(CONSENT_KEY);
-  const granted = stored === CONSENT_GRANTED;
-  setConsentMode(granted);
-  return stored !== null;
 }
 
 export function updateConsent(granted: boolean) {
@@ -59,6 +31,14 @@ export function updateConsent(granted: boolean) {
     ad_personalization: consent,
     analytics_storage: consent,
   });
+}
+
+export function getStoredConsent(): "granted" | "denied" | null {
+  if (typeof window === "undefined") return null;
+  const stored = localStorage.getItem(CONSENT_KEY);
+  if (stored === CONSENT_GRANTED) return "granted";
+  if (stored === CONSENT_DENIED) return "denied";
+  return null;
 }
 
 interface CookieConsentProps {
@@ -82,28 +62,38 @@ const copy = {
   },
 };
 
-export default function CookieConsent({ locale }: CookieConsentProps) {
-  const [visible, setVisible] = useState(false);
-  const t = copy[locale];
+function getSnapshot(): boolean {
+  const gaId = getGaMeasurementId();
+  if (!gaId) return false;
+  return getStoredConsent() === null;
+}
 
-  useEffect(() => {
-    const stored = localStorage.getItem(CONSENT_KEY);
-    if (stored === null) {
-      setVisible(true);
-    }
-  }, []);
+function getServerSnapshot(): boolean {
+  return false;
+}
+
+function subscribe(callback: () => void): () => void {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
+
+export default function CookieConsent({ locale }: CookieConsentProps) {
+  const shouldShow = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const [dismissed, setDismissed] = useState(false);
+  const gaId = getGaMeasurementId();
+  const t = copy[locale];
 
   const handleAccept = useCallback(() => {
     updateConsent(true);
-    setVisible(false);
+    setDismissed(true);
   }, []);
 
   const handleDecline = useCallback(() => {
     updateConsent(false);
-    setVisible(false);
+    setDismissed(true);
   }, []);
 
-  if (!visible) return null;
+  if (!gaId || !shouldShow || dismissed) return null;
 
   const privacyHref = locale === "pl" ? "/pl/privacy-policy" : "/privacy-policy";
 

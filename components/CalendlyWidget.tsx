@@ -1,12 +1,26 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
+import { trackCalendlyBooking } from "@/lib/analytics";
 
 interface Props {
   url: string;
 }
 
+interface CalendlyEvent {
+  event: string;
+  payload?: unknown;
+}
+
 export default function CalendlyWidget({ url }: Props) {
+  const handleCalendlyMessage = useCallback((e: MessageEvent) => {
+    if (e.origin !== "https://calendly.com") return;
+    const data = e.data as CalendlyEvent | undefined;
+    if (data?.event === "calendly.event_scheduled") {
+      trackCalendlyBooking();
+    }
+  }, []);
+
   useEffect(() => {
     if (!url) return;
     if (document.querySelector('script[src*="calendly.com"]')) return;
@@ -21,6 +35,14 @@ export default function CalendlyWidget({ url }: Props) {
       el?.remove();
     };
   }, [url]);
+
+  useEffect(() => {
+    if (!url) return;
+    window.addEventListener("message", handleCalendlyMessage);
+    return () => {
+      window.removeEventListener("message", handleCalendlyMessage);
+    };
+  }, [url, handleCalendlyMessage]);
 
   if (!url) {
     return (

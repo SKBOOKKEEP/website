@@ -16,11 +16,6 @@ const libreCaslon = Libre_Caslon_Text({
   display: "swap",
 });
 
-/**
- * Shared document shell rendered by each locale's root layout. Each route group
- * ((en) and (pl)) is its own root layout, so the <html>/<body> live here to keep
- * fonts, analytics, and the JSON-LD script in one place.
- */
 export default function RootShell({
   lang,
   jsonLd,

@@ -1,13 +1,16 @@
-import Script from "next/script";
+"use client";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+import Script from "next/script";
+import { getGaMeasurementId } from "@/lib/analytics";
 
 export default function GoogleAnalytics() {
-  if (!GA_ID) return null;
+  const gaId = getGaMeasurementId();
+
+  if (!gaId) return null;
 
   return (
     <>
-      <Script id="consent-mode" strategy="beforeInteractive">
+      <Script id="consent-mode" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -37,15 +40,13 @@ export default function GoogleAnalytics() {
         `}
       </Script>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_ID}');
+          gtag('config', '${gaId}');
         `}
       </Script>
     </>
