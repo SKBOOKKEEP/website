@@ -18,7 +18,7 @@ export default function HomePl() {
         <Booking content={pl.booking} />
         <Contact content={pl.contact} />
       </main>
-      <Footer content={pl.footer} />
+      <Footer content={pl.footer} locale="pl" />
     </>
   );
 }

@@ -68,6 +68,7 @@ export interface Content {
     navAriaLabel: string;
     hmrcLink: string;
     facebookLink: string;
+    privacyLink: string;
   };
 }
 
@@ -78,10 +79,10 @@ export const en: Content = {
     homeAriaLabel: "Sabina Krajewska — home",
     mainNavAriaLabel: "Main navigation",
     links: [
-      { href: "#", label: "Home" },
-      { href: "#about", label: "About" },
-      { href: "#services", label: "Services" },
-      { href: "#contact", label: "Contact" },
+      { href: "/", label: "Home" },
+      { href: "/#about", label: "About" },
+      { href: "/#services", label: "Services" },
+      { href: "/#contact", label: "Contact" },
     ],
     bookCta: "Book Consultation",
     openMenu: "Open menu",
@@ -184,6 +185,7 @@ export const en: Content = {
     navAriaLabel: "Footer navigation",
     hmrcLink: "HMRC Guidance",
     facebookLink: "Facebook",
+    privacyLink: "Privacy Policy",
   },
 };
 
@@ -194,10 +196,10 @@ export const pl: Content = {
     homeAriaLabel: "Sabina Krajewska — strona główna",
     mainNavAriaLabel: "Nawigacja główna",
     links: [
-      { href: "#", label: "Start" },
-      { href: "#about", label: "O mnie" },
-      { href: "#services", label: "Usługi" },
-      { href: "#contact", label: "Kontakt" },
+      { href: "/pl", label: "Start" },
+      { href: "/pl#about", label: "O mnie" },
+      { href: "/pl#services", label: "Usługi" },
+      { href: "/pl#contact", label: "Kontakt" },
     ],
     bookCta: "Umów konsultację",
     openMenu: "Otwórz menu",
@@ -299,6 +301,7 @@ export const pl: Content = {
     navAriaLabel: "Nawigacja w stopce",
     hmrcLink: "Wskazówki HMRC",
     facebookLink: "Facebook",
+    privacyLink: "Polityka prywatności",
   },
 };
 

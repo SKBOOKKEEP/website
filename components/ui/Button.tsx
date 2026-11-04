@@ -3,7 +3,7 @@ import { type ButtonHTMLAttributes, type ReactNode } from "react";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "outline-light";
   size?: "sm" | "md" | "lg";
   children: ReactNode;
 }
@@ -13,6 +13,8 @@ const variants = {
     "bg-primary text-on-primary hover:opacity-90 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed",
   outline:
     "border border-primary text-primary hover:bg-primary hover:text-on-primary",
+  "outline-light":
+    "border border-surface-bright text-surface-bright hover:bg-surface-bright hover:text-primary",
 };
 
 const sizes = {

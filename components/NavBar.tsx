@@ -58,24 +58,24 @@ export default function NavBar({
   locale: Locale;
 }) {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("#");
+  const [active, setActive] = useState(locale === "pl" ? "/pl" : "/");
+  const basePath = locale === "pl" ? "/pl" : "/";
+  const bookingHref = locale === "pl" ? "/pl#booking" : "/#booking";
 
   useEffect(() => {
     let raf = 0;
 
     const updateActiveFromScroll = () => {
-      // Activation line: just below fixed navbar. Pick the section that owns this
-      // scroll position [top, nextTop), so short sections (e.g. Services) still highlight.
       const line = window.scrollY + NAVBAR_HEIGHT_PX + 12;
 
       const first = document.getElementById(SECTION_IDS[0]);
       if (!first) {
-        setActive("#");
+        setActive(basePath);
         return;
       }
       const firstTop = first.getBoundingClientRect().top + window.scrollY;
       if (line < firstTop) {
-        setActive((prev) => (prev === "#" ? prev : "#"));
+        setActive((prev) => (prev === basePath ? prev : basePath));
         return;
       }
 
@@ -91,14 +91,15 @@ export default function NavBar({
           : Number.POSITIVE_INFINITY;
 
         if (line >= top && line < nextTop) {
-          const next = `#${id}`;
+          const next = `${basePath}#${id}`;
           setActive((prev) => (prev === next ? prev : next));
           return;
         }
       }
 
       const lastId = SECTION_IDS[SECTION_IDS.length - 1];
-      setActive((prev) => (prev === `#${lastId}` ? prev : `#${lastId}`));
+      const lastHref = `${basePath}#${lastId}`;
+      setActive((prev) => (prev === lastHref ? prev : lastHref));
     };
 
     const onScrollOrResize = () => {
@@ -119,7 +120,7 @@ export default function NavBar({
       window.removeEventListener("hashchange", onScrollOrResize);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [basePath]);
 
   return (
     <header
@@ -128,7 +129,7 @@ export default function NavBar({
     >
       <div className="mx-auto flex h-20 w-full max-w-7xl min-w-0 items-center justify-between gap-2 px-5 md:gap-6 md:px-16">
         <a
-          href="#"
+          href={basePath}
           className="flex min-w-0 flex-1 items-center gap-2 font-serif font-bold text-primary sm:gap-3"
           aria-label={content.homeAriaLabel}
         >
@@ -175,7 +176,7 @@ export default function NavBar({
             locale={locale}
             ariaLabel={content.langSwitchAriaLabel}
           />
-          <Button href="#booking" className="shrink-0">
+          <Button href={bookingHref} className="shrink-0">
             {content.bookCta}
           </Button>
         </div>
@@ -209,7 +210,7 @@ export default function NavBar({
           ))}
           <div className="flex items-center justify-between pt-3">
             <a
-              href="#booking"
+              href={bookingHref}
               onClick={() => setOpen(false)}
               className="inline-flex w-fit items-center justify-center bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-widest text-on-primary transition-all hover:opacity-90"
             >

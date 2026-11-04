@@ -1,15 +1,16 @@
 import { Manrope, Libre_Caslon_Text } from "next/font/google";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import CookieConsent from "@/components/CookieConsent";
 import "@/app/globals.css";
 
 const manrope = Manrope({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-manrope",
   display: "swap",
 });
 
 const libreCaslon = Libre_Caslon_Text({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   weight: ["400", "700"],
   variable: "--font-libre-caslon",
   display: "swap",
@@ -29,6 +30,8 @@ export default function RootShell({
   jsonLd: object;
   children: React.ReactNode;
 }) {
+  const locale = lang.startsWith("pl") ? "pl" : "en";
+
   return (
     <html
       lang={lang}
@@ -43,6 +46,7 @@ export default function RootShell({
       <body className="antialiased">
         <GoogleAnalytics />
         {children}
+        <CookieConsent locale={locale} />
       </body>
     </html>
   );

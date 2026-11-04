@@ -40,24 +40,30 @@ export function buildJsonLd(locale: Locale) {
         "@id": `${SITE_URL}/#business`,
         name: "Sabina Krajewska Bookkeeping",
         description: isPl
-          ? "Polska księgowa w Liverpoolu i Merseyside — rozliczenia, VAT i doradztwo HMRC po polsku."
-          : "Accountant and bookkeeper in Liverpool and Merseyside — bookkeeping, company tax, VAT returns, payroll and HMRC support.",
+          ? "Polska księgowa w St Helens i Liverpoolu — rozliczenia, VAT i doradztwo HMRC po polsku."
+          : "Accountant and bookkeeper in St Helens and Liverpool — bookkeeping, company tax, VAT returns, payroll and HMRC support.",
         url: isPl ? `${SITE_URL}/pl` : SITE_URL,
         inLanguage: isPl ? "pl-PL" : "en-GB",
         telephone: "+447312026090",
         email: "contact@simple-bookkeeping.co.uk",
         image: `${SITE_URL}/Sabina.jpeg`,
-        sameAs: ["https://www.facebook.com/share/1EWvARkhhL/"],
         areaServed: [
-          { "@type": "City", name: "Liverpool" },
           { "@type": "City", name: "St Helens" },
+          { "@type": "City", name: "Liverpool" },
           { "@type": "AdministrativeArea", name: "Merseyside" },
+          { "@type": "Country", name: "United Kingdom" },
         ],
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Liverpool",
+          addressLocality: "St Helens",
+          postalCode: "WA9",
           addressRegion: "Merseyside",
           addressCountry: "GB",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 53.4534,
+          longitude: -2.7368,
         },
         priceRange: "££",
         knowsLanguage: ["en", "pl"],
@@ -70,6 +76,7 @@ export function buildJsonLd(locale: Locale) {
           "Company Tax Planning",
           "Limited Company Accounts",
           "Sole Trader Accounts",
+          "Self Assessment Tax Returns",
         ],
         founder: { "@id": `${SITE_URL}/#person` },
       },

@@ -1,7 +1,14 @@
-import type { Content } from "@/content/copy";
+import type { Content, Locale } from "@/content/copy";
 
-export default function Footer({ content }: { content: Content["footer"] }) {
+export default function Footer({
+  content,
+  locale = "en",
+}: {
+  content: Content["footer"];
+  locale?: Locale;
+}) {
   const year = new Date().getFullYear();
+  const privacyHref = locale === "pl" ? "/pl/privacy-policy" : "/privacy-policy";
 
   return (
     <footer
@@ -37,6 +44,12 @@ export default function Footer({ content }: { content: Content["footer"] }) {
             className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"
           >
             {content.facebookLink}
+          </a>
+          <a
+            href={privacyHref}
+            className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"
+          >
+            {content.privacyLink}
           </a>
         </nav>
       </div>
