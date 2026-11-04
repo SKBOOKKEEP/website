@@ -1,16 +1,24 @@
 import { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 
-// Bump when page content meaningfully changes. A per-build `new Date()` makes
-// every deploy look like a content change, so Google learns to ignore lastmod.
-const LAST_MODIFIED = new Date("2026-09-24");
+const LAST_MODIFIED = new Date("2026-11-04");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Both pages share the same hreflang alternates so they cross-reference.
-  const languages = {
+  const homeLanguages = {
     "en-GB": SITE_URL,
     "pl-PL": `${SITE_URL}/pl`,
     "x-default": SITE_URL,
+  };
+
+  const selfAssessmentLanguages = {
+    "en-GB": `${SITE_URL}/self-assessment-tax-returns`,
+    "pl-PL": `${SITE_URL}/pl/self-assessment`,
+    "x-default": `${SITE_URL}/self-assessment-tax-returns`,
+  };
+
+  const privacyLanguages = {
+    "en-GB": `${SITE_URL}/privacy-policy`,
+    "pl-PL": `${SITE_URL}/pl/privacy-policy`,
   };
 
   return [
@@ -19,14 +27,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 1,
-      alternates: { languages },
+      alternates: { languages: homeLanguages },
     },
     {
       url: `${SITE_URL}/pl`,
       lastModified: LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 0.9,
-      alternates: { languages },
+      alternates: { languages: homeLanguages },
+    },
+    {
+      url: `${SITE_URL}/self-assessment-tax-returns`,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      alternates: { languages: selfAssessmentLanguages },
+    },
+    {
+      url: `${SITE_URL}/pl/self-assessment`,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: selfAssessmentLanguages },
+    },
+    {
+      url: `${SITE_URL}/privacy-policy`,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "yearly",
+      priority: 0.3,
+      alternates: { languages: privacyLanguages },
+    },
+    {
+      url: `${SITE_URL}/pl/privacy-policy`,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "yearly",
+      priority: 0.3,
+      alternates: { languages: privacyLanguages },
     },
   ];
 }

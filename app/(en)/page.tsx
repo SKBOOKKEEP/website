@@ -18,7 +18,7 @@ export default function Home() {
         <Booking content={en.booking} />
         <Contact content={en.contact} />
       </main>
-      <Footer content={en.footer} />
+      <Footer content={en.footer} locale="en" />
     </>
   );
 }
