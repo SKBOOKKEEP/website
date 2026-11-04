@@ -9,6 +9,8 @@ export default function Footer({
 }) {
   const year = new Date().getFullYear();
   const privacyHref = locale === "pl" ? "/pl/privacy-policy" : "/privacy-policy";
+  const selfAssessmentHref =
+    locale === "pl" ? "/pl/self-assessment" : "/self-assessment-tax-returns";
 
   return (
     <footer
@@ -44,6 +46,12 @@ export default function Footer({
             className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"
           >
             {content.facebookLink}
+          </a>
+          <a
+            href={selfAssessmentHref}
+            className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"
+          >
+            {content.selfAssessmentLink}
           </a>
           <a
             href={privacyHref}

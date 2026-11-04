@@ -30,7 +30,7 @@ export interface Content {
   };
   services: {
     heading: string;
-    items: { icon: ServiceIcon; title: string; description: string }[];
+    items: { icon: ServiceIcon; title: string; description: string; href?: string }[];
   };
   booking: {
     heading: string;
@@ -69,6 +69,7 @@ export interface Content {
     hmrcLink: string;
     facebookLink: string;
     privacyLink: string;
+    selfAssessmentLink: string;
   };
 }
 
@@ -82,6 +83,7 @@ export const en: Content = {
       { href: "/", label: "Home" },
       { href: "/#about", label: "About" },
       { href: "/#services", label: "Services" },
+      { href: "/self-assessment-tax-returns", label: "Self Assessment" },
       { href: "/#contact", label: "Contact" },
     ],
     bookCta: "Book Consultation",
@@ -125,6 +127,7 @@ export const en: Content = {
         title: "Sole Trader & Freelancer Support",
         description:
           "Self Assessment tax return services for self-employed individuals and private clients.",
+        href: "/self-assessment-tax-returns",
       },
       {
         icon: "building",
@@ -186,6 +189,7 @@ export const en: Content = {
     hmrcLink: "HMRC Guidance",
     facebookLink: "Facebook",
     privacyLink: "Privacy Policy",
+    selfAssessmentLink: "Self Assessment",
   },
 };
 
@@ -199,6 +203,7 @@ export const pl: Content = {
       { href: "/pl", label: "Start" },
       { href: "/pl#about", label: "O mnie" },
       { href: "/pl#services", label: "Usługi" },
+      { href: "/pl/self-assessment", label: "Self Assessment" },
       { href: "/pl#contact", label: "Kontakt" },
     ],
     bookCta: "Umów konsultację",
@@ -241,6 +246,7 @@ export const pl: Content = {
         title: "Self-employed i freelancerzy",
         description:
           "Rozliczenia Self Assessment dla osób samozatrudnionych i klientów indywidualnych.",
+        href: "/pl/self-assessment",
       },
       {
         icon: "building",
@@ -302,6 +308,7 @@ export const pl: Content = {
     hmrcLink: "Wskazówki HMRC",
     facebookLink: "Facebook",
     privacyLink: "Polityka prywatności",
+    selfAssessmentLink: "Self Assessment",
   },
 };
 
