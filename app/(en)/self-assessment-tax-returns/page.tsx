@@ -6,6 +6,8 @@ import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
 import { en } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
+import SelfAssessmentGuidance from "@/components/sections/SelfAssessmentGuidance";
+import { saGuidance } from "@/content/self-assessment";
 
 export const metadata: Metadata = {
   title: "Self Assessment Tax Returns Liverpool & St Helens",
@@ -50,15 +52,6 @@ const benefits = [
   "Service available in English and Polish",
 ];
 
-const whoNeedsSA = [
-  "Sole traders and self-employed individuals",
-  "Freelancers and contractors",
-  "Landlords with rental income",
-  "Company directors and shareholders",
-  "Individuals with income over £150,000",
-  "Those with foreign income or gains",
-  "Higher-rate taxpayers with savings or investment income",
-];
 
 export default function SelfAssessmentPage() {
   return (
@@ -141,8 +134,8 @@ export default function SelfAssessmentPage() {
                       5 Oct
                     </span>
                     <span>
-                      Register for Self Assessment if you&apos;re new to
-                      self-employment
+                      Register for Self Assessment if you need to file for
+                      the previous tax year for the first time
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -166,37 +159,15 @@ export default function SelfAssessmentPage() {
                     <span>Second payment on account (if applicable)</span>
                   </li>
                 </ul>
+                <p className="mt-4 text-sm text-on-surface-variant">
+                  {saGuidance.en.deadlineNote}
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Who Needs to File */}
-        <section className="py-20 bg-surface-container-lowest">
-          <div className="max-w-7xl mx-auto px-5 md:px-16">
-            <h2 className="font-serif text-3xl font-semibold text-primary mb-8">
-              Who Needs to File a Self Assessment?
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {whoNeedsSA.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3 p-4 bg-surface rounded-lg"
-                >
-                  <CheckCircle
-                    className="w-5 h-5 text-secondary shrink-0 mt-0.5"
-                    aria-hidden="true"
-                  />
-                  <span className="text-on-surface-variant">{item}</span>
-                </div>
-              ))}
-            </div>
-            <p className="mt-8 text-on-surface-variant">
-              Not sure if you need to file? Book a free consultation and
-              I&apos;ll help you understand your obligations.
-            </p>
-          </div>
-        </section>
+        <SelfAssessmentGuidance locale="en" />
 
         {/* Benefits */}
         <section className="py-20 bg-primary-container">
