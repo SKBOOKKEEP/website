@@ -6,6 +6,8 @@ import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
 import { pl } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
+import SelfAssessmentGuidance from "@/components/sections/SelfAssessmentGuidance";
+import { saGuidance } from "@/content/self-assessment";
 
 export const metadata: Metadata = {
   title: "Rozliczenie Self Assessment dla Polaków w UK",
@@ -49,15 +51,6 @@ const benefits = [
   "Obsługa w języku polskim i angielskim",
 ];
 
-const whoNeedsSA = [
-  "Osoby samozatrudnione (sole traders)",
-  "Freelancerzy i kontraktowcy",
-  "Właściciele nieruchomości na wynajem",
-  "Dyrektorzy i udziałowcy spółek",
-  "Osoby z dochodem powyżej £150,000",
-  "Osoby z dochodami zagranicznymi",
-  "Podatnicy z wyższą stawką z dochodami z oszczędności",
-];
 
 export default function SelfAssessmentPagePl() {
   return (
@@ -140,7 +133,8 @@ export default function SelfAssessmentPagePl() {
                       5 paź
                     </span>
                     <span>
-                      Rejestracja do Self Assessment dla nowo samozatrudnionych
+                      Rejestracja do Self Assessment, jeśli po raz pierwszy
+                      musisz złożyć deklarację za poprzedni rok podatkowy
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -166,37 +160,15 @@ export default function SelfAssessmentPagePl() {
                     </span>
                   </li>
                 </ul>
+                <p className="mt-4 text-sm text-on-surface-variant">
+                  {saGuidance.pl.deadlineNote}
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Who Needs to File */}
-        <section className="py-20 bg-surface-container-lowest">
-          <div className="max-w-7xl mx-auto px-5 md:px-16">
-            <h2 className="font-serif text-3xl font-semibold text-primary mb-8">
-              Kto musi złożyć Self Assessment?
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {whoNeedsSA.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3 p-4 bg-surface rounded-lg"
-                >
-                  <CheckCircle
-                    className="w-5 h-5 text-secondary shrink-0 mt-0.5"
-                    aria-hidden="true"
-                  />
-                  <span className="text-on-surface-variant">{item}</span>
-                </div>
-              ))}
-            </div>
-            <p className="mt-8 text-on-surface-variant">
-              Nie wiesz, czy musisz złożyć deklarację? Umów bezpłatną konsultację,
-              a pomogę Ci zrozumieć Twoje obowiązki.
-            </p>
-          </div>
-        </section>
+        <SelfAssessmentGuidance locale="pl" />
 
         {/* Benefits */}
         <section className="py-20 bg-primary-container">
