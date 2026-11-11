@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/content/copy";
+import { PHONE_E164, CONTACT_EMAIL } from "@/lib/nap";
 
 // Must match the primary domain configured on the host (apex redirects to www),
 // otherwise canonicals and the sitemap point at a redirecting URL.
@@ -44,8 +45,8 @@ export function buildJsonLd(locale: Locale) {
           : "Accountant and bookkeeper in St Helens and Liverpool — bookkeeping, company tax, VAT returns, payroll and HMRC support.",
         url: isPl ? `${SITE_URL}/pl` : SITE_URL,
         inLanguage: isPl ? "pl-PL" : "en-GB",
-        telephone: "+447312026090",
-        email: "contact@simple-bookkeeping.co.uk",
+        telephone: PHONE_E164,
+        email: CONTACT_EMAIL,
         image: `${SITE_URL}/Sabina.jpeg`,
         areaServed: [
           { "@type": "City", name: "St Helens" },

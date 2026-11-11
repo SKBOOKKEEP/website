@@ -11,10 +11,7 @@ import Button from "../ui/Button";
 import { CheckCircle, Phone, Mail, Check, Copy } from "../ui/icons";
 import type { Content } from "@/content/copy";
 import { trackEnquiryFormSubmit, trackPhoneClick } from "@/lib/analytics";
-
-const PHONE_E164 = "+447312026090";
-const PHONE_DISPLAY = "+44 731 202 6090";
-const CONTACT_EMAIL = "contact@simple-bookkeeping.co.uk";
+import { PHONE_E164, PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/nap";
 
 interface FormState {
   name: string;

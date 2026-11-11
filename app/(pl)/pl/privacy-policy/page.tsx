@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { pl } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
+import { PHONE_E164, PHONE_DISPLAY } from "@/lib/nap";
 
 export const metadata: Metadata = {
   title: "Polityka prywatności",
@@ -174,8 +175,8 @@ export default function PrivacyPolicyPagePl() {
             </a>
             <br />
             Telefon:{" "}
-            <a href="tel:+447312026090" className="text-primary hover:underline">
-              +44 7312 026090
+            <a href={`tel:${PHONE_E164}`} className="text-primary hover:underline">
+              {PHONE_DISPLAY}
             </a>
           </address>
 
