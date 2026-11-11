@@ -10,9 +10,12 @@ import SelfAssessmentGuidance from "@/components/sections/SelfAssessmentGuidance
 import { saGuidance } from "@/content/self-assessment";
 
 export const metadata: Metadata = {
-  title: "Rozliczenie Self Assessment dla Polaków w UK",
+  title: {
+    absolute:
+      "Self Assessment po polsku — St Helens i Liverpool | Sabina Krajewska",
+  },
   description:
-    "Rozliczenie Self Assessment po polsku w UK. Pomoc z deklaracją podatkową HMRC dla samozatrudnionych, freelancerów i osób z dodatkowymi dochodami. Polska księgowa w Liverpool i St Helens.",
+    "Rozliczenie Self Assessment po polsku dla samozatrudnionych, wynajmujących i freelancerów — St Helens, Liverpool i zdalnie w UK. Skontaktuj się ze mną.",
   keywords: [
     "self assessment po polsku",
     "rozliczenie self assessment UK",
@@ -33,12 +36,20 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Rozliczenie Self Assessment | Polska Księgowa UK",
+    title: "Rozliczenie Self Assessment po polsku | St Helens i Liverpool",
     description:
-      "Profesjonalna pomoc z rozliczeniem Self Assessment dla Polaków w UK. Obsługa po polsku, zgodność z HMRC.",
+      "Pomoc z rozliczeniem Self Assessment po polsku — St Helens, Liverpool i zdalnie w całej Wielkiej Brytanii.",
+    siteName: "Sabina Krajewska Bookkeeping",
     url: `${SITE_URL}/pl/self-assessment`,
     type: "website",
     locale: "pl_PL",
+    alternateLocale: ["en_GB"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rozliczenie Self Assessment po polsku | St Helens i Liverpool",
+    description:
+      "Pomoc z rozliczeniem Self Assessment po polsku — St Helens, Liverpool i zdalnie w całej Wielkiej Brytanii.",
   },
 };
 

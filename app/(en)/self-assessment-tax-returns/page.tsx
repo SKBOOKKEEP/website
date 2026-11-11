@@ -10,9 +10,12 @@ import SelfAssessmentGuidance from "@/components/sections/SelfAssessmentGuidance
 import { saGuidance } from "@/content/self-assessment";
 
 export const metadata: Metadata = {
-  title: "Self Assessment Tax Returns Liverpool & St Helens",
+  title: {
+    absolute:
+      "Self Assessment Tax Returns in St Helens & Liverpool | Sabina Krajewska",
+  },
   description:
-    "Self Assessment tax return services in Liverpool and St Helens. Expert help filing your HMRC tax return for sole traders, freelancers, and private individuals. Polish and English speaking accountant.",
+    "Self Assessment tax returns for sole traders, landlords and freelancers in St Helens and Liverpool, in English or Polish. Get in touch to discuss your return.",
   keywords: [
     "self assessment Liverpool",
     "self assessment St Helens",
@@ -34,12 +37,20 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Self Assessment Tax Returns | Liverpool & St Helens",
+    title: "Self Assessment Tax Returns | St Helens & Liverpool",
     description:
-      "Expert Self Assessment tax return services for sole traders and freelancers in Liverpool and St Helens. HMRC compliant, stress-free filing.",
+      "Help with your Self Assessment tax return in St Helens, Liverpool and remotely across the UK, in English or Polish.",
+    siteName: "Sabina Krajewska Bookkeeping",
     url: `${SITE_URL}/self-assessment-tax-returns`,
     type: "website",
     locale: "en_GB",
+    alternateLocale: ["pl_PL"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Self Assessment Tax Returns | St Helens & Liverpool",
+    description:
+      "Help with your Self Assessment tax return in St Helens, Liverpool and remotely across the UK, in English or Polish.",
   },
 };
 
