@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/nap";
 
 export const alt =
   "Sabina Krajewska — Accountant & Bookkeeper in Liverpool. Book a free 15-minute call.";
@@ -251,11 +252,11 @@ export default async function Image() {
               }}
             >
               <span style={{ fontWeight: 600, color: "#eef1fa" }}>
-                +44 731 202 6090
+                {PHONE_DISPLAY}
               </span>
               <span style={{ color: "#b08d43" }}>·</span>
               <span style={{ fontWeight: 400, color: "#bcc3d8" }}>
-                contact@simple-bookkeeping.co.uk
+                {CONTACT_EMAIL}
               </span>
             </div>
           </div>

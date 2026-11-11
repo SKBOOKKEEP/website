@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
 import { en } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
+import { PHONE_E164, PHONE_DISPLAY } from "@/lib/nap";
 import SelfAssessmentGuidance from "@/components/sections/SelfAssessmentGuidance";
 import { saGuidance } from "@/content/self-assessment";
 
@@ -235,8 +236,8 @@ export default function SelfAssessmentPage() {
                   <Button href="/#booking" size="lg">
                     Book Free Consultation
                   </Button>
-                  <Button href="tel:+447312026090" variant="outline" size="lg">
-                    Call +44 7312 026090
+                  <Button href={`tel:${PHONE_E164}`} variant="outline" size="lg">
+                    Call {PHONE_DISPLAY}
                   </Button>
                 </div>
               </div>
