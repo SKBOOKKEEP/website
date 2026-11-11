@@ -211,7 +211,7 @@ export default function SelfAssessmentPagePl() {
                   Twoja polska księgowa w UK
                 </h2>
                 <p className="text-on-surface-variant mb-4">
-                  Nazywam się Sabina Krajewska i jestem wykwalifikowaną księgową
+                  Nazywam się Sabina Krajewska i jestem księgową
                   z siedzibą w St Helens, obsługującą klientów w Liverpoolu,
                   Merseyside i całej Wielkiej Brytanii. Oferuję osobistą,
                   profesjonalną obsługę zarówno po polsku, jak i po angielsku.

@@ -210,8 +210,8 @@ export default function SelfAssessmentPage() {
                   Your Local Accountant in St Helens
                 </h2>
                 <p className="text-on-surface-variant mb-4">
-                  I&apos;m Sabina Krajewska, a qualified accountant based in St
-                  Helens serving clients across Liverpool, Merseyside, and the
+                  I&apos;m Sabina Krajewska, an accountant and bookkeeper based in
+                  St Helens serving clients across Liverpool, Merseyside, and the
                   wider UK. I offer a personal, professional service in both
                   English and Polish.
                 </p>

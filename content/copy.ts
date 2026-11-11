@@ -27,6 +27,9 @@ export interface Content {
     heading: string;
     paragraphs: string[];
     quote: string;
+    /** Owner-confirmed AML/ICO/insurance facts only (T1.7). */
+    trustLine: string;
+    trustNote: string;
   };
   services: {
     heading: string;
@@ -65,6 +68,7 @@ export interface Content {
   footer: {
     name: string;
     copyright: string; // contains {year} placeholder
+    trustLine: string;
     navAriaLabel: string;
     hmrcLink: string;
     facebookLink: string;
@@ -112,6 +116,9 @@ export const en: Content = {
     ],
     quote:
       "“I believe that well-managed accounting brings not only financial clarity, but also confidence and peace of mind in running a business.”",
+    trustLine: "HMRC-supervised for anti-money laundering • ICO registered • Insured",
+    trustNote:
+      "These are regulatory registrations, not an endorsement of my services or a quality mark.",
   },
   services: {
     heading: "Accounting & Bookkeeping Services in Liverpool",
@@ -185,6 +192,7 @@ export const en: Content = {
     name: "Sabina Krajewska",
     copyright:
       "© {year} Sabina Krajewska Bookkeeping. Accountant & bookkeeper in Liverpool, St Helens and Merseyside.",
+    trustLine: "HMRC-supervised for anti-money laundering • ICO registered • Insured",
     navAriaLabel: "Footer navigation",
     hmrcLink: "HMRC Guidance",
     facebookLink: "Facebook",
@@ -231,6 +239,9 @@ export const pl: Content = {
     ],
     quote:
       "“Wierzę, że dobrze prowadzona księgowość daje nie tylko jasność finansową, ale też pewność i spokój w prowadzeniu firmy.”",
+    trustLine:
+      "Nadzór HMRC w zakresie przeciwdziałania praniu pieniędzy • Rejestracja w ICO • Ubezpieczenie",
+    trustNote: "To rejestracje regulacyjne, a nie rekomendacja moich usług ani znak jakości.",
   },
   services: {
     heading: "Usługi księgowe dopasowane do Twojej firmy",
@@ -304,6 +315,8 @@ export const pl: Content = {
     name: "Sabina Krajewska",
     copyright:
       "© {year} Sabina Krajewska Bookkeeping. Profesjonalna precyzja finansowa w Liverpoolu.",
+    trustLine:
+      "Nadzór HMRC w zakresie przeciwdziałania praniu pieniędzy • Rejestracja w ICO • Ubezpieczenie",
     navAriaLabel: "Nawigacja w stopce",
     hmrcLink: "Wskazówki HMRC",
     facebookLink: "Facebook",
