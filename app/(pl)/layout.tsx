@@ -11,12 +11,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: "Sabina Krajewska Bookkeeping",
   title: {
-    default:
-      "Polski Księgowy Liverpool i UK | Sabina Krajewska — Księgowość po Polsku",
+    default: "Polska księgowa St Helens i Liverpool | Sabina Krajewska",
     template: "%s | Sabina Krajewska Księgowość",
   },
   description:
-    "Polska księgowa w Wielkiej Brytanii. Sabina Krajewska oferuje rozliczenia Self Assessment, obsługę spółek Ltd, VAT i pomoc z HMRC — po polsku, dla Polaków w UK.",
+    "Księgowość, VAT, Self Assessment i spółki Ltd — St Helens i Liverpool, a zdalnie w całej Wielkiej Brytanii. Po polsku i angielsku.",
   keywords: [
     "polski księgowy Liverpool",
     "polska księgowa Liverpool",
@@ -33,9 +32,9 @@ export const metadata: Metadata = {
     "księgowy dla samozatrudnionych UK",
   ],
   openGraph: {
-    title: "Polski Księgowy Liverpool i UK | Sabina Krajewska — Księgowość po Polsku",
+    title: "Polska księgowa St Helens i Liverpool | Sabina Krajewska",
     description:
-      "Rozliczenia Self Assessment, spółki Ltd, VAT i pomoc z HMRC — po polsku, dla Polaków w Wielkiej Brytanii.",
+      "Księgowość, Self Assessment, spółki Ltd, VAT i pomoc z HMRC po polsku — St Helens, Liverpool i zdalnie w całej Wielkiej Brytanii.",
     url: `${SITE_URL}/pl`,
     siteName: "Sabina Krajewska Bookkeeping",
     type: "website",
@@ -44,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Polski Księgowy w UK | Sabina Krajewska",
+    title: "Polska księgowa St Helens i Liverpool | Sabina Krajewska",
     description:
-      "Księgowość po polsku dla Polaków w UK — Self Assessment, Ltd, VAT, HMRC.",
+      "Księgowość po polsku w St Helens, Liverpoolu i zdalnie w UK — Self Assessment, Ltd, VAT, HMRC.",
   },
   robots: sharedRobots,
   alternates: {

@@ -11,12 +11,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: "Sabina Krajewska Bookkeeping",
   title: {
-    default:
-      "Accountant & Bookkeeper Liverpool | Company Tax & VAT | Sabina Krajewska",
+    default: "Accountant & Bookkeeper St Helens & Liverpool | Sabina Krajewska",
     template: "%s | Sabina Krajewska Bookkeeping",
   },
   description:
-    "Accountant and bookkeeper in Liverpool. Bookkeeping, company tax (corporation tax), VAT returns, payroll and Self Assessment for sole traders and Ltd companies across Liverpool and Merseyside. Free 15-minute consultation.",
+    "Bookkeeping, VAT, Self Assessment and Ltd company accounts in St Helens and Liverpool. Based in St Helens, working remotely across the UK, in English and Polish.",
   keywords: [
     "accountant Liverpool",
     "bookkeeping Liverpool",
@@ -39,9 +38,9 @@ export const metadata: Metadata = {
     "affordable accountant Liverpool",
   ],
   openGraph: {
-    title: "Accountant & Bookkeeper Liverpool | Company Tax & VAT | Sabina Krajewska",
+    title: "Accountant & Bookkeeper St Helens & Liverpool | Sabina Krajewska",
     description:
-      "Bookkeeping, company tax, VAT and HMRC support for Liverpool businesses. Clarity in your accounts so you can focus on growth.",
+      "Bookkeeping, VAT and Self Assessment support for businesses in St Helens and Liverpool, in English and Polish.",
     url: SITE_URL,
     siteName: "Sabina Krajewska Bookkeeping",
     type: "website",
@@ -50,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Accountant & Bookkeeper Liverpool | Sabina Krajewska",
+    title: "Accountant & Bookkeeper St Helens & Liverpool | Sabina Krajewska",
     description:
-      "Bookkeeping, company tax, VAT and HMRC support for Liverpool businesses.",
+      "Bookkeeping, VAT and Self Assessment support in St Helens and Liverpool.",
   },
   robots: sharedRobots,
   alternates: {

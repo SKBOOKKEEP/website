@@ -94,9 +94,9 @@ export const en: Content = {
   hero: {
     ariaLabel: "Introduction",
     imageAlt: "Professional office workspace",
-    title: "Accountant & Bookkeeper in Liverpool",
+    title: "Accountant & Bookkeeper in St Helens & Liverpool",
     subtitle:
-      "Bookkeeping, company tax, VAT and Self Assessment for sole traders and limited companies across Liverpool, Merseyside and the UK — bringing clarity, confidence, and peace of mind to your business.",
+      "Bookkeeping, company tax, VAT and Self Assessment for sole traders and limited companies. Based in St Helens, serving Liverpool and Merseyside, and working remotely across the UK — bringing clarity, confidence, and peace of mind to your business.",
     ctaPrimary: "Get in touch",
     ctaSecondary: "Our Services",
   },
@@ -157,7 +157,7 @@ export const en: Content = {
   contact: {
     heading: "Get in Touch",
     subtitle:
-      "Have a general inquiry? Fill out the form below and I'll get back to you within 24 hours.",
+      "Have a general enquiry? Fill out the form below and I'll get back to you within 24 hours.",
     successTitle: "Thank you!",
     successMessage:
       "Your message has been received. I'll be in touch within 24 hours.",
@@ -171,7 +171,7 @@ export const en: Content = {
     messagePlaceholder: "How can I help your business?",
     errorMessage:
       "Something went wrong. Please try again or email me directly.",
-    submit: "Send Inquiry",
+    submit: "Send Enquiry",
     submitting: "Sending…",
     orReachDirectly: "Or reach me directly",
     phoneTitle: "Phone",
@@ -214,7 +214,7 @@ export const pl: Content = {
   hero: {
     ariaLabel: "Wprowadzenie",
     imageAlt: "Profesjonalne biuro",
-    title: "Polska księgowa w Liverpoolu — księgowość dla Polaków w UK",
+    title: "Polska księgowa w St Helens i Liverpoolu — księgowość dla Polaków w UK",
     subtitle:
       "Rzetelne wsparcie księgowe po polsku — jasność, pewność i spokój w prowadzeniu Twojego biznesu w Wielkiej Brytanii.",
     ctaPrimary: "Skontaktuj się",
