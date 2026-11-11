@@ -5,30 +5,35 @@ import { useState, useEffect } from "react";
 import Button from "./ui/Button";
 import { Menu, XClose } from "./ui/icons";
 import type { Content, Locale } from "@/content/copy";
+import { switcherHrefs, getRoute, type RouteKey } from "@/lib/routes";
 
 /** Section ids in document order (after hero), for scroll-spy */
 const SECTION_IDS = ["about", "services", "booking", "contact"] as const;
 
 const NAVBAR_HEIGHT_PX = 80;
 
-const LOCALES: { code: Locale; href: string; label: string }[] = [
-  { code: "en", href: "/", label: "EN" },
-  { code: "pl", href: "/pl", label: "PL" },
+const LOCALES: { code: Locale; label: string }[] = [
+  { code: "en", label: "EN" },
+  { code: "pl", label: "PL" },
 ];
 
+/** Links to the equivalent page in the other language (from the route map). */
 function LanguageSwitcher({
   locale,
+  routeKey,
   ariaLabel,
 }: {
   locale: Locale;
+  routeKey: RouteKey;
   ariaLabel: string;
 }) {
+  const hrefs = switcherHrefs(routeKey);
   return (
     <div
       className="flex items-center gap-1 text-xs font-semibold tracking-widest uppercase"
       aria-label={ariaLabel}
     >
-      {LOCALES.map(({ code, href, label }, i) => (
+      {LOCALES.map(({ code, label }, i) => (
         <span key={code} className="flex items-center gap-1">
           {i > 0 && <span className="text-outline-variant">/</span>}
           {code === locale ? (
@@ -37,7 +42,7 @@ function LanguageSwitcher({
             </span>
           ) : (
             <a
-              href={href}
+              href={hrefs[code]}
               className="text-on-surface-variant hover:text-primary transition-colors"
               hrefLang={code === "pl" ? "pl-PL" : "en-GB"}
             >
@@ -53,16 +58,22 @@ function LanguageSwitcher({
 export default function NavBar({
   content,
   locale,
+  routeKey,
 }: {
   content: Content["nav"];
   locale: Locale;
+  routeKey: RouteKey;
 }) {
-  const [open, setOpen] = useState(false);
-  const [active, setActive] = useState(locale === "pl" ? "/pl" : "/");
   const basePath = locale === "pl" ? "/pl" : "/";
+  const isHome = routeKey === "home";
+  // Inner pages highlight their own nav item (if any); only home scroll-spies.
+  const currentPath = getRoute(routeKey)[locale]?.path ?? basePath;
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(currentPath);
   const bookingHref = locale === "pl" ? "/pl#booking" : "/#booking";
 
   useEffect(() => {
+    if (!isHome) return;
     let raf = 0;
 
     const updateActiveFromScroll = () => {
@@ -120,7 +131,7 @@ export default function NavBar({
       window.removeEventListener("hashchange", onScrollOrResize);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [basePath]);
+  }, [basePath, isHome]);
 
   return (
     <header
@@ -174,6 +185,7 @@ export default function NavBar({
           </nav>
           <LanguageSwitcher
             locale={locale}
+            routeKey={routeKey}
             ariaLabel={content.langSwitchAriaLabel}
           />
           <Button href={bookingHref} className="shrink-0">
@@ -218,6 +230,7 @@ export default function NavBar({
             </a>
             <LanguageSwitcher
               locale={locale}
+              routeKey={routeKey}
               ariaLabel={content.langSwitchAriaLabel}
             />
           </div>

@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
 import { pl } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
+import { pageAlternates } from "@/lib/routes";
 import { PHONE_E164, PHONE_DISPLAY } from "@/lib/nap";
 import SelfAssessmentGuidance from "@/components/sections/SelfAssessmentGuidance";
 import { saGuidance } from "@/content/self-assessment";
@@ -29,13 +30,7 @@ export const metadata: Metadata = {
     "self employed rozliczenie",
     "polska księgowa Liverpool",
   ],
-  alternates: {
-    canonical: "/pl/self-assessment",
-    languages: {
-      "en-GB": "/self-assessment-tax-returns",
-      "pl-PL": "/pl/self-assessment",
-    },
-  },
+  alternates: pageAlternates("selfAssessment", "pl"),
   openGraph: {
     title: "Rozliczenie Self Assessment po polsku | St Helens i Liverpool",
     description:
@@ -67,7 +62,7 @@ const benefits = [
 export default function SelfAssessmentPagePl() {
   return (
     <>
-      <NavBar content={pl.nav} locale="pl" />
+      <NavBar content={pl.nav} locale="pl" routeKey="selfAssessment" />
 
       <main className="mt-20">
         {/* Hero Section */}

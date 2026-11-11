@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import RootShell from "@/components/RootShell";
 import {
   SITE_URL,
-  hreflangLanguages,
   sharedRobots,
   buildJsonLd,
 } from "@/lib/seo";
+import { pageAlternates } from "@/lib/routes";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -48,10 +48,7 @@ export const metadata: Metadata = {
       "Księgowość po polsku w St Helens, Liverpoolu i zdalnie w UK — Self Assessment, Ltd, VAT, HMRC.",
   },
   robots: sharedRobots,
-  alternates: {
-    canonical: "/pl",
-    languages: hreflangLanguages,
-  },
+  alternates: pageAlternates("home", "pl"),
 };
 
 export default function PlRootLayout({

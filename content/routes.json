@@ -1,0 +1,92 @@
+{
+  "$comment": "Single source of truth for public EN/PL page pairs (SEO tasks T2.1/T2.12). Drives the language switcher, hreflang, canonicals, sitemap, footer links and home-card links. Set published:true only when BOTH languages are live and reviewed. lastModified = date the page content last really changed (not build time). Unpublished entries are reserved slugs and never appear anywhere on the site.",
+  "routes": [
+    {
+      "key": "home",
+      "kind": "home",
+      "published": true,
+      "lastModified": "2026-11-11",
+      "en": { "path": "/", "label": "Home", "priority": 1 },
+      "pl": { "path": "/pl", "label": "Start", "priority": 0.9 }
+    },
+    {
+      "key": "selfAssessment",
+      "kind": "service",
+      "published": true,
+      "lastModified": "2026-11-11",
+      "en": { "path": "/self-assessment-tax-returns", "label": "Self Assessment", "priority": 0.9 },
+      "pl": { "path": "/pl/self-assessment", "label": "Self Assessment", "priority": 0.8 }
+    },
+    {
+      "key": "bookkeeping",
+      "kind": "service",
+      "published": false,
+      "lastModified": null,
+      "en": { "path": "/bookkeeping-vat", "label": "Bookkeeping & VAT", "priority": 0.9 },
+      "pl": { "path": "/pl/ksiegowosc-vat", "label": "Księgowość i VAT", "priority": 0.8 }
+    },
+    {
+      "key": "mtdIncomeTax",
+      "kind": "service",
+      "published": false,
+      "lastModified": null,
+      "en": { "path": "/making-tax-digital-income-tax", "label": "Making Tax Digital", "priority": 0.8 },
+      "pl": { "path": "/pl/making-tax-digital-income-tax", "label": "Making Tax Digital", "priority": 0.7 }
+    },
+    {
+      "key": "limitedCompany",
+      "kind": "service",
+      "published": false,
+      "lastModified": null,
+      "en": { "path": "/limited-company-accounts", "label": "Limited company accounts", "priority": 0.8 },
+      "pl": { "path": "/pl/rozliczenia-spolek-ltd", "label": "Spółki Ltd", "priority": 0.7 }
+    },
+    {
+      "key": "payroll",
+      "kind": "service",
+      "published": false,
+      "lastModified": null,
+      "en": { "path": "/payroll", "label": "Payroll", "priority": 0.7 },
+      "pl": { "path": "/pl/payroll", "label": "Payroll", "priority": 0.6 }
+    },
+    {
+      "key": "hmrcSupport",
+      "kind": "service",
+      "published": false,
+      "lastModified": null,
+      "en": { "path": "/hmrc-support", "label": "HMRC support", "priority": 0.7 },
+      "pl": { "path": "/pl/pomoc-hmrc", "label": "Pomoc z HMRC", "priority": 0.6 }
+    },
+    {
+      "key": "stHelens",
+      "kind": "location",
+      "published": false,
+      "lastModified": null,
+      "en": { "path": "/bookkeeping-st-helens", "label": "St Helens", "priority": 0.8 },
+      "pl": { "path": "/pl/ksiegowa-st-helens", "label": "St Helens", "priority": 0.7 }
+    },
+    {
+      "key": "liverpool",
+      "kind": "location",
+      "published": false,
+      "lastModified": null,
+      "en": { "path": "/bookkeeping-liverpool", "label": "Liverpool", "priority": 0.8 },
+      "pl": { "path": "/pl/ksiegowa-liverpool", "label": "Liverpool", "priority": 0.7 }
+    },
+    {
+      "key": "polishUk",
+      "kind": "location",
+      "published": false,
+      "lastModified": null,
+      "pl": { "path": "/pl/polska-ksiegowa-uk", "label": "Cała Wielka Brytania", "priority": 0.7 }
+    },
+    {
+      "key": "privacy",
+      "kind": "legal",
+      "published": true,
+      "lastModified": "2026-11-04",
+      "en": { "path": "/privacy-policy", "label": "Privacy Policy", "priority": 0.3 },
+      "pl": { "path": "/pl/privacy-policy", "label": "Polityka prywatności", "priority": 0.3 }
+    }
+  ]
+}

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import RootShell from "@/components/RootShell";
 import {
   SITE_URL,
-  hreflangLanguages,
   sharedRobots,
   buildJsonLd,
 } from "@/lib/seo";
+import { pageAlternates } from "@/lib/routes";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -54,10 +54,7 @@ export const metadata: Metadata = {
       "Bookkeeping, VAT and Self Assessment support in St Helens and Liverpool.",
   },
   robots: sharedRobots,
-  alternates: {
-    canonical: "/",
-    languages: hreflangLanguages,
-  },
+  alternates: pageAlternates("home", "en"),
 };
 
 export default function EnRootLayout({

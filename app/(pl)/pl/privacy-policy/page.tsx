@@ -3,25 +3,20 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { pl } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
+import { pageAlternates } from "@/lib/routes";
 import { PHONE_E164, PHONE_DISPLAY } from "@/lib/nap";
 
 export const metadata: Metadata = {
   title: "Polityka prywatności",
   description:
     "Polityka prywatności Sabina Krajewska Bookkeeping. Dowiedz się, jak zbieramy, wykorzystujemy i chronimy Twoje dane osobowe.",
-  alternates: {
-    canonical: "/pl/privacy-policy",
-    languages: {
-      "en-GB": "/privacy-policy",
-      "pl-PL": "/pl/privacy-policy",
-    },
-  },
+  alternates: pageAlternates("privacy", "pl"),
 };
 
 export default function PrivacyPolicyPagePl() {
   return (
     <>
-      <NavBar content={pl.nav} locale="pl" />
+      <NavBar content={pl.nav} locale="pl" routeKey="privacy" />
       <main className="mt-20 py-16 px-5 md:px-16">
         <article className="max-w-3xl mx-auto prose prose-slate">
           <h1 className="font-serif text-4xl font-bold text-primary mb-8">
