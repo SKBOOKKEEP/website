@@ -32,6 +32,12 @@ export default function About({ content }: { content: Content["about"] }) {
             <p className="text-lg leading-7 italic border-l-2 border-secondary pl-4">
               {content.quote}
             </p>
+            <div className="pt-2">
+              <p className="text-sm font-semibold text-primary">
+                {content.trustLine}
+              </p>
+              <p className="mt-1 text-sm">{content.trustNote}</p>
+            </div>
           </div>
         </div>
       </div>

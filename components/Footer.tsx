@@ -25,6 +25,9 @@ export default function Footer({
           <p className="text-sm text-on-primary-container text-center md:text-left">
             {content.copyright.replace("{year}", String(year))}
           </p>
+          <p className="mt-2 text-xs text-on-primary-container text-center md:text-left">
+            {content.trustLine}
+          </p>
         </div>
 
         <nav
