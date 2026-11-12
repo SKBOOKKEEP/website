@@ -155,8 +155,8 @@ export const stHelensCopy: Record<Locale, StHelensCopy> = {
     ctaCall: "Zadzwoń:",
     localHeading: "Działam w St Helens, pracuję zdalnie",
     localParagraphs: [
-      "Moja firma działa w St Helens, WA9, ale nie prowadzę spotkań osobistych — wszystko załatwiamy przez telefon, wideorozmowy i e-mail, więc nie musisz nigdzie dojeżdżać ani tracić czasu na dostarczanie dokumentów.",
-      "Lokalność oznacza tu znajomość okolicy i tę samą strefę czasową. Współpracujesz bezpośrednio z jedną osobą, która jest stąd, z St Helens.",
+      "Moja firma działa w St Helens, WA9. Nie prowadzę spotkań osobistych — wszystko załatwiamy przez telefon, wideorozmowy i e-mail, więc nie musisz nigdzie dojeżdżać ani tracić czasu na dostarczanie dokumentów.",
+      "Lokalność oznacza tu znajomość okolicy i tę samą strefę czasową. Współpracujesz bezpośrednio z jedną osobą, która pracuje w St Helens.",
       "Ponieważ pracuję zdalnie, w ten sam sposób współpracuję z klientami z Liverpoolu i z innych części Wielkiej Brytanii.",
     ],
     whoHeading: "Komu pomagam w St Helens",
