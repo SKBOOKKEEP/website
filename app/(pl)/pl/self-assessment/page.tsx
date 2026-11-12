@@ -74,7 +74,7 @@ export default function SelfAssessmentPagePl() {
                   Rozliczenie Self Assessment po polsku — księgowa z St Helens
                 </h1>
                 <p className="text-lg text-on-primary-container mb-8 max-w-xl">
-                  Pomagam z rozliczeniem Self Assessment w HMRC — po polsku i po
+                  Pomagam w rozliczeniu Self Assessment z HMRC — po polsku i po
                   angielsku. Jeśli prowadzisz jednoosobową działalność (sole
                   trader), pracujesz jako freelancer albo masz dodatkowe dochody
                   do zadeklarowania, zadbam o poprawne i terminowe złożenie
@@ -93,7 +93,7 @@ export default function SelfAssessmentPagePl() {
               <div className="relative h-80 md:h-96 rounded-lg overflow-hidden">
                 <Image
                   src="/biuro.png"
-                  alt="Profesjonalne biuro księgowe"
+                  alt="Laptop i dokumenty księgowe na stole"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -220,8 +220,8 @@ export default function SelfAssessmentPagePl() {
                   Twoja polska księgowa w UK
                 </h2>
                 <p className="text-on-surface-variant mb-4">
-                  Nazywam się Sabina Krajewska i jestem księgową
-                  z siedzibą w St Helens, obsługującą klientów w Liverpoolu,
+                  Nazywam się Sabina Krajewska i jestem księgową. Działam
+                  z St Helens i pracuję zdalnie z klientami z Liverpoolu,
                   Merseyside i całej Wielkiej Brytanii. Oferuję osobistą,
                   profesjonalną obsługę zarówno po polsku, jak i po angielsku.
                 </p>

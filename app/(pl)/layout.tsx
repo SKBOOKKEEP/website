@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Sabina Krajewska Księgowość",
   },
   description:
-    "Polska księgowa z St Helens. Księgowość, VAT, Self Assessment i spółki Ltd po polsku i angielsku — dla Liverpoolu i zdalnie w całej Wielkiej Brytanii.",
+    "Polska księgowa z St Helens. Księgowość, VAT, Self Assessment i spółki Ltd po polsku i angielsku — dla klientów z Liverpoolu i zdalnie z całego UK.",
   keywords: [
     "polski księgowy Liverpool",
     "polska księgowa Liverpool",

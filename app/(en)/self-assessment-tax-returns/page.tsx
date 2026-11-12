@@ -91,7 +91,7 @@ export default function SelfAssessmentPage() {
               <div className="relative h-80 md:h-96 rounded-lg overflow-hidden">
                 <Image
                   src="/biuro.png"
-                  alt="Professional accounting office workspace"
+                  alt="Laptop and accounting paperwork on a desk"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

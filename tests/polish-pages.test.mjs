@@ -116,3 +116,26 @@ for (const [key, { file, path, en }] of Object.entries(PAGES)) {
     assert.doesNotMatch(text, /biur|osobiści|spotkani|mapa|£|agent HMRC|ACCA|AAT|CIMA/i, text);
   });
 }
+
+// Remote-only: hero image alts and the PL SA "About" copy must not imply an office or
+// premises (reviewer follow-up on PR #16).
+const NO_OFFICE = /office|biuro\b|biura\b|biurze\b|siedzib/i;
+const imgAlts = (html) => [...html.matchAll(/<img[^>]*\balt="([^"]*)"/g)].map((m) => decode(m[1]));
+
+for (const file of ["index.html", "pl.html", "self-assessment-tax-returns.html", join("pl", "self-assessment.html")]) {
+  test(`${file}: image alts do not describe an office`, () => {
+    const alts = imgAlts(read(file));
+    assert.ok(alts.length > 0, "page has images with alt text");
+    for (const alt of alts) assert.doesNotMatch(alt, NO_OFFICE, `alt: ${alt}`);
+  });
+}
+
+test("PL SA About section says 'Działam z St Helens', no 'siedziba'", () => {
+  const html = read(join("pl", "self-assessment.html"));
+  const start = html.indexOf("Twoja polska księgowa w UK");
+  assert.ok(start > 0, "About heading present");
+  const about = decode(html.slice(start, html.indexOf("</section>", start)));
+  assert.match(about, /Działam z St Helens/);
+  assert.match(about, /zdalnie/);
+  assert.doesNotMatch(about, NO_OFFICE);
+});
