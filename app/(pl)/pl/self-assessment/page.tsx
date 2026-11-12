@@ -9,6 +9,7 @@ import { SITE_URL } from "@/lib/seo";
 import { pageAlternates } from "@/lib/routes";
 import { PHONE_E164, PHONE_DISPLAY } from "@/lib/nap";
 import SelfAssessmentGuidance from "@/components/sections/SelfAssessmentGuidance";
+import SelfAssessmentDepth from "@/components/sections/SelfAssessmentDepth";
 import { saGuidance } from "@/content/self-assessment";
 
 export const metadata: Metadata = {
@@ -176,6 +177,7 @@ export default function SelfAssessmentPagePl() {
         </section>
 
         <SelfAssessmentGuidance locale="pl" />
+        <SelfAssessmentDepth locale="pl" />
 
         {/* Benefits */}
         <section className="py-20 bg-primary-container">
