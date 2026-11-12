@@ -60,8 +60,8 @@
     {
       "key": "stHelens",
       "kind": "location",
-      "published": false,
-      "lastModified": null,
+      "published": true,
+      "lastModified": "2026-11-12",
       "en": { "path": "/bookkeeping-st-helens", "label": "St Helens", "priority": 0.8 },
       "pl": { "path": "/pl/ksiegowa-st-helens", "label": "St Helens", "priority": 0.7 }
     },
