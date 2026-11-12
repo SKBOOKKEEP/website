@@ -89,6 +89,52 @@ for (const [locale, p] of Object.entries(PAGES)) {
     if (!mtd.published) assert.ok(!links.includes(mtd[locale].path), "unpublished MTD path linked");
   });
 
+  test(`[${locale}] property allowance exclusions are framed as examples and include the connected-company case`, () => {
+    const allowanceUrl = "https://www.gov.uk/guidance/tax-free-allowances-on-property-and-trading-income";
+    assert.ok(links.includes(allowanceUrl));
+    const checks =
+      locale === "en"
+        ? [
+            /For example, GOV\.UK says you cannot use it/,
+            /a company you or someone connected to you owns or controls/,
+            /a partnership where you or someone connected to you are partners/,
+            /your employer or your spouse's or civil partner's employer/,
+            /deduct expenses from that room-letting income instead of using the scheme/,
+            /tax reducer for finance costs/,
+            /See GOV\.UK for the full list/,
+          ]
+        : [
+            /na przykład wtedy/,
+            /od spółki, którą Ty lub osoba z Tobą powiązana posiada lub kontroluje/,
+            /spółki osobowej \(partnership\)/,
+            /pracodawcy Twojego małżonka lub partnera/,
+            /odliczasz koszty od przychodu z wynajmu pokoju/,
+            /koszty finansowania/,
+            /Pełną listę znajdziesz na GOV\.UK/,
+          ];
+    for (const re of checks) assert.match(text, re);
+  });
+
+  test(`[${locale}] dated source list includes MTD qualifying income, FIG, who-must-send and SA overview`, () => {
+    for (const url of [
+      "https://www.gov.uk/guidance/work-out-your-qualifying-income-for-making-tax-digital-for-income-tax",
+      "https://www.gov.uk/guidance/check-if-you-can-claim-the-4-year-foreign-income-and-gains-regime",
+      "https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return",
+      "https://www.gov.uk/self-assessment-tax-returns",
+    ]) {
+      const count = links.filter((l) => l === url).length;
+      assert.ok(count >= 1, `missing ${url}`);
+    }
+    const sourcesStart = text.indexOf(locale === "en" ? "Sources for these sections" : "Źródła do tych sekcji");
+    assert.ok(sourcesStart > 0);
+    const tail = text.slice(sourcesStart);
+    for (const label of locale === "en"
+      ? ["Self Assessment tax returns", "Who must send a tax return", "Work out your qualifying income", "4-year foreign income and gains regime"]
+      : ["Deklaracje Self Assessment", "Kto musi złożyć deklarację", "przychód kwalifikowany", "4-letniego systemu FIG"]) {
+      assert.ok(tail.includes(label), `source list missing "${label}"`);
+    }
+  });
+
   test(`[${locale}] no blanket "directors must file" claim`, () => {
     assert.doesNotMatch(
       text,
