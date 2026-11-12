@@ -20,7 +20,7 @@ export const GOV_UK = {
   vatPenalties:
     "https://www.gov.uk/guidance/penalty-points-and-penalties-if-you-submit-your-vat-return-late",
   mtdIncomeTax:
-    "https://www.gov.uk/guidance/check-if-youre-eligible-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/find-out-if-and-when-you-need-to-use-making-tax-digital-for-income-tax",
   vatRecords: "https://www.gov.uk/charge-reclaim-record-vat/keeping-vat-records",
   soleTraderRecords:
     "https://www.gov.uk/self-employed-records/how-long-to-keep-your-records",
@@ -197,7 +197,7 @@ export const bookkeepingCopy: Record<Locale, BookkeepingCopy> = {
       { label: "Keeping VAT records", href: GOV_UK.vatRecords },
       { label: "VAT Flat Rate Scheme", href: GOV_UK.flatRate },
       { label: "VAT Cash Accounting Scheme: eligibility", href: GOV_UK.cashAccounting },
-      { label: "Check if you're eligible for Making Tax Digital for Income Tax", href: GOV_UK.mtdIncomeTax },
+      { label: "Find out if and when you need to use Making Tax Digital for Income Tax", href: GOV_UK.mtdIncomeTax },
       { label: "Self-employed records: how long to keep them", href: GOV_UK.soleTraderRecords },
       { label: "Company and accounting records", href: GOV_UK.companyRecords },
     ],
@@ -326,7 +326,7 @@ export const bookkeepingCopy: Record<Locale, BookkeepingCopy> = {
       { label: "Prowadzenie dokumentacji VAT", href: GOV_UK.vatRecords },
       { label: "VAT Flat Rate Scheme", href: GOV_UK.flatRate },
       { label: "VAT Cash Accounting Scheme: kto może skorzystać", href: GOV_UK.cashAccounting },
-      { label: "Kogo obejmuje Making Tax Digital for Income Tax", href: GOV_UK.mtdIncomeTax },
+      { label: "Czy i od kiedy musisz korzystać z Making Tax Digital for Income Tax", href: GOV_UK.mtdIncomeTax },
       { label: "Dokumentacja samozatrudnionych: jak długo ją przechowywać", href: GOV_UK.soleTraderRecords },
       { label: "Dokumentacja spółki i księgi rachunkowe", href: GOV_UK.companyRecords },
     ],

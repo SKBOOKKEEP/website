@@ -147,6 +147,13 @@ for (const [locale, p] of Object.entries(PAGES)) {
     assert.match(text, locale === "en" ? /one calendar month and 7 days/ : /jednego miesiąca kalendarzowego i 7 dni/);
   });
 
+  test(`[${locale}] cites the current (non-redirecting) MTD for Income Tax GOV.UK page`, () => {
+    assert.ok(
+      html.includes('href="https://www.gov.uk/guidance/find-out-if-and-when-you-need-to-use-making-tax-digital-for-income-tax"'),
+    );
+    assert.ok(!html.includes("check-if-youre-eligible-for-making-tax-digital-for-income-tax"));
+  });
+
   test(`[${locale}] home page Services card links to this page`, () => {
     assert.match(readHtml(p.home), new RegExp(`<a href="${p.path}"[^>]*>(?:(?!</a>)[\\s\\S])*<h3[^>]*>(Bookkeeping|Księgowość)</h3>`));
   });
