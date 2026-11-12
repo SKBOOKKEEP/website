@@ -203,7 +203,7 @@ export const mtdCopy: Record<Locale, MtdCopy> = {
     colPeriod: "Update period",
     colDue: "Send by",
     quarterlyNotes: [
-      "If your accounting period runs from 1 April to 31 March, you can choose calendar update periods instead. The deadlines are the same. You need to choose this in your software before your first update of the tax year.",
+      "If your accounting period runs from 1 April to 31 March, HMRC says you should use calendar update periods instead. The deadlines are the same. You need to select this in your software before your first update of the tax year.",
     ],
     penaltiesHeading: "Late updates",
     penalties:
@@ -374,7 +374,7 @@ export const mtdCopy: Record<Locale, MtdCopy> = {
     colPeriod: "Okres",
     colDue: "Termin wysłania",
     quarterlyNotes: [
-      "Jeśli Twój okres rozliczeniowy trwa od 1 kwietnia do 31 marca, możesz zamiast tego wybrać okresy kalendarzowe. Terminy są takie same. Trzeba to ustawić w oprogramowaniu przed pierwszą aktualizacją w danym roku podatkowym.",
+      "Jeśli Twój okres rozliczeniowy trwa od 1 kwietnia do 31 marca, według HMRC powinieneś zamiast tego stosować okresy kalendarzowe. Terminy są takie same. Trzeba to ustawić w oprogramowaniu przed pierwszą aktualizacją w danym roku podatkowym.",
     ],
     penaltiesHeading: "Spóźnione aktualizacje",
     penalties:

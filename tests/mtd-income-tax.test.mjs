@@ -167,6 +167,8 @@ for (const [locale, p] of Object.entries(PAGES)) {
       : ["7 sierpnia", "7 listopada", "7 lutego", "7 maja", "31 stycznia"]) {
       assert.ok(text.includes(d), `deadline ${d}`);
     }
+    // GOV.UK: 1 April–31 March accounting periods "should use" calendar update periods.
+    assert.match(text, locale === "en" ? /should use calendar update periods/ : /powinieneś zamiast tego stosować okresy kalendarzowe/);
   });
 
   test(`[${locale}] exemptions link to HMRC's checker and exemption guidance; software links to HMRC's list`, () => {

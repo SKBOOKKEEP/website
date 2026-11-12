@@ -13,7 +13,7 @@
       "key": "selfAssessment",
       "kind": "service",
       "published": true,
-      "lastModified": "2026-11-11",
+      "lastModified": "2026-11-12",
       "en": { "path": "/self-assessment-tax-returns", "label": "Self Assessment", "priority": 0.9 },
       "pl": { "path": "/pl/self-assessment", "label": "Self Assessment", "priority": 0.8 }
     },
