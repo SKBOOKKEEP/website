@@ -9,6 +9,9 @@ const icons: Record<ServiceIcon, typeof BookOpen> = {
   bank: Bank,
 };
 
+/** Same-page anchor used by the hero CTA; Services renders on the home pages only. */
+const BOOKING_ANCHOR = "#booking";
+
 export default function Services({
   content,
   locale,
@@ -29,7 +32,10 @@ export default function Services({
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
           {content.items.map(({ icon, title, description, route }) => {
             const Icon = icons[icon];
-            const href = route ? publishedPath(route, locale) : undefined;
+            // Unpublished (or route-less) services link to the home page's
+            // booking section, the same anchor as the hero CTA, and switch to
+            // the real page automatically once its route is published.
+            const href = (route && publishedPath(route, locale)) || BOOKING_ANCHOR;
             const cardContent = (
               <>
                 <Icon
@@ -48,14 +54,10 @@ export default function Services({
             const cardClass =
               "p-8 border border-outline-variant hover:border-primary transition-colors flex flex-col items-center text-center";
 
-            return href ? (
+            return (
               <a key={title} href={href} className={cardClass}>
                 {cardContent}
               </a>
-            ) : (
-              <div key={title} className={cardClass}>
-                {cardContent}
-              </div>
             );
           })}
         </div>
