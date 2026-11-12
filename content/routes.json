@@ -68,8 +68,8 @@
     {
       "key": "liverpool",
       "kind": "location",
-      "published": false,
-      "lastModified": null,
+      "published": true,
+      "lastModified": "2026-11-12",
       "en": { "path": "/bookkeeping-liverpool", "label": "Liverpool", "priority": 0.8 },
       "pl": { "path": "/pl/ksiegowa-liverpool", "label": "Liverpool", "priority": 0.7 }
     },
