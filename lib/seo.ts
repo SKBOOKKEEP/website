@@ -6,16 +6,6 @@ import { PHONE_E164, CONTACT_EMAIL } from "@/lib/nap";
 // otherwise canonicals and the sitemap point at a redirecting URL.
 export const SITE_URL = "https://www.simple-bookkeeping.co.uk";
 
-/**
- * Reciprocal hreflang map shared by every localized page. Both the English (/)
- * and Polish (/pl) pages reference the same set so the alternates cross-link.
- */
-export const hreflangLanguages = {
-  "en-GB": "/",
-  "pl-PL": "/pl",
-  "x-default": "/",
-};
-
 export const sharedRobots: Metadata["robots"] = {
   index: true,
   follow: true,

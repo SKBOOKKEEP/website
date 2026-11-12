@@ -10,11 +10,11 @@ import { en } from "@/content/copy";
 export default function Home() {
   return (
     <>
-      <NavBar content={en.nav} locale="en" />
+      <NavBar content={en.nav} locale="en" routeKey="home" />
       <main className="mt-20">
         <Hero content={en.hero} />
         <About content={en.about} />
-        <Services content={en.services} />
+        <Services content={en.services} locale="en" />
         <Booking content={en.booking} />
         <Contact content={en.contact} />
       </main>

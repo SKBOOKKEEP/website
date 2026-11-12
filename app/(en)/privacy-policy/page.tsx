@@ -3,25 +3,20 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { en } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
+import { pageAlternates } from "@/lib/routes";
 import { PHONE_E164, PHONE_DISPLAY } from "@/lib/nap";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Privacy policy for Sabina Krajewska Bookkeeping. Learn how we collect, use, and protect your personal data.",
-  alternates: {
-    canonical: "/privacy-policy",
-    languages: {
-      "en-GB": "/privacy-policy",
-      "pl-PL": "/pl/privacy-policy",
-    },
-  },
+  alternates: pageAlternates("privacy", "en"),
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <NavBar content={en.nav} locale="en" />
+      <NavBar content={en.nav} locale="en" routeKey="privacy" />
       <main className="mt-20 py-16 px-5 md:px-16">
         <article className="max-w-3xl mx-auto prose prose-slate">
           <h1 className="font-serif text-4xl font-bold text-primary mb-8">

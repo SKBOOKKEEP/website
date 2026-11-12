@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
 import { en } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
+import { pageAlternates } from "@/lib/routes";
 import { PHONE_E164, PHONE_DISPLAY } from "@/lib/nap";
 import SelfAssessmentGuidance from "@/components/sections/SelfAssessmentGuidance";
 import { saGuidance } from "@/content/self-assessment";
@@ -29,14 +30,7 @@ export const metadata: Metadata = {
     "self employed tax return",
     "personal tax return Liverpool",
   ],
-  alternates: {
-    canonical: "/self-assessment-tax-returns",
-    languages: {
-      "en-GB": "/self-assessment-tax-returns",
-      "pl-PL": "/pl/self-assessment",
-      "x-default": "/self-assessment-tax-returns",
-    },
-  },
+  alternates: pageAlternates("selfAssessment", "en"),
   openGraph: {
     title: "Self Assessment Tax Returns | St Helens & Liverpool",
     description:
@@ -68,7 +62,7 @@ const benefits = [
 export default function SelfAssessmentPage() {
   return (
     <>
-      <NavBar content={en.nav} locale="en" />
+      <NavBar content={en.nav} locale="en" routeKey="selfAssessment" />
 
       <main className="mt-20">
         {/* Hero Section */}

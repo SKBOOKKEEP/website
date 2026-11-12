@@ -1,4 +1,5 @@
 import type { Content, Locale } from "@/content/copy";
+import { footerRoutes, publishedPath } from "@/lib/routes";
 
 export default function Footer({
   content,
@@ -8,9 +9,9 @@ export default function Footer({
   locale?: Locale;
 }) {
   const year = new Date().getFullYear();
-  const privacyHref = locale === "pl" ? "/pl/privacy-policy" : "/privacy-policy";
-  const selfAssessmentHref =
-    locale === "pl" ? "/pl/self-assessment" : "/self-assessment-tax-returns";
+  const privacyHref = publishedPath("privacy", locale);
+  // Every published service/location page, from the route map (T2.12).
+  const pageLinks = footerRoutes(locale);
 
   return (
     <footer
@@ -50,12 +51,15 @@ export default function Footer({
           >
             {content.facebookLink}
           </a>
-          <a
-            href={selfAssessmentHref}
-            className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"
-          >
-            {content.selfAssessmentLink}
-          </a>
+          {pageLinks.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"
+            >
+              {label}
+            </a>
+          ))}
           <a
             href={privacyHref}
             className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"

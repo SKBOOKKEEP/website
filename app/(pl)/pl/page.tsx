@@ -10,11 +10,11 @@ import { pl } from "@/content/copy";
 export default function HomePl() {
   return (
     <>
-      <NavBar content={pl.nav} locale="pl" />
+      <NavBar content={pl.nav} locale="pl" routeKey="home" />
       <main className="mt-20">
         <Hero content={pl.hero} />
         <About content={pl.about} />
-        <Services content={pl.services} />
+        <Services content={pl.services} locale="pl" />
         <Booking content={pl.booking} />
         <Contact content={pl.contact} />
       </main>

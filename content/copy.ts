@@ -1,3 +1,5 @@
+import type { RouteKey } from "@/lib/routes";
+
 export type Locale = "en" | "pl";
 
 export type ServiceIcon = "bookOpen" | "user" | "building" | "bank";
@@ -33,7 +35,8 @@ export interface Content {
   };
   services: {
     heading: string;
-    items: { icon: ServiceIcon; title: string; description: string; href?: string }[];
+    /** route links the card to its page, only once that page is published. */
+    items: { icon: ServiceIcon; title: string; description: string; route?: RouteKey }[];
   };
   booking: {
     heading: string;
@@ -73,7 +76,6 @@ export interface Content {
     hmrcLink: string;
     facebookLink: string;
     privacyLink: string;
-    selfAssessmentLink: string;
   };
 }
 
@@ -128,25 +130,28 @@ export const en: Content = {
         title: "Bookkeeping",
         description:
           "Keeping your financial records accurate, organised, and up to date, with VAT returns and Making Tax Digital compliance.",
+        route: "bookkeeping",
       },
       {
         icon: "user",
         title: "Sole Trader & Freelancer Support",
         description:
           "Self Assessment tax return services for self-employed individuals and private clients.",
-        href: "/self-assessment-tax-returns",
+        route: "selfAssessment",
       },
       {
         icon: "building",
         title: "Limited Company Accounts & Company Tax",
         description:
           "Annual accounts, corporation tax returns (CT600), payroll, and ongoing compliance for limited companies.",
+        route: "limitedCompany",
       },
       {
         icon: "bank",
         title: "Tax & HMRC Assistance",
         description:
           "Support with HMRC communication, tax matters, and representation in more complex financial cases.",
+        route: "hmrcSupport",
       },
     ],
   },
@@ -197,7 +202,6 @@ export const en: Content = {
     hmrcLink: "HMRC Guidance",
     facebookLink: "Facebook",
     privacyLink: "Privacy Policy",
-    selfAssessmentLink: "Self Assessment",
   },
 };
 
@@ -251,25 +255,28 @@ export const pl: Content = {
         title: "Księgowość",
         description:
           "Prowadzenie Twojej dokumentacji finansowej dokładnie, w porządku i na bieżąco.",
+        route: "bookkeeping",
       },
       {
         icon: "user",
         title: "Self-employed i freelancerzy",
         description:
           "Rozliczenia Self Assessment dla osób samozatrudnionych i klientów indywidualnych.",
-        href: "/pl/self-assessment",
+        route: "selfAssessment",
       },
       {
         icon: "building",
         title: "Spółki Limited (Ltd)",
         description:
           "Profesjonalna obsługa spółek Ltd: roczne sprawozdania, podatek od spółek (Corporation Tax, CT600), payroll i bieżąca zgodność z przepisami.",
+        route: "limitedCompany",
       },
       {
         icon: "bank",
         title: "Podatki i sprawy z HMRC",
         description:
           "Pomoc w kontakcie z HMRC, sprawach podatkowych i reprezentacja w bardziej złożonych przypadkach.",
+        route: "hmrcSupport",
       },
     ],
   },
@@ -321,7 +328,6 @@ export const pl: Content = {
     hmrcLink: "Wskazówki HMRC",
     facebookLink: "Facebook",
     privacyLink: "Polityka prywatności",
-    selfAssessmentLink: "Self Assessment",
   },
 };
 

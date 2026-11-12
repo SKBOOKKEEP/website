@@ -1,5 +1,6 @@
 import { BookOpen, User, Building, Bank } from "../ui/icons";
-import type { Content, ServiceIcon } from "@/content/copy";
+import type { Content, Locale, ServiceIcon } from "@/content/copy";
+import { publishedPath } from "@/lib/routes";
 
 const icons: Record<ServiceIcon, typeof BookOpen> = {
   bookOpen: BookOpen,
@@ -10,8 +11,10 @@ const icons: Record<ServiceIcon, typeof BookOpen> = {
 
 export default function Services({
   content,
+  locale,
 }: {
   content: Content["services"];
+  locale: Locale;
 }) {
   return (
     <section id="services" className="scroll-mt-20 my-20 py-20 bg-white">
@@ -24,8 +27,9 @@ export default function Services({
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {content.items.map(({ icon, title, description, href }) => {
+          {content.items.map(({ icon, title, description, route }) => {
             const Icon = icons[icon];
+            const href = route ? publishedPath(route, locale) : undefined;
             const cardContent = (
               <>
                 <Icon
