@@ -5,7 +5,7 @@
       "key": "home",
       "kind": "home",
       "published": true,
-      "lastModified": "2026-11-11",
+      "lastModified": "2026-11-12",
       "en": { "path": "/", "label": "Home", "priority": 1 },
       "pl": { "path": "/pl", "label": "Start", "priority": 0.9 }
     },

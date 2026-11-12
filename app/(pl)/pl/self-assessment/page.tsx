@@ -15,10 +15,10 @@ import { saGuidance } from "@/content/self-assessment";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Self Assessment po polsku — St Helens i Liverpool | Sabina Krajewska",
+      "Księgowa Self Assessment St Helens i Liverpool | Sabina Krajewska",
   },
   description:
-    "Rozliczenie Self Assessment po polsku dla samozatrudnionych, wynajmujących i freelancerów — St Helens, Liverpool i zdalnie w UK. Skontaktuj się ze mną.",
+    "Self Assessment po polsku z księgową z St Helens — dla samozatrudnionych, wynajmujących i freelancerów z Liverpoolu i zdalnie z całej Wielkiej Brytanii.",
   keywords: [
     "self assessment po polsku",
     "rozliczenie self assessment UK",
@@ -72,13 +72,15 @@ export default function SelfAssessmentPagePl() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h1 className="font-serif text-[clamp(32px,5vw,48px)] leading-tight font-bold text-surface-bright mb-6">
-                  Rozliczenie Self Assessment po polsku w UK
+                  Rozliczenie Self Assessment po polsku — księgowa z St Helens
                 </h1>
                 <p className="text-lg text-on-primary-container mb-8 max-w-xl">
-                  Profesjonalna pomoc z rozliczeniem podatkowym Self Assessment.
-                  Niezależnie czy jesteś samozatrudniony, freelancerem, czy masz
-                  dodatkowe dochody do zadeklarowania — zadbam o poprawne i
-                  terminowe złożenie Twojej deklaracji.
+                  Pomagam w rozliczeniu Self Assessment z HMRC — po polsku i po
+                  angielsku. Jeśli prowadzisz jednoosobową działalność (sole
+                  trader), pracujesz jako freelancer albo masz dodatkowe dochody
+                  do zadeklarowania, zadbam o poprawne i terminowe złożenie
+                  Twojej deklaracji. Działam z St Helens i pracuję zdalnie z
+                  klientami z Liverpoolu i całej Wielkiej Brytanii.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button href="/pl#booking" variant="outline-light" size="lg">
@@ -92,7 +94,7 @@ export default function SelfAssessmentPagePl() {
               <div className="relative h-80 md:h-96 rounded-lg overflow-hidden">
                 <Image
                   src="/biuro.png"
-                  alt="Profesjonalne biuro księgowe"
+                  alt="Laptop i dokumenty księgowe na stole"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -220,8 +222,8 @@ export default function SelfAssessmentPagePl() {
                   Twoja polska księgowa w UK
                 </h2>
                 <p className="text-on-surface-variant mb-4">
-                  Nazywam się Sabina Krajewska i jestem księgową
-                  z siedzibą w St Helens, obsługującą klientów w Liverpoolu,
+                  Nazywam się Sabina Krajewska i jestem księgową. Działam
+                  z St Helens i pracuję zdalnie z klientami z Liverpoolu,
                   Merseyside i całej Wielkiej Brytanii. Oferuję osobistą,
                   profesjonalną obsługę zarówno po polsku, jak i po angielsku.
                 </p>

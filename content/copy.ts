@@ -99,7 +99,7 @@ export const en: Content = {
   },
   hero: {
     ariaLabel: "Introduction",
-    imageAlt: "Professional office workspace",
+    imageAlt: "Laptop, papers, a pen and a cup of coffee on a desk",
     title: "Accountant & Bookkeeper in St Helens & Liverpool",
     subtitle:
       "Bookkeeping, company tax, VAT and Self Assessment for sole traders and limited companies. Based in St Helens, serving Liverpool and Merseyside, and working remotely across the UK — bringing clarity, confidence, and peace of mind to your business.",
@@ -225,10 +225,10 @@ export const pl: Content = {
   },
   hero: {
     ariaLabel: "Wprowadzenie",
-    imageAlt: "Profesjonalne biuro",
-    title: "Polska księgowa w St Helens i Liverpoolu — księgowość dla Polaków w UK",
+    imageAlt: "Laptop, dokumenty, pióro i filiżanka kawy na stole",
+    title: "Polska księgowa w St Helens i Liverpoolu — zdalnie w całej Wielkiej Brytanii",
     subtitle:
-      "Rzetelne wsparcie księgowe po polsku — jasność, pewność i spokój w prowadzeniu Twojego biznesu w Wielkiej Brytanii.",
+      "Księgowość, podatek od spółek (Corporation Tax), VAT, Self Assessment i kontakt z HMRC dla samozatrudnionych i spółek Ltd — po polsku i po angielsku. Działam z St Helens i pracuję zdalnie z klientami z Liverpoolu, Merseyside i całej Wielkiej Brytanii. Moim celem jest jasność, pewność i spokój w prowadzeniu Twojej firmy.",
     ctaPrimary: "Skontaktuj się",
     ctaSecondary: "Nasze usługi",
   },
