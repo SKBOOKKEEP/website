@@ -178,3 +178,12 @@ test("EN SA: accountant 'helps make sure', does not 'ensure' the return", () => 
   assert.doesNotMatch(html, /ensures? your return/i);
   assert.match(html, /helps make sure/);
 });
+
+test("PL SA who-must-file: same tax year in other-income heading, HICBC line says 'nie płacisz przez PAYE'", () => {
+  const text = decode(read(join("pl", "self-assessment.html")));
+  const heading = text.match(/Deklaracja może być też potrzebna, jeśli[^:]*:/);
+  assert.ok(heading, "other-income heading present");
+  assert.doesNotMatch(heading[0], /w tym roku/);
+  assert.match(heading[0], /w tym samym roku podatkowym/);
+  assert.match(text, /High Income Child Benefit Charge, którego nie płacisz przez PAYE/);
+});

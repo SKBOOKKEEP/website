@@ -157,10 +157,10 @@ export const saGuidance: Record<Locale, SelfAssessmentGuidanceCopy> = {
       "Działalność na własny rachunek jako sole trader z przychodem powyżej £1000 przed odliczeniem kosztów i ulg podatkowych",
       "Udział jako wspólnik w spółce osobowej (partnership)",
       "Obowiązek zapłaty podatku od zysków kapitałowych (Capital Gains Tax) od sprzedanego lub zbytego składnika majątku",
-      "Obowiązek zapłaty High Income Child Benefit Charge, który nie jest pobierany przez PAYE",
+      "Obowiązek zapłaty High Income Child Benefit Charge, którego nie płacisz przez PAYE",
     ],
     otherIncomeHeading:
-      "Deklaracja może być też potrzebna, jeśli w tym roku pojawiły się inne nieopodatkowane dochody, na przykład:",
+      "Deklaracja może być też potrzebna, jeśli w tym samym roku podatkowym pojawiły się inne nieopodatkowane dochody, na przykład:",
     otherIncome: [
       "Dochód z wynajmu nieruchomości lub gruntu",
       "Napiwki i prowizje",
