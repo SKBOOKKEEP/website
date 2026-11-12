@@ -139,7 +139,7 @@ export const bookkeepingCopy: Record<Locale, BookkeepingCopy> = {
     ],
     recordsHeading: "How long to keep your records",
     records:
-      "Keep VAT records for at least 6 years. Sole traders keep business records for at least 5 years after the 31 January submission deadline of the relevant tax year. Limited companies keep records for 6 years from the end of the last company financial year they relate to.",
+      "Keep VAT records for at least 6 years. Sole traders keep business records for at least 5 years after the 31 January submission deadline of the relevant tax year. Limited companies keep records for at least 6 years from the end of the last company financial year they relate to (longer in some cases).",
 
     workingHeading: "Working together",
     working: [
@@ -268,7 +268,7 @@ export const bookkeepingCopy: Record<Locale, BookkeepingCopy> = {
     ],
     recordsHeading: "Jak długo przechowywać dokumenty",
     records:
-      "Dokumentację VAT przechowuj co najmniej 6 lat. Osoby samozatrudnione przechowują dokumenty firmowe co najmniej 5 lat od terminu złożenia zeznania (31 stycznia) za dany rok podatkowy. Spółki Ltd przechowują dokumenty przez 6 lat od końca ostatniego roku obrotowego, którego dotyczą.",
+      "Dokumentację VAT przechowuj co najmniej 6 lat. Osoby samozatrudnione przechowują dokumenty firmowe co najmniej 5 lat od terminu złożenia zeznania (31 stycznia) za dany rok podatkowy. Spółki Ltd przechowują dokumenty co najmniej 6 lat od końca ostatniego roku obrotowego, którego dotyczą (w niektórych przypadkach dłużej).",
 
     workingHeading: "Jak wygląda współpraca",
     working: [
