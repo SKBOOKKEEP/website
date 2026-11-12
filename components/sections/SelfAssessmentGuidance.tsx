@@ -7,6 +7,7 @@ import {
   formatPounds,
   saGuidance,
 } from "@/content/self-assessment";
+import { publishedPath } from "@/lib/routes";
 
 const linkClass =
   "text-secondary underline underline-offset-2 hover:text-primary transition-colors";
@@ -17,6 +18,8 @@ const linkClass =
  */
 export default function SelfAssessmentGuidance({ locale }: { locale: Locale }) {
   const c = saGuidance[locale];
+  // Full MTD for Income Tax guide (T2.5); only linked while that pair is published.
+  const mtdGuideHref = publishedPath("mtdIncomeTax", locale);
 
   return (
     <>
@@ -80,6 +83,13 @@ export default function SelfAssessmentGuidance({ locale }: { locale: Locale }) {
               <p>{c.mtdScope}</p>
               <p>{c.mtdExemptions}</p>
               <p>{c.mtdVat}</p>
+              {mtdGuideHref && (
+                <p>
+                  <a href={mtdGuideHref} className={`${linkClass} font-semibold`}>
+                    {c.mtdGuideLink}
+                  </a>
+                </p>
+              )}
             </div>
             <div className="bg-surface-container-low p-6 rounded-lg self-start">
               <table className="w-full text-left text-on-surface-variant">

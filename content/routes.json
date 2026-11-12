@@ -28,8 +28,8 @@
     {
       "key": "mtdIncomeTax",
       "kind": "service",
-      "published": false,
-      "lastModified": null,
+      "published": true,
+      "lastModified": "2026-11-12",
       "en": { "path": "/making-tax-digital-income-tax", "label": "Making Tax Digital", "priority": 0.8 },
       "pl": { "path": "/pl/making-tax-digital-income-tax", "label": "Making Tax Digital", "priority": 0.7 }
     },
