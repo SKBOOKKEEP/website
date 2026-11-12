@@ -58,7 +58,6 @@ export function buildJsonLd(locale: Locale) {
           latitude: 53.45,
           longitude: -2.74,
         },
-        priceRange: "££",
         knowsLanguage: ["en", "pl"],
         serviceType: [
           "Bookkeeping",

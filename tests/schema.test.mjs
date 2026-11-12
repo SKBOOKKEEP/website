@@ -66,6 +66,7 @@ for (const path of paths) {
       assert.ok(business.serviceType.includes(s), `serviceType includes ${s}`);
     }
     assert.equal(business.makesOffer, undefined, "no Offers");
+    for (const n of nodes) assert.equal(n.priceRange, undefined, "no priceRange: no published fees");
 
     for (const n of nodes) assert.equal(n.streetAddress, undefined, "no streetAddress in JSON-LD");
     assert.doesNotMatch(html, /streetAddress/, "no streetAddress anywhere in the page");
