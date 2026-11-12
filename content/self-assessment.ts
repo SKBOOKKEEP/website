@@ -74,6 +74,8 @@ export type SelfAssessmentGuidanceCopy = {
   mtdScope: string;
   mtdExemptions: string;
   mtdVat: string;
+  /** Link text to the full MTD for Income Tax guide (shown once it's published). */
+  mtdGuideLink: string;
   sourcesHeading: (date: string) => string;
   sources: Link[];
 };
@@ -127,6 +129,8 @@ export const saGuidance: Record<Locale, SelfAssessmentGuidanceCopy> = {
       "Exemptions and individual circumstances can affect whether and when you need to use it — for example, you may be exempt if you are digitally excluded.",
     mtdVat:
       "This is separate from Making Tax Digital for VAT, which has its own rules.",
+    mtdGuideLink:
+      "Read the full guide to Making Tax Digital for Income Tax",
     sourcesHeading: (date) => `Sources (GOV.UK, checked ${date})`,
     sources: [
       { label: "Who must send a tax return", href: HMRC.whoMustSend },
@@ -193,6 +197,8 @@ export const saGuidance: Record<Locale, SelfAssessmentGuidanceCopy> = {
       "Zwolnienia i indywidualna sytuacja mogą wpływać na to, czy i od kiedy obowiązek Cię dotyczy — np. możesz być zwolniony, jeśli jesteś wykluczony cyfrowo.",
     mtdVat:
       "Ten system jest odrębny od Making Tax Digital dla VAT, który ma własne zasady.",
+    mtdGuideLink:
+      "Przeczytaj pełny przewodnik po Making Tax Digital for Income Tax",
     sourcesHeading: (date) => `Źródła (GOV.UK, po angielsku; sprawdzone ${date})`,
     sources: [
       { label: "Kto musi złożyć deklarację podatkową", href: HMRC.whoMustSend },
