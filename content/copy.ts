@@ -254,7 +254,7 @@ export const pl: Content = {
         icon: "bookOpen",
         title: "Księgowość",
         description:
-          "Prowadzenie Twojej dokumentacji finansowej dokładnie, w porządku i na bieżąco.",
+          "Prowadzenie Twojej dokumentacji finansowej dokładnie, w porządku i na bieżąco, wraz z deklaracjami VAT (VAT Returns) i zgodnością z Making Tax Digital.",
         route: "bookkeeping",
       },
       {
