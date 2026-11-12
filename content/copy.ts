@@ -226,9 +226,9 @@ export const pl: Content = {
   hero: {
     ariaLabel: "Wprowadzenie",
     imageAlt: "Profesjonalne biuro",
-    title: "Polska księgowa w St Helens i Liverpoolu — księgowość dla Polaków w UK",
+    title: "Polska księgowa w St Helens i Liverpoolu — zdalnie w całej Wielkiej Brytanii",
     subtitle:
-      "Rzetelne wsparcie księgowe po polsku — jasność, pewność i spokój w prowadzeniu Twojego biznesu w Wielkiej Brytanii.",
+      "Księgowość, podatek od spółek (Corporation Tax), VAT, Self Assessment i kontakt z HMRC dla samozatrudnionych i spółek Ltd — po polsku i po angielsku. Działam z St Helens i pracuję zdalnie z klientami z Liverpoolu, Merseyside i całej Wielkiej Brytanii, dając jasność, pewność i spokój w prowadzeniu firmy.",
     ctaPrimary: "Skontaktuj się",
     ctaSecondary: "Nasze usługi",
   },

@@ -14,10 +14,10 @@ import { saGuidance } from "@/content/self-assessment";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Self Assessment po polsku — St Helens i Liverpool | Sabina Krajewska",
+      "Księgowa Self Assessment St Helens i Liverpool | Sabina Krajewska",
   },
   description:
-    "Rozliczenie Self Assessment po polsku dla samozatrudnionych, wynajmujących i freelancerów — St Helens, Liverpool i zdalnie w UK. Skontaktuj się ze mną.",
+    "Self Assessment po polsku z księgową z St Helens — dla samozatrudnionych, wynajmujących i freelancerów z Liverpoolu i zdalnie z całej Wielkiej Brytanii.",
   keywords: [
     "self assessment po polsku",
     "rozliczenie self assessment UK",
@@ -71,13 +71,15 @@ export default function SelfAssessmentPagePl() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h1 className="font-serif text-[clamp(32px,5vw,48px)] leading-tight font-bold text-surface-bright mb-6">
-                  Rozliczenie Self Assessment po polsku w UK
+                  Rozliczenie Self Assessment po polsku — księgowa z St Helens
                 </h1>
                 <p className="text-lg text-on-primary-container mb-8 max-w-xl">
-                  Profesjonalna pomoc z rozliczeniem podatkowym Self Assessment.
-                  Niezależnie czy jesteś samozatrudniony, freelancerem, czy masz
-                  dodatkowe dochody do zadeklarowania — zadbam o poprawne i
-                  terminowe złożenie Twojej deklaracji.
+                  Pomagam z rozliczeniem Self Assessment w HMRC — po polsku i po
+                  angielsku. Jeśli prowadzisz jednoosobową działalność (sole
+                  trader), pracujesz jako freelancer albo masz dodatkowe dochody
+                  do zadeklarowania, zadbam o poprawne i terminowe złożenie
+                  Twojej deklaracji. Działam z St Helens i pracuję zdalnie z
+                  klientami z Liverpoolu i całej Wielkiej Brytanii.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button href="/pl#booking" variant="outline-light" size="lg">
