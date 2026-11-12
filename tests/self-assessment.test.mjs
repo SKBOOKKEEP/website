@@ -73,10 +73,16 @@ for (const [locale, page] of Object.entries(pages)) {
     }
   });
 
-  test(`[${locale}] £1,000 is only used for sole-trader income`, () => {
+  // £1,000 is valid only as the sole-trader trigger or the property allowance /
+  // rental-income bands (T2.6) — never as a blanket "untaxed income" threshold.
+  test(`[${locale}] £1,000 is only used for sole-trader income or the property allowance`, () => {
     for (const s of sentences(page.text)) {
       if (/£\s?1[ ,]?000(?!\d|[ ,]\d)/.test(s)) {
-        assert.match(s, /sole trader/i, `£1,000 used outside the sole-trader criterion: "${s}"`);
+        assert.match(
+          s,
+          /sole trader|property allowance|rental|najm/i,
+          `£1,000 used outside the sole-trader / property-allowance context: "${s}"`,
+        );
       }
     }
     assert.doesNotMatch(page.text, /untaxed income (of |over |above )?£\s?1[ ,]?000/i);
