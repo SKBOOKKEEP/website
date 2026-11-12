@@ -316,7 +316,7 @@ export const mtdCopy: Record<Locale, MtdCopy> = {
     whoHeading: "Kogo dotyczy i od kiedy",
     whoIntro: "Według HMRC musisz korzystać z Making Tax Digital for Income Tax, jeśli spełniasz wszystkie te warunki:",
     whoConditions: [
-      "Prowadzisz działalność jako sole trader lub wynajmujesz nieruchomości i jesteś zarejestrowany w Self Assessment",
+      "Prowadzisz działalność jako sole trader lub wynajmujesz nieruchomości i masz rejestrację w Self Assessment",
       "Masz przychód z samozatrudnienia, z najmu albo z obu tych źródeł",
       "Twój przychód kwalifikowany przekracza próg dla danego roku podatkowego",
     ],
@@ -352,11 +352,11 @@ export const mtdCopy: Record<Locale, MtdCopy> = {
 
     exemptHeading: "Zwolnienia i kto nie musi korzystać z systemu",
     exemptIntro:
-      "Jeśli jesteś zwolniony, nie korzystasz z Making Tax Digital for Income Tax, ale nadal zgłaszasz dochody w zwykłym zeznaniu Self Assessment. Część zwolnień przysługuje automatycznie, o inne trzeba wystąpić. Przykłady z wytycznych HMRC:",
+      "Jeśli przysługuje Ci zwolnienie, nie korzystasz z Making Tax Digital for Income Tax, ale nadal zgłaszasz dochody w zwykłym zeznaniu Self Assessment. Część zwolnień przysługuje automatycznie, o inne trzeba wystąpić. Przykłady z wytycznych HMRC:",
     exemptPoints: [
-      "Jeśli Twój przychód kwalifikowany wynosi £20 000 lub mniej, jesteś zwolniony automatycznie.",
-      "Jesteś zwolniony automatycznie, jeśli przed początkiem roku podatkowego nie masz numeru National Insurance.",
-      "Możesz wystąpić o zwolnienie, jeśli jesteś wykluczony cyfrowo, np. gdy wiek, stan zdrowia lub niepełnosprawność uniemożliwiają Ci korzystanie z komputera, tabletu lub smartfona albo nie masz dostępu do internetu w miejscu zamieszkania lub pracy.",
+      "Jeśli Twój przychód kwalifikowany wynosi £20 000 lub mniej, zwolnienie przysługuje Ci automatycznie.",
+      "Zwolnienie przysługuje Ci automatycznie, jeśli przed początkiem roku podatkowego nie masz numeru National Insurance.",
+      "Możesz wystąpić o zwolnienie z powodu wykluczenia cyfrowego, np. gdy wiek, stan zdrowia lub niepełnosprawność uniemożliwiają Ci korzystanie z komputera, tabletu lub smartfona albo nie masz dostępu do internetu w miejscu zamieszkania lub pracy.",
       "Niektóre zwolnienia są tymczasowe, np. związane z określonymi ulgami lub dodatkowymi stronami zeznania za rok 2024/25. Według HMRC obowiązują co najmniej do kwietnia 2027 r.",
       "HMRC nie przyjmie wniosku, jeśli jedynym powodem jest brak znajomości programów księgowych, wcześniejsze składanie zeznań na papierze lub niewielka liczba dokumentów.",
     ],
@@ -374,7 +374,7 @@ export const mtdCopy: Record<Locale, MtdCopy> = {
     colPeriod: "Okres",
     colDue: "Termin wysłania",
     quarterlyNotes: [
-      "Jeśli Twój okres rozliczeniowy trwa od 1 kwietnia do 31 marca, według HMRC powinieneś zamiast tego stosować okresy kalendarzowe. Terminy są takie same. Trzeba to ustawić w oprogramowaniu przed pierwszą aktualizacją w danym roku podatkowym.",
+      "Jeśli Twój okres rozliczeniowy trwa od 1 kwietnia do 31 marca, według HMRC należy zamiast tego stosować okresy kalendarzowe. Terminy są takie same. Trzeba to ustawić w oprogramowaniu przed pierwszą aktualizacją w danym roku podatkowym.",
     ],
     penaltiesHeading: "Spóźnione aktualizacje",
     penalties:
@@ -420,7 +420,7 @@ export const mtdCopy: Record<Locale, MtdCopy> = {
     faqHeading: "Najczęściej zadawane pytania",
     faqs: [
       {
-        question: "Czy muszę korzystać z Making Tax Digital for Income Tax, jeśli jestem samozatrudniony?",
+        question: "Czy muszę korzystać z Making Tax Digital for Income Tax, jeśli prowadzę działalność na własny rachunek?",
         answer:
           "Tylko jeśli Twój przychód kwalifikowany przekracza próg. Od 6 kwietnia 2026 r. dotyczy przychodu ponad £50 000 w roku 2024/25, od 6 kwietnia 2027 r. ponad £30 000 w roku 2025/26, a od 6 kwietnia 2028 r. ponad £20 000 w roku 2026/27. Przychód kwalifikowany do £20 000 włącznie oznacza automatyczne zwolnienie, a niektóre osoby są zwolnione z innych powodów.",
       },

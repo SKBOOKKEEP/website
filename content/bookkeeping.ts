@@ -264,7 +264,7 @@ export const bookkeepingCopy: Record<Locale, BookkeepingCopy> = {
       "Wystawione faktury sprzedaży oraz faktury zakupu lub paragony za to, co kupujesz.",
       "Wyciągi z firmowych rachunków bankowych i kart.",
       "Informacje o pożyczkach, zakupionych środkach trwałych oraz pieniądzach wpłaconych do firmy lub z niej wypłaconych.",
-      "Twój Unique Taxpayer Reference (UTR, indywidualny numer podatnika), a jeśli jesteś zarejestrowany do VAT, także numer VAT.",
+      "Twój Unique Taxpayer Reference (UTR, indywidualny numer podatnika), a jeśli firma jest zarejestrowana do VAT, także numer VAT.",
     ],
     recordsHeading: "Jak długo przechowywać dokumenty",
     records:
@@ -272,7 +272,7 @@ export const bookkeepingCopy: Record<Locale, BookkeepingCopy> = {
 
     workingHeading: "Jak wygląda współpraca",
     working: [
-      "Mam siedzibę w St Helens i pracuję zdalnie z klientami z Liverpoolu, Merseyside i całej Wielkiej Brytanii.",
+      "Działam w St Helens i pracuję zdalnie z klientami z Liverpoolu, Merseyside i całej Wielkiej Brytanii.",
       "Pracuję po polsku lub po angielsku, jak Ci wygodniej.",
       "Zaczynamy od bezpłatnej, 15-minutowej rozmowy wstępnej o Twojej firmie.",
       "Wynagrodzenie ustalamy razem po bezpłatnej rozmowie wstępnej, w zależności od tego, czego potrzebujesz.",
@@ -281,7 +281,7 @@ export const bookkeepingCopy: Record<Locale, BookkeepingCopy> = {
     faqHeading: "Najczęściej zadawane pytania",
     faqs: [
       {
-        question: "Czy jako samozatrudniony potrzebuję księgowej?",
+        question: "Czy prowadząc działalność na własny rachunek, potrzebuję księgowej?",
         answer:
           "Prawo tego nie wymaga. Musisz jednak prowadzić dokumentację, która potwierdza dane w Twoim zeznaniu podatkowym. Księgowa dba o to, by była dokładna i aktualna na bieżąco, dzięki czemu łatwiej przygotować zeznanie.",
       },

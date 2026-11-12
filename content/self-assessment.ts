@@ -154,13 +154,13 @@ export const saGuidance: Record<Locale, SelfAssessmentGuidanceCopy> = {
     whoIntro:
       "Zazwyczaj musisz złożyć deklarację, jeśli w ostatnim roku podatkowym (od 6 kwietnia do 5 kwietnia) dotyczyło Cię którekolwiek z poniższych:",
     mustFile: [
-      "Byłeś samozatrudniony jako sole trader i Twój przychód przekroczył £1000 przed odliczeniem kosztów i ulg podatkowych",
-      "Byłeś wspólnikiem w spółce osobowej (partnership)",
-      "Musiałeś zapłacić podatek od zysków kapitałowych (Capital Gains Tax) od sprzedanego lub zbytego składnika majątku",
-      "Musiałeś zapłacić High Income Child Benefit Charge i nie płacisz go przez PAYE",
+      "Działalność na własny rachunek jako sole trader z przychodem powyżej £1000 przed odliczeniem kosztów i ulg podatkowych",
+      "Udział jako wspólnik w spółce osobowej (partnership)",
+      "Obowiązek zapłaty podatku od zysków kapitałowych (Capital Gains Tax) od sprzedanego lub zbytego składnika majątku",
+      "Obowiązek zapłaty High Income Child Benefit Charge, którego nie płacisz przez PAYE",
     ],
     otherIncomeHeading:
-      "Deklaracja może być też potrzebna, jeśli miałeś inne nieopodatkowane dochody, na przykład:",
+      "Deklaracja może być też potrzebna, jeśli w tym samym roku podatkowym pojawiły się inne nieopodatkowane dochody, na przykład:",
     otherIncome: [
       "Dochód z wynajmu nieruchomości lub gruntu",
       "Napiwki i prowizje",
@@ -194,7 +194,7 @@ export const saGuidance: Record<Locale, SelfAssessmentGuidanceCopy> = {
     mtdScope:
       "Dotyczy osób prowadzących działalność jako sole trader oraz wynajmujących, zarejestrowanych w Self Assessment. Spółki osobowe (partnerships) dołączą później, w terminie, który HMRC dopiero ogłosi.",
     mtdExemptions:
-      "Zwolnienia i indywidualna sytuacja mogą wpływać na to, czy i od kiedy obowiązek Cię dotyczy — np. możesz być zwolniony, jeśli jesteś wykluczony cyfrowo.",
+      "Zwolnienia i indywidualna sytuacja mogą wpływać na to, czy i od kiedy obowiązek Cię dotyczy — np. zwolnienie może przysługiwać osobom wykluczonym cyfrowo.",
     mtdVat:
       "Ten system jest odrębny od Making Tax Digital dla VAT, który ma własne zasady.",
     mtdGuideLink:

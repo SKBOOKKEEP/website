@@ -77,8 +77,8 @@ export default function SelfAssessmentPage() {
                 <p className="text-lg text-on-primary-container mb-8 max-w-xl">
                   Expert help with your HMRC Self Assessment tax return. Whether
                   you&apos;re a sole trader, freelancer, or have additional
-                  income to declare, I&apos;ll ensure your return is accurate,
-                  compliant, and filed on time.
+                  income to declare, I&apos;ll help make sure your return is
+                  accurate, compliant, and filed on time.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button href="/#booking" variant="outline-light" size="lg">
@@ -127,8 +127,8 @@ export default function SelfAssessmentPage() {
                 </p>
                 <p className="text-on-surface-variant">
                   Filing late or making errors can result in penalties and
-                  interest charges. Working with a professional accountant
-                  ensures your return is correct and submitted on time.
+                  interest charges. Working with an accountant helps make sure
+                  your return is correct and submitted on time.
                 </p>
               </div>
               <div className="bg-surface-container-low p-6 rounded-lg">

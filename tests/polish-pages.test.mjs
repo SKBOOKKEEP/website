@@ -139,3 +139,51 @@ test("PL SA About section says 'Działam z St Helens', no 'siedziba'", () => {
   assert.match(about, /zdalnie/);
   assert.doesNotMatch(about, NO_OFFICE);
 });
+
+// Post-release wording cleanup (12 Nov 2026, T4.3/T4.5 follow-up): no "siedziba" on the
+// PL St Helens page, gender-neutral reader forms on PL pages and no over-promising
+// "gwarantuje"/"guarantee" on any live page.
+const ROUTES = JSON.parse(readFileSync(join(process.cwd(), "content", "routes.json"), "utf8")).routes;
+const fileFor = (path) => (path === "/" ? "index.html" : `${path.slice(1)}.html`);
+const livePages = (locale) =>
+  ROUTES.filter((r) => r.published && r[locale]).map((r) => fileFor(r[locale].path));
+
+test("PL St Helens: no 'siedziba' in body, meta or OG", () => {
+  const html = read(join("pl", "ksiegowa-st-helens.html"));
+  assert.doesNotMatch(html, /siedzib/i);
+});
+
+for (const file of livePages("pl")) {
+  test(`${file}: no masculine 'samozatrudniony' and no 'gwarant'`, () => {
+    const html = read(file);
+    // Whole word only: plural/neutral 'samozatrudnionych', 'samozatrudnione' are fine.
+    assert.doesNotMatch(html, /samozatrudniony(?!\p{L})/iu);
+    assert.doesNotMatch(html, /gwarant/i);
+    // Other masculine reader forms replaced in the same cleanup.
+    assert.doesNotMatch(
+      html,
+      /(?<!\p{L})(byłeś|musiałeś|miałeś|powinieneś)(?!\p{L})|jesteś (zwolniony|zarejestrowany|wykluczony)(?!\p{L})|możesz być zwolniony/iu,
+    );
+  });
+}
+
+for (const file of livePages("en")) {
+  test(`${file}: no 'guarantee' promises`, () => {
+    assert.doesNotMatch(read(file), /guarantee/i);
+  });
+}
+
+test("EN SA: accountant 'helps make sure', does not 'ensure' the return", () => {
+  const html = read("self-assessment-tax-returns.html");
+  assert.doesNotMatch(html, /ensures? your return/i);
+  assert.match(html, /helps make sure/);
+});
+
+test("PL SA who-must-file: same tax year in other-income heading, HICBC line says 'nie płacisz przez PAYE'", () => {
+  const text = decode(read(join("pl", "self-assessment.html")));
+  const heading = text.match(/Deklaracja może być też potrzebna, jeśli[^:]*:/);
+  assert.ok(heading, "other-income heading present");
+  assert.doesNotMatch(heading[0], /w tym roku/);
+  assert.match(heading[0], /w tym samym roku podatkowym/);
+  assert.match(text, /High Income Child Benefit Charge, którego nie płacisz przez PAYE/);
+});

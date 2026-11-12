@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "polski księgowy self assessment",
     "deklaracja podatkowa UK",
     "rozliczenie podatku UK po polsku",
-    "samozatrudniony UK podatek",
+    "samozatrudnienie UK podatek",
     "freelancer rozliczenie UK",
     "HMRC pomoc po polsku",
     "self employed rozliczenie",
@@ -117,9 +117,9 @@ export default function SelfAssessmentPagePl() {
                   Self Assessment to system, za pomocą którego HMRC (brytyjski
                   urząd skarbowy) pobiera podatek dochodowy od osób, które nie
                   mają podatku automatycznie potrącanego przez PAYE. Jeśli
-                  jesteś samozatrudniony, freelancerem lub masz dochody z innych
-                  źródeł niż etat, prawdopodobnie musisz złożyć deklarację Self
-                  Assessment.
+                  prowadzisz działalność na własny rachunek, pracujesz jako
+                  freelancer lub masz dochody z innych źródeł niż etat,
+                  prawdopodobnie musisz złożyć deklarację Self Assessment.
                 </p>
                 <p className="text-on-surface-variant mb-4">
                   Rok podatkowy trwa od 6 kwietnia do 5 kwietnia następnego
@@ -129,8 +129,8 @@ export default function SelfAssessmentPagePl() {
                 </p>
                 <p className="text-on-surface-variant">
                   Spóźnione złożenie lub błędy mogą skutkować karami i odsetkami.
-                  Współpraca z profesjonalną księgową gwarantuje, że Twoja
-                  deklaracja będzie poprawna i złożona na czas.
+                  Współpraca z księgową pomaga zadbać o to, by deklaracja była
+                  poprawna i złożona na czas.
                 </p>
               </div>
               <div className="bg-surface-container-low p-6 rounded-lg">
