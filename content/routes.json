@@ -20,8 +20,8 @@
     {
       "key": "bookkeeping",
       "kind": "service",
-      "published": false,
-      "lastModified": null,
+      "published": true,
+      "lastModified": "2026-11-12",
       "en": { "path": "/bookkeeping-vat", "label": "Bookkeeping & VAT", "priority": 0.9 },
       "pl": { "path": "/pl/ksiegowosc-vat", "label": "Księgowość i VAT", "priority": 0.8 }
     },
