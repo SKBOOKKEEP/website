@@ -1,4 +1,5 @@
 import NavBar from "@/components/NavBar";
+import PageJsonLd from "@/components/PageJsonLd";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
@@ -10,6 +11,7 @@ import { pl } from "@/content/copy";
 export default function HomePl() {
   return (
     <>
+      <PageJsonLd routeKey="home" locale="pl" />
       <NavBar content={pl.nav} locale="pl" routeKey="home" />
       <main className="mt-20">
         <Hero content={pl.hero} />

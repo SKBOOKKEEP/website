@@ -16,27 +16,6 @@ export const metadata: Metadata = {
   },
   description:
     "Bookkeeping, VAT, Self Assessment and Ltd company accounts in St Helens and Liverpool. Based in St Helens, working remotely across the UK, in English and Polish.",
-  keywords: [
-    "accountant Liverpool",
-    "bookkeeping Liverpool",
-    "bookkeeper Liverpool",
-    "company tax Liverpool",
-    "corporation tax accountant Liverpool",
-    "limited company accountant Liverpool",
-    "accountant St Helens",
-    "HMRC consulting Liverpool",
-    "sole trader accountant Liverpool",
-    "Ltd company accounts Liverpool",
-    "VAT returns Liverpool",
-    "self-employed accountant Liverpool",
-    "tax returns Liverpool",
-    "payroll Liverpool",
-    "professional accountant Merseyside",
-    "small business bookkeeping Liverpool",
-    "Polish accountant Liverpool",
-    "business accountant Liverpool",
-    "affordable accountant Liverpool",
-  ],
   openGraph: {
     title: "Accountant & Bookkeeper St Helens & Liverpool | Sabina Krajewska",
     description:
