@@ -51,10 +51,12 @@ export function buildJsonLd(locale: Locale) {
           addressRegion: "Merseyside",
           addressCountry: "GB",
         },
+        // Deliberately coarse (~1 km, central St Helens): home-based business,
+        // no precise pin (T1.5, owner decision 11 Nov 2026).
         geo: {
           "@type": "GeoCoordinates",
-          latitude: 53.4534,
-          longitude: -2.7368,
+          latitude: 53.45,
+          longitude: -2.74,
         },
         priceRange: "££",
         knowsLanguage: ["en", "pl"],
@@ -68,6 +70,8 @@ export function buildJsonLd(locale: Locale) {
           "Limited Company Accounts",
           "Sole Trader Accounts",
           "Self Assessment Tax Returns",
+          "Construction Industry Scheme (CIS)",
+          "Company Formation",
         ],
         founder: { "@id": `${SITE_URL}/#person` },
       },
