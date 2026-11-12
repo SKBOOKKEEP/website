@@ -89,8 +89,8 @@ export const liverpoolCopy: Record<Locale, LiverpoolCopy> = {
         text: "Receipts, invoices and bank statements can be sent electronically, so there are no carrier bags of paperwork to hand over.",
       },
       {
-        title: "Calls at a time that suits you",
-        text: "We arrange calls around your working day rather than around opening hours and journey times.",
+        title: "Calls at an agreed time",
+        text: "We arrange calls at a time that suits us both, with no journey to fit around them.",
       },
       {
         title: "One person, start to finish",
@@ -112,7 +112,7 @@ export const liverpoolCopy: Record<Locale, LiverpoolCopy> = {
     ],
     coverHeading: "What I can do for a Liverpool or Merseyside business",
     cover: [
-      "Bookkeeping at whatever frequency you need, from weekly to quarterly",
+      "Bookkeeping weekly, monthly, quarterly or as often as you need",
       "Catching up on late or missing records",
       "VAT registration, VAT Returns submitted using Making Tax Digital software, and advice on VAT schemes",
       "Setting up bookkeeping software",
@@ -148,8 +148,8 @@ export const liverpoolCopy: Record<Locale, LiverpoolCopy> = {
           "I'm based in St Helens and work remotely only, by phone, video call and email. There are no face-to-face meetings.",
       },
       {
-        question: "Who will actually do my books?",
-        answer: "I do. You deal with me directly.",
+        question: "Who will I be dealing with?",
+        answer: "You deal with me directly.",
       },
       {
         question: "How will I send you my records?",
@@ -201,7 +201,7 @@ export const liverpoolCopy: Record<Locale, LiverpoolCopy> = {
           "Yes. Catching up on late or missing records is part of what I do. Tell me where things stand on the introductory call.",
       },
       {
-        question: "Can you deal with HMRC for me?",
+        question: "Can you help me with HMRC?",
         answer:
           "I can help with HMRC letters and correspondence, and explain what they mean in plain English or Polish.",
       },
@@ -239,8 +239,8 @@ export const liverpoolCopy: Record<Locale, LiverpoolCopy> = {
         text: "Paragony, faktury i wyciągi bankowe możesz przesłać elektronicznie — bez przekazywania toreb pełnych papierów.",
       },
       {
-        title: "Rozmowy w dogodnym terminie",
-        text: "Umawiamy rozmowy tak, by pasowały do Twojego dnia pracy, a nie do godzin otwarcia i czasu dojazdu.",
+        title: "Rozmowy w uzgodnionym terminie",
+        text: "Umawiamy rozmowy w terminie dogodnym dla obu stron, bez dojazdu, który trzeba by uwzględnić.",
       },
       {
         title: "Jedna osoba od początku do końca",
@@ -262,7 +262,7 @@ export const liverpoolCopy: Record<Locale, LiverpoolCopy> = {
     ],
     coverHeading: "W czym mogę pomóc firmie z Liverpoolu lub Merseyside",
     cover: [
-      "Prowadzenie księgowości tak często, jak potrzebujesz — od co tygodnia do co kwartał",
+      "Prowadzenie księgowości co tydzień, co miesiąc, co kwartał lub tak często, jak potrzebujesz",
       "Uzupełnianie zaległej lub brakującej dokumentacji",
       "Rejestracja do VAT, deklaracje VAT (VAT Returns) składane za pomocą oprogramowania zgodnego z Making Tax Digital oraz doradztwo w wyborze schematu VAT",
       "Konfiguracja oprogramowania księgowego",
@@ -298,8 +298,8 @@ export const liverpoolCopy: Record<Locale, LiverpoolCopy> = {
           "Działam w St Helens i pracuję wyłącznie zdalnie — przez telefon, wideorozmowy i e-mail. Nie prowadzę spotkań osobistych.",
       },
       {
-        question: "Kto faktycznie będzie prowadzić moją księgowość?",
-        answer: "Ja. Kontaktujesz się bezpośrednio ze mną.",
+        question: "Z kim będę się kontaktować?",
+        answer: "Kontaktujesz się bezpośrednio ze mną.",
       },
       {
         question: "Jak mam przekazywać dokumenty?",
@@ -351,9 +351,9 @@ export const liverpoolCopy: Record<Locale, LiverpoolCopy> = {
           "Tak. Uzupełnianie zaległej lub brakującej dokumentacji to część mojej pracy. Opowiedz mi o swojej sytuacji podczas rozmowy wstępnej.",
       },
       {
-        question: "Czy możesz załatwiać sprawy z HMRC w moim imieniu?",
+        question: "Czy pomożesz mi w sprawach z HMRC?",
         answer:
-          "Pomagam w korespondencji z HMRC i wyjaśniam po polsku, czego dotyczą pisma.",
+          "Pomagam w korespondencji z HMRC i wyjaśniam prostym językiem, po angielsku lub po polsku, czego dotyczą pisma.",
       },
     ],
     disclaimer:
