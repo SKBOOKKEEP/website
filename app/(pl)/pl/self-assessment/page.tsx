@@ -19,7 +19,7 @@ export const metadata: Metadata = {
       "Księgowa Self Assessment St Helens i Liverpool | Sabina Krajewska",
   },
   description:
-    "Rozliczenie Self Assessment po polsku dla samozatrudnionych, wynajmujących i freelancerów — St Helens, Liverpool i zdalnie w UK. Skontaktuj się ze mną.",
+    "Rozliczenie Self Assessment po polsku z księgową z St Helens — dla samozatrudnionych i freelancerów z Liverpoolu, zdalnie w całej Wielkiej Brytanii.",
   alternates: pageAlternates("selfAssessment", "pl"),
   openGraph: {
     title: "Rozliczenie Self Assessment po polsku | St Helens i Liverpool",

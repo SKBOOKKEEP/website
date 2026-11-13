@@ -3,61 +3,14 @@ import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
 import type { Locale } from "@/content/copy";
 import { stHelensCopy } from "@/content/st-helens";
-import { SITE_URL } from "@/lib/seo";
 import { PHONE_E164, PHONE_DISPLAY } from "@/lib/nap";
-import { getRoute, publishedPath, type RouteKey } from "@/lib/routes";
+import { publishedPath, type RouteKey } from "@/lib/routes";
 
 const linkClass =
   "text-secondary underline underline-offset-2 hover:text-primary transition-colors";
 
-const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
-
-/**
- * Page-level structured data: WebPage + BreadcrumbList only. The WebPage is
- * `about` the single #business entity from the layout by @id reference; it
- * defines no business, address or areaServed of its own.
- */
-export function stHelensJsonLd(locale: Locale) {
-  const c = stHelensCopy[locale];
-  const route = getRoute("stHelens");
-  const home = getRoute("home");
-  const url = abs(route[locale]!.path);
-
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${url}#webpage`,
-        url,
-        name: c.title,
-        description: c.description,
-        inLanguage: locale === "pl" ? "pl-PL" : "en-GB",
-        about: { "@id": `${SITE_URL}/#business` },
-        breadcrumb: { "@id": `${url}#breadcrumb` },
-        ...(route.lastModified ? { dateModified: route.lastModified } : {}),
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${url}#breadcrumb`,
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: home[locale]!.label,
-            item: abs(home[locale]!.path),
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: route[locale]!.label,
-            item: url,
-          },
-        ],
-      },
-    ],
-  };
-}
+// WebPage + BreadcrumbList for this route are rendered once, centrally, by
+// <PageJsonLd> on the page component — not duplicated here.
 
 /** Shared body of the EN and PL St Helens pages (T2.3). */
 export default function StHelens({ locale }: { locale: Locale }) {
@@ -101,16 +54,6 @@ export default function StHelens({ locale }: { locale: Locale }) {
 
   return (
     <main className="mt-20">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(stHelensJsonLd(locale)).replace(
-            /</g,
-            "\\u003c",
-          ),
-        }}
-      />
-
       {/* Hero */}
       <section className="relative py-20 bg-primary-container overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-16">

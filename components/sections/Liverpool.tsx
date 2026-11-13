@@ -3,61 +3,14 @@ import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
 import type { Locale } from "@/content/copy";
 import { liverpoolCopy } from "@/content/liverpool";
-import { SITE_URL } from "@/lib/seo";
 import { PHONE_E164, PHONE_DISPLAY } from "@/lib/nap";
-import { getRoute, publishedPath, type RouteKey } from "@/lib/routes";
+import { publishedPath, type RouteKey } from "@/lib/routes";
 
 const linkClass =
   "text-secondary underline underline-offset-2 hover:text-primary transition-colors";
 
-const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
-
-/**
- * Page-level structured data: WebPage + BreadcrumbList only. The WebPage is
- * `about` the single #business entity from the layout by @id reference; it
- * defines no business, address, geo or areaServed of its own.
- */
-export function liverpoolJsonLd(locale: Locale) {
-  const c = liverpoolCopy[locale];
-  const route = getRoute("liverpool");
-  const home = getRoute("home");
-  const url = abs(route[locale]!.path);
-
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${url}#webpage`,
-        url,
-        name: c.title,
-        description: c.description,
-        inLanguage: locale === "pl" ? "pl-PL" : "en-GB",
-        about: { "@id": `${SITE_URL}/#business` },
-        breadcrumb: { "@id": `${url}#breadcrumb` },
-        ...(route.lastModified ? { dateModified: route.lastModified } : {}),
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${url}#breadcrumb`,
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: home[locale]!.label,
-            item: abs(home[locale]!.path),
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: route[locale]!.label,
-            item: url,
-          },
-        ],
-      },
-    ],
-  };
-}
+// WebPage + BreadcrumbList for this route are rendered once, centrally, by
+// <PageJsonLd> on the page component — not duplicated here.
 
 /** Shared body of the EN and PL Liverpool pages (T2.4). */
 export default function Liverpool({ locale }: { locale: Locale }) {
@@ -87,16 +40,6 @@ export default function Liverpool({ locale }: { locale: Locale }) {
 
   return (
     <main className="mt-20">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(liverpoolJsonLd(locale)).replace(
-            /</g,
-            "\\u003c",
-          ),
-        }}
-      />
-
       {/* Hero: the honest answer to "bookkeeper Liverpool" */}
       <section className="relative py-20 bg-primary-container overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-16">

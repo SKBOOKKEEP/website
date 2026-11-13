@@ -107,7 +107,8 @@ const absoluteUrl = (path: string) => (path === "/" ? SITE_URL : `${SITE_URL}${p
  * by <PageJsonLd> on each page; references the layout's #website/#business.
  */
 export function buildPageJsonLd(key: RouteKey, locale: Locale) {
-  const page = getRoute(key)[locale];
+  const route = getRoute(key);
+  const page = route[locale];
   if (!page) throw new Error(`Route ${key} has no ${locale} path`);
   const url = absoluteUrl(page.path);
   const home = getRoute("home")[locale]!;
@@ -124,6 +125,7 @@ export function buildPageJsonLd(key: RouteKey, locale: Locale) {
     inLanguage: locale === "pl" ? "pl-PL" : "en-GB",
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: { "@id": `${SITE_URL}/#business` },
+    ...(route.lastModified ? { dateModified: route.lastModified } : {}),
     ...(isHome ? {} : { breadcrumb: { "@id": breadcrumbId } }),
   };
 

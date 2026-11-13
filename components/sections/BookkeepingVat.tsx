@@ -16,50 +16,21 @@ const linkClass =
 const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
 /**
- * Page-level structured data: WebPage, BreadcrumbList, Service and FAQPage.
- * All of them point at the single #business entity from the layout; none
- * defines a business of its own. FAQPage is built from the same copy as the
- * visible FAQ, so the two always match word for word. No Offer or price.
+ * Page-level structured data: Service and FAQPage, both pointing at the
+ * single #business entity from the layout; neither defines a business of
+ * its own. FAQPage is built from the same copy as the visible FAQ, so the
+ * two always match word for word. No Offer or price. WebPage + BreadcrumbList
+ * for this route are rendered once, centrally, by <PageJsonLd> instead.
  */
 export function bookkeepingJsonLd(locale: Locale) {
   const c = bookkeepingCopy[locale];
   const route = getRoute("bookkeeping");
-  const home = getRoute("home");
   const url = abs(route[locale]!.path);
   const business = { "@id": `${SITE_URL}/#business` };
 
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${url}#webpage`,
-        url,
-        name: c.title,
-        description: c.description,
-        inLanguage: locale === "pl" ? "pl-PL" : "en-GB",
-        about: business,
-        breadcrumb: { "@id": `${url}#breadcrumb` },
-        ...(route.lastModified ? { dateModified: route.lastModified } : {}),
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${url}#breadcrumb`,
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: home[locale]!.label,
-            item: abs(home[locale]!.path),
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: route[locale]!.label,
-            item: url,
-          },
-        ],
-      },
       {
         "@type": "Service",
         "@id": `${url}#service`,

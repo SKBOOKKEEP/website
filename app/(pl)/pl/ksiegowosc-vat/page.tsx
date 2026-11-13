@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import NavBar from "@/components/NavBar";
+import PageJsonLd from "@/components/PageJsonLd";
 import Footer from "@/components/Footer";
 import BookkeepingVat from "@/components/sections/BookkeepingVat";
 import { pl } from "@/content/copy";
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
 export default function BookkeepingVatPagePl() {
   return (
     <>
+      <PageJsonLd routeKey="bookkeeping" locale="pl" />
       <NavBar content={pl.nav} locale="pl" routeKey="bookkeeping" />
       <BookkeepingVat locale="pl" />
       <Footer content={pl.footer} locale="pl" />

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import NavBar from "@/components/NavBar";
+import PageJsonLd from "@/components/PageJsonLd";
 import Footer from "@/components/Footer";
 import Liverpool from "@/components/sections/Liverpool";
 import { pl } from "@/content/copy";
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
 export default function LiverpoolPagePl() {
   return (
     <>
+      <PageJsonLd routeKey="liverpool" locale="pl" />
       <NavBar content={pl.nav} locale="pl" routeKey="liverpool" />
       <Liverpool locale="pl" />
       <Footer content={pl.footer} locale="pl" />
