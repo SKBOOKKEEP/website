@@ -13,6 +13,8 @@ export type RouteKey =
   | "limitedCompany"
   | "payroll"
   | "hmrcSupport"
+  | "cis"
+  | "companyFormation"
   | "stHelens"
   | "liverpool"
   | "polishUk"
