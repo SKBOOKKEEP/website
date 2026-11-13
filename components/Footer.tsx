@@ -1,5 +1,6 @@
 import type { Content, Locale } from "@/content/copy";
 import { footerRoutes, publishedPath } from "@/lib/routes";
+import { FACEBOOK_URL } from "@/lib/nap";
 
 export default function Footer({
   content,
@@ -44,7 +45,7 @@ export default function Footer({
             {content.hmrcLink}
           </a>
           <a
-            href="https://www.facebook.com/share/1EWvARkhhL/?ref=1"
+            href={FACEBOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-on-primary-container hover:text-surface-bright transition-colors"
