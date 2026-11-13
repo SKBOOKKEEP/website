@@ -44,8 +44,8 @@
     {
       "key": "payroll",
       "kind": "service",
-      "published": false,
-      "lastModified": null,
+      "published": true,
+      "lastModified": "2026-11-13",
       "en": { "path": "/payroll", "label": "Payroll", "priority": 0.7 },
       "pl": { "path": "/pl/payroll", "label": "Payroll", "priority": 0.6 }
     },
@@ -56,6 +56,22 @@
       "lastModified": "2026-11-13",
       "en": { "path": "/hmrc-support", "label": "HMRC support", "priority": 0.7 },
       "pl": { "path": "/pl/pomoc-hmrc", "label": "Pomoc z HMRC", "priority": 0.6 }
+    },
+    {
+      "key": "cis",
+      "kind": "service",
+      "published": true,
+      "lastModified": "2026-11-13",
+      "en": { "path": "/cis", "label": "CIS support", "priority": 0.7 },
+      "pl": { "path": "/pl/cis", "label": "Wsparcie CIS", "priority": 0.6 }
+    },
+    {
+      "key": "companyFormation",
+      "kind": "service",
+      "published": true,
+      "lastModified": "2026-11-13",
+      "en": { "path": "/company-formation", "label": "Company formation", "priority": 0.7 },
+      "pl": { "path": "/pl/zakladanie-spolki-ltd", "label": "Zakładanie spółki Ltd", "priority": 0.6 }
     },
     {
       "key": "stHelens",

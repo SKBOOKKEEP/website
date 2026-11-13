@@ -67,9 +67,17 @@ function jsonLdNodes(html) {
 
 const hrefs = (html) => [...html.matchAll(/href="([^"]+)"/g)].map((m) => m[1].replace(/&amp;/g, "&"));
 
+// Page-content-only text (excludes the site-wide nav/footer, which now links
+// to other published services such as Payroll — T2.8 — once published).
+function mainText(html) {
+  const main = html.slice(html.indexOf("<main"), html.indexOf("</main>"));
+  return decode(main.replace(/<script[\s\S]*?<\/script>/g, " "));
+}
+
 for (const [locale, p] of Object.entries(PAGES)) {
   const html = readHtml(p.file);
   const text = visibleText(html);
+  const bodyText = mainText(html);
 
   test(`[${locale}] title, meta description, canonical and single H1`, () => {
     const title = decode(html.match(/<title>([\s\S]*?)<\/title>/)[1]);
@@ -155,8 +163,10 @@ for (const [locale, p] of Object.entries(PAGES)) {
   test(`[${locale}] offers only the three confirmed services: accounts, CT600, tax planning`, () => {
     assert.match(text, /CT600/);
     assert.match(text, locale === "en" ? /tax planning/i : /planowanie podatkowe/i);
-    // No invented extra services such as payroll or company formation on this page.
-    assert.doesNotMatch(text, /payroll/i);
+    // No invented extra services such as payroll or company formation in the
+    // page's own content (the site-wide footer may separately link to other
+    // published services, such as Payroll — T2.8).
+    assert.doesNotMatch(bodyText, /payroll/i);
   });
 
   test(`[${locale}] remote only, no invented credentials, no HMRC agent claim`, () => {
