@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import NavBar from "@/components/NavBar";
+import PageJsonLd from "@/components/PageJsonLd";
 import Footer from "@/components/Footer";
 import MtdIncomeTax from "@/components/sections/MtdIncomeTax";
 import { pl } from "@/content/copy";
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
 export default function MtdIncomeTaxPagePl() {
   return (
     <>
+      <PageJsonLd routeKey="mtdIncomeTax" locale="pl" />
       <NavBar content={pl.nav} locale="pl" routeKey="mtdIncomeTax" />
       <MtdIncomeTax locale="pl" />
       <Footer content={pl.footer} locale="pl" />

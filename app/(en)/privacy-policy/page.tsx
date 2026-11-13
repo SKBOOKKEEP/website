@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import NavBar from "@/components/NavBar";
+import PageJsonLd from "@/components/PageJsonLd";
 import Footer from "@/components/Footer";
 import { en } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
@@ -11,11 +12,28 @@ export const metadata: Metadata = {
   description:
     "Privacy policy for Sabina Krajewska Bookkeeping. Learn how we collect, use, and protect your personal data.",
   alternates: pageAlternates("privacy", "en"),
+  // Own social tags: without these the page inherits the home page's
+  // og:title/og:url/og:image from the layout.
+  openGraph: {
+    title: "Privacy Policy | Sabina Krajewska Bookkeeping",
+    description: "How Sabina Krajewska Bookkeeping collects, uses and protects your personal data, and your rights.",
+    siteName: "Sabina Krajewska Bookkeeping",
+    url: `${SITE_URL}/privacy-policy`,
+    type: "website",
+    locale: "en_GB",
+    alternateLocale: ["pl_PL"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Sabina Krajewska Bookkeeping",
+    description: "How Sabina Krajewska Bookkeeping collects, uses and protects your personal data, and your rights.",
+  },
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <PageJsonLd routeKey="privacy" locale="en" />
       <NavBar content={en.nav} locale="en" routeKey="privacy" />
       <main className="mt-20 py-16 px-5 md:px-16">
         <article className="max-w-3xl mx-auto prose prose-slate">

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import NavBar from "@/components/NavBar";
+import PageJsonLd from "@/components/PageJsonLd";
 import Footer from "@/components/Footer";
 import { pl } from "@/content/copy";
 import { SITE_URL } from "@/lib/seo";
@@ -11,11 +12,28 @@ export const metadata: Metadata = {
   description:
     "Polityka prywatności Sabina Krajewska Bookkeeping. Dowiedz się, jak zbieramy, wykorzystujemy i chronimy Twoje dane osobowe.",
   alternates: pageAlternates("privacy", "pl"),
+  // Own social tags: without these the page inherits the home page's
+  // og:title/og:url/og:image from the layout.
+  openGraph: {
+    title: "Polityka prywatności | Sabina Krajewska Księgowość",
+    description: "Jak Sabina Krajewska Bookkeeping zbiera, wykorzystuje i chroni Twoje dane osobowe oraz jakie masz prawa.",
+    siteName: "Sabina Krajewska Bookkeeping",
+    url: `${SITE_URL}/pl/privacy-policy`,
+    type: "website",
+    locale: "pl_PL",
+    alternateLocale: ["en_GB"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Polityka prywatności | Sabina Krajewska Księgowość",
+    description: "Jak Sabina Krajewska Bookkeeping zbiera, wykorzystuje i chroni Twoje dane osobowe oraz jakie masz prawa.",
+  },
 };
 
 export default function PrivacyPolicyPagePl() {
   return (
     <>
+      <PageJsonLd routeKey="privacy" locale="pl" />
       <NavBar content={pl.nav} locale="pl" routeKey="privacy" />
       <main className="mt-20 py-16 px-5 md:px-16">
         <article className="max-w-3xl mx-auto prose prose-slate">

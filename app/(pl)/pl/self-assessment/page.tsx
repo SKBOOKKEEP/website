@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
+import PageJsonLd from "@/components/PageJsonLd";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
@@ -18,19 +19,7 @@ export const metadata: Metadata = {
       "Księgowa Self Assessment St Helens i Liverpool | Sabina Krajewska",
   },
   description:
-    "Self Assessment po polsku z księgową z St Helens — dla samozatrudnionych, wynajmujących i freelancerów z Liverpoolu i zdalnie z całej Wielkiej Brytanii.",
-  keywords: [
-    "self assessment po polsku",
-    "rozliczenie self assessment UK",
-    "polski księgowy self assessment",
-    "deklaracja podatkowa UK",
-    "rozliczenie podatku UK po polsku",
-    "samozatrudnienie UK podatek",
-    "freelancer rozliczenie UK",
-    "HMRC pomoc po polsku",
-    "self employed rozliczenie",
-    "polska księgowa Liverpool",
-  ],
+    "Rozliczenie Self Assessment po polsku z księgową z St Helens — dla samozatrudnionych i freelancerów z Liverpoolu, zdalnie w całej Wielkiej Brytanii.",
   alternates: pageAlternates("selfAssessment", "pl"),
   openGraph: {
     title: "Rozliczenie Self Assessment po polsku | St Helens i Liverpool",
@@ -63,6 +52,7 @@ const benefits = [
 export default function SelfAssessmentPagePl() {
   return (
     <>
+      <PageJsonLd routeKey="selfAssessment" locale="pl" />
       <NavBar content={pl.nav} locale="pl" routeKey="selfAssessment" />
 
       <main className="mt-20">

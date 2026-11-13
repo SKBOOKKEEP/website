@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
+import PageJsonLd from "@/components/PageJsonLd";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
@@ -19,18 +20,6 @@ export const metadata: Metadata = {
   },
   description:
     "Self Assessment tax returns for sole traders, landlords and freelancers in St Helens and Liverpool, in English or Polish. Get in touch to discuss your return.",
-  keywords: [
-    "self assessment Liverpool",
-    "self assessment St Helens",
-    "tax return Liverpool",
-    "self assessment accountant Liverpool",
-    "HMRC tax return help",
-    "sole trader tax return",
-    "freelancer tax return UK",
-    "Polish accountant self assessment",
-    "self employed tax return",
-    "personal tax return Liverpool",
-  ],
   alternates: pageAlternates("selfAssessment", "en"),
   openGraph: {
     title: "Self Assessment Tax Returns | St Helens & Liverpool",
@@ -63,6 +52,7 @@ const benefits = [
 export default function SelfAssessmentPage() {
   return (
     <>
+      <PageJsonLd routeKey="selfAssessment" locale="en" />
       <NavBar content={en.nav} locale="en" routeKey="selfAssessment" />
 
       <main className="mt-20">
