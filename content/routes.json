@@ -36,8 +36,8 @@
     {
       "key": "limitedCompany",
       "kind": "service",
-      "published": false,
-      "lastModified": null,
+      "published": true,
+      "lastModified": "2026-11-13",
       "en": { "path": "/limited-company-accounts", "label": "Limited company accounts", "priority": 0.8 },
       "pl": { "path": "/pl/rozliczenia-spolek-ltd", "label": "Spółki Ltd", "priority": 0.7 }
     },
@@ -52,8 +52,8 @@
     {
       "key": "hmrcSupport",
       "kind": "service",
-      "published": false,
-      "lastModified": null,
+      "published": true,
+      "lastModified": "2026-11-13",
       "en": { "path": "/hmrc-support", "label": "HMRC support", "priority": 0.7 },
       "pl": { "path": "/pl/pomoc-hmrc", "label": "Pomoc z HMRC", "priority": 0.6 }
     },
