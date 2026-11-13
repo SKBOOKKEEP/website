@@ -76,8 +76,8 @@
     {
       "key": "polishUk",
       "kind": "location",
-      "published": false,
-      "lastModified": null,
+      "published": true,
+      "lastModified": "2026-11-13",
       "pl": { "path": "/pl/polska-ksiegowa-uk", "label": "Cała Wielka Brytania", "priority": 0.7 }
     },
     {
