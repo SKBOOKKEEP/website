@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/content/copy";
-import { PHONE_E164, CONTACT_EMAIL } from "@/lib/nap";
+import { PHONE_E164, CONTACT_EMAIL, FACEBOOK_URL } from "@/lib/nap";
 import { getRoute, type RouteKey } from "@/lib/routes";
 
 // Must match the primary domain configured on the host (apex redirects to www),
@@ -40,6 +40,8 @@ export function buildJsonLd(locale: Locale) {
         // language lives on its WebPage node (see buildPageJsonLd).
         url: SITE_URL,
         logo: `${SITE_URL}/logo.png`,
+        // Official Facebook page ("Babka z księgowości"), owner-confirmed 14 Nov 2026.
+        sameAs: [FACEBOOK_URL],
         telephone: PHONE_E164,
         email: CONTACT_EMAIL,
         image: `${SITE_URL}/Sabina.jpeg`,

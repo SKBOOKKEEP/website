@@ -49,6 +49,7 @@ for (const page of pages) {
     assert.equal(business.url, SITE, "same business URL in every language");
     assert.equal(business.inLanguage, undefined, "language belongs on WebPage, not the business");
     assert.equal(business.logo, `${SITE}/logo.png`);
+    assert.deepEqual(business.sameAs, ["https://www.facebook.com/profile.php?id=61569974506640"], "official Facebook page");
   });
 
   test(`${label}: one WebSite node shared across languages`, () => {
