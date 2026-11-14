@@ -41,7 +41,16 @@ export const GOV_UK = {
   penalties:
     "https://www.gov.uk/guidance/penalties-for-making-tax-digital-for-income-tax",
   vat: "https://www.gov.uk/charge-reclaim-record-vat",
+  vatMtdNotice:
+    "https://www.gov.uk/government/publications/vat-notice-70022-making-tax-digital-for-vat",
 } as const;
+
+/**
+ * "MTD for VAT vs MTD for Income Tax" comparison (T3.3), checked live against
+ * GOV.UK on COMPARISON_CHECKED_ON. The Income Tax thresholds/dates below
+ * repeat MTD_COHORTS in content/self-assessment.ts and must always match it.
+ */
+export const COMPARISON_CHECKED_ON = "2026-11-14";
 
 /**
  * Standard update periods (tax year 6 April to 5 April). Each update is
@@ -111,6 +120,18 @@ export type MtdCopy = {
   vatBoxHeading: string;
   vatBox: string[];
   vatBoxLink: string;
+
+  comparisonHeading: string;
+  comparisonIntro: string;
+  comparisonTableCaption: string;
+  comparisonColAspect: string;
+  comparisonColVat: string;
+  comparisonColIncomeTax: string;
+  comparisonRows: { aspect: string; vat: string; incomeTax: string }[];
+  comparisonNote: string;
+  comparisonDisclaimer: (checkedOn: string) => string;
+  comparisonSourcesHeading: string;
+  comparisonSources: Link[];
 
   helpHeading: string;
   helpIntro: string;
@@ -230,6 +251,42 @@ export const mtdCopy: Record<Locale, MtdCopy> = {
       "You might be in one, both or neither. If you're in both, HMRC keeps your penalty points for each separately.",
     ],
     vatBoxLink: "Bookkeeping and VAT returns",
+
+    comparisonHeading: "MTD for VAT vs MTD for Income Tax",
+    comparisonIntro:
+      "They're both part of HMRC's Making Tax Digital programme, but they're separate rules on different timelines. Here's how GOV.UK describes the two side by side.",
+    comparisonTableCaption: "Making Tax Digital: VAT vs Income Tax, at a glance",
+    comparisonColAspect: "",
+    comparisonColVat: "MTD for VAT",
+    comparisonColIncomeTax: "MTD for Income Tax",
+    comparisonRows: [
+      {
+        aspect: "Who's covered",
+        vat: "Every VAT-registered business.",
+        incomeTax:
+          "Sole traders and landlords registered for Self Assessment, once their qualifying income is over the threshold.",
+      },
+      {
+        aspect: "What's mandatory now",
+        vat: "Keeping digital VAT records and submitting VAT Returns through compatible software, for every VAT-registered business regardless of turnover, since 1 April 2022.",
+        incomeTax:
+          "Phased in by qualifying income rather than mandatory straight away: over £50,000 from 6 April 2026, over £30,000 from 6 April 2027, and over £20,000 from 6 April 2028.",
+      },
+      {
+        aspect: "What you send",
+        vat: "A VAT Return, usually every 3 months.",
+        incomeTax: "A quarterly update every 3 months, plus an end-of-year tax return by 31 January.",
+      },
+    ],
+    comparisonNote:
+      "This is general information, not tax advice. It's not a recommendation to register for VAT or to join Making Tax Digital for Income Tax before you need to — whether either applies depends on your own figures.",
+    comparisonDisclaimer: (checkedOn) =>
+      `Checked against GOV.UK on ${checkedOn}.`,
+    comparisonSourcesHeading: "Sources for this comparison (GOV.UK)",
+    comparisonSources: [
+      { label: "VAT Notice 700/22: Making Tax Digital for VAT", href: GOV_UK.vatMtdNotice },
+      { label: "Find out if and when you need to use Making Tax Digital for Income Tax", href: GOV_UK.whenToUse },
+    ],
 
     helpHeading: "How I can help",
     helpIntro:
@@ -401,6 +458,41 @@ export const mtdCopy: Record<Locale, MtdCopy> = {
       "Może Cię dotyczyć jeden z tych systemów, oba albo żaden. Jeśli oba, HMRC prowadzi punkty karne dla każdego z nich osobno.",
     ],
     vatBoxLink: "Księgowość i deklaracje VAT",
+
+    comparisonHeading: "MTD dla VAT a MTD for Income Tax",
+    comparisonIntro:
+      "Oba systemy są częścią programu Making Tax Digital prowadzonego przez HMRC, ale to odrębne zasady obowiązujące według różnych harmonogramów. Oto, jak GOV.UK opisuje je obok siebie.",
+    comparisonTableCaption: "Making Tax Digital: VAT a Income Tax — porównanie",
+    comparisonColAspect: "",
+    comparisonColVat: "MTD dla VAT",
+    comparisonColIncomeTax: "MTD for Income Tax",
+    comparisonRows: [
+      {
+        aspect: "Kogo obejmuje",
+        vat: "Każdą firmę zarejestrowaną do VAT.",
+        incomeTax:
+          "Osoby prowadzące działalność jako sole trader oraz wynajmujących, zarejestrowanych w Self Assessment, gdy ich przychód kwalifikowany przekroczy próg.",
+      },
+      {
+        aspect: "Co jest już obowiązkowe",
+        vat: "Prowadzenie cyfrowej dokumentacji VAT i składanie deklaracji VAT przez zgodne oprogramowanie — dla każdej firmy zarejestrowanej do VAT, niezależnie od obrotu, od 1 kwietnia 2022 r.",
+        incomeTax:
+          "Wchodzi etapami według przychodu kwalifikowanego, a nie od razu dla wszystkich: ponad £50 000 od 6 kwietnia 2026 r., ponad £30 000 od 6 kwietnia 2027 r. i ponad £20 000 od 6 kwietnia 2028 r.",
+      },
+      {
+        aspect: "Co się wysyła",
+        vat: "Deklarację VAT, zwykle co 3 miesiące.",
+        incomeTax: "Aktualizację kwartalną co 3 miesiące oraz roczne zeznanie podatkowe do 31 stycznia.",
+      },
+    ],
+    comparisonNote:
+      "To informacje ogólne, a nie porada podatkowa. To nie jest rekomendacja, by rejestrować się do VAT albo dołączać do Making Tax Digital for Income Tax wcześniej, niż to konieczne — to, czy któryś z obowiązków Cię dotyczy, zależy od Twoich własnych liczb.",
+    comparisonDisclaimer: (checkedOn) => `Sprawdzone w GOV.UK ${checkedOn}`,
+    comparisonSourcesHeading: "Źródła tego porównania (GOV.UK, po angielsku)",
+    comparisonSources: [
+      { label: "VAT Notice 700/22: Making Tax Digital for VAT", href: GOV_UK.vatMtdNotice },
+      { label: "Czy i od kiedy musisz korzystać z Making Tax Digital for Income Tax", href: GOV_UK.whenToUse },
+    ],
 
     helpHeading: "Jak mogę pomóc",
     helpIntro:

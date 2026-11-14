@@ -15,6 +15,8 @@ export const HMRC = {
   whoMustSend:
     "https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return",
   deadlines: "https://www.gov.uk/self-assessment-tax-returns/deadlines",
+  penalties: "https://www.gov.uk/self-assessment-tax-returns/penalties",
+  foreignIncome: "https://www.gov.uk/tax-foreign-income",
   mtdWhen:
     "https://www.gov.uk/guidance/find-out-if-and-when-you-need-to-use-making-tax-digital-for-income-tax",
   mtdQualifyingIncome:
@@ -32,6 +34,22 @@ export const MTD_COHORTS = [
 
 /** Standard online filing/payment deadline for the most recent tax year (2025/26). */
 export const CURRENT_ONLINE_DEADLINE = { taxYear: "2025/26", date: "2027-01-31" } as const;
+
+/**
+ * FAQ figures re-checked live against GOV.UK on FAQ_CHECKED_ON (T3.2). Kept
+ * separate from SOURCES_CHECKED_ON above, which covers the rest of this file.
+ */
+export const FAQ_CHECKED_ON = "2026-11-14";
+
+/** Self Assessment late-filing penalties (GOV.UK, checked on FAQ_CHECKED_ON). */
+export const PENALTIES = {
+  initial: 100,
+  dailyRate: 10,
+  dailyCapDays: 90,
+  dailyCap: 900,
+  furtherPercent: 5,
+  furtherMinimum: 300,
+} as const;
 
 const LOCALE_TAG: Record<Locale, string> = { en: "en-GB", pl: "pl-PL" };
 
@@ -215,6 +233,89 @@ export const saGuidance: Record<Locale, SelfAssessmentGuidanceCopy> = {
         label: "Zwolnienia z Making Tax Digital for Income Tax",
         href: HMRC.mtdExemptions,
       },
+    ],
+  },
+};
+
+export type Faq = { question: string; answer: string };
+
+export type SelfAssessmentFaqCopy = {
+  heading: string;
+  faqs: Faq[];
+  sourcesHeading: (date: string) => string;
+  sources: Link[];
+};
+
+/**
+ * Answer-first Self Assessment FAQ (T3.2): who must file, deadlines, late
+ * penalty and foreign income. Same 4 topics in both languages for parity.
+ * Figures re-checked live against GOV.UK on FAQ_CHECKED_ON above; the who/
+ * deadline facts match saGuidance and the foreign-income facts match
+ * content/self-assessment-depth.ts, so this never contradicts them.
+ */
+export const saFaq: Record<Locale, SelfAssessmentFaqCopy> = {
+  en: {
+    heading: "Frequently asked questions",
+    faqs: [
+      {
+        question: "Who has to file a Self Assessment tax return?",
+        answer:
+          "You usually need to file if, in the last tax year, you were a sole trader who earned more than £1,000, were a partner in a business partnership, had Capital Gains Tax to pay, had to pay the High Income Child Benefit Charge outside PAYE, or had other untaxed income such as rental income, dividends, savings interest or foreign income. If you're not sure, HMRC's own checker tool can tell you.",
+      },
+      {
+        question: "What are the Self Assessment deadlines for the 2025 to 2026 tax year?",
+        answer:
+          "If you need to register for the first time, tell HMRC by 5 October 2026. Paper returns are due by 31 October 2026. Online returns and any tax owed are due by 31 January 2027.",
+      },
+      {
+        question: "What happens if I miss the Self Assessment deadline?",
+        answer:
+          "HMRC charges an initial £100 penalty for a late return, even if you have no tax to pay. After 3 months, daily penalties of £10 apply, up to a maximum of £900. After 6 months, and again after 12 months, a further penalty applies of 5% of the tax due or £300, whichever is greater.",
+      },
+      {
+        question: "Do I pay UK tax on income from Poland or another country?",
+        answer:
+          "If you're UK resident, you'll normally pay UK tax on your foreign income too — for example rental income or investment income from Poland. You usually report it on your Self Assessment tax return, and relief may be available if you've already paid tax on it abroad.",
+      },
+    ],
+    sourcesHeading: (date) => `Sources (GOV.UK, checked ${date})`,
+    sources: [
+      { label: "Who must send a tax return", href: HMRC.whoMustSend },
+      { label: "Self Assessment deadlines", href: HMRC.deadlines },
+      { label: "Self Assessment tax return penalties", href: HMRC.penalties },
+      { label: "Tax on foreign income", href: HMRC.foreignIncome },
+    ],
+  },
+  pl: {
+    heading: "Najczęściej zadawane pytania",
+    faqs: [
+      {
+        question: "Kto musi złożyć zeznanie Self Assessment?",
+        answer:
+          "Zazwyczaj musisz złożyć zeznanie, jeśli w ostatnim roku podatkowym dotyczyło Cię co najmniej jedno z poniższych: prowadzenie działalności na własny rachunek jako sole trader z przychodem powyżej £1000, udział jako wspólnik w spółce osobowej (partnership), obowiązek zapłaty podatku od zysków kapitałowych (Capital Gains Tax), obowiązek zapłaty High Income Child Benefit Charge poza PAYE, albo inne nieopodatkowane dochody, np. z najmu, dywidendy, odsetki od oszczędności lub dochody zagraniczne. Jeśli nie masz pewności, skorzystaj z narzędzia HMRC.",
+      },
+      {
+        question: "Do kiedy trzeba złożyć Self Assessment za rok 2025/26?",
+        answer:
+          "Jeśli rejestrujesz się po raz pierwszy, zgłoś to do HMRC do 5 października 2026 r. Deklarację papierową trzeba złożyć do 31 października 2026 r. Deklarację online i należny podatek trzeba rozliczyć do 31 stycznia 2027 r.",
+      },
+      {
+        question: "Co się stanie, jeśli spóźnię się ze złożeniem zeznania?",
+        answer:
+          "HMRC nalicza początkową karę w wysokości £100 za spóźnione zeznanie, nawet jeśli nie masz podatku do zapłaty. Po 3 miesiącach dolicza się karę dzienną w wysokości £10, do maksymalnie £900. Po 6 miesiącach, a potem ponownie po 12 miesiącach, nalicza się dodatkową karę w wysokości 5% należnego podatku lub £300 — w zależności od tego, która kwota jest wyższa.",
+      },
+      {
+        question: "Czy muszę rozliczyć w UK dochody z Polski?",
+        answer:
+          "Jeśli jesteś rezydentem podatkowym UK, zwykle płacisz w UK podatek także od dochodów zagranicznych — np. z najmu lub inwestycji w Polsce. Zazwyczaj wykazujesz je w swojej deklaracji Self Assessment, a jeśli podatek za granicą został już zapłacony, możesz skorzystać z ulgi.",
+      },
+    ],
+    sourcesHeading: (date) => `Źródła (GOV.UK, po angielsku; sprawdzone ${date})`,
+    sources: [
+      { label: "Kto musi złożyć deklarację podatkową", href: HMRC.whoMustSend },
+      { label: "Terminy Self Assessment", href: HMRC.deadlines },
+      { label: "Kary za spóźnione zeznanie Self Assessment", href: HMRC.penalties },
+      { label: "Podatek od dochodów zagranicznych", href: HMRC.foreignIncome },
     ],
   },
 };

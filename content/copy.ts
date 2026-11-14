@@ -4,6 +4,8 @@ export type Locale = "en" | "pl";
 
 export type ServiceIcon = "bookOpen" | "user" | "building" | "bank";
 
+export type Faq = { question: string; answer: string };
+
 export interface Content {
   nav: {
     brand: string;
@@ -76,6 +78,12 @@ export interface Content {
     hmrcLink: string;
     facebookLink: string;
     privacyLink: string;
+  };
+  /** Short, answer-first home page FAQ (T3.2). No tax figures here — see the
+   * Self Assessment / Bookkeeping & VAT / MTD pages for cited tax facts. */
+  faq: {
+    heading: string;
+    items: Faq[];
   };
 }
 
@@ -203,6 +211,21 @@ export const en: Content = {
     facebookLink: "Facebook",
     privacyLink: "Privacy Policy",
   },
+  faq: {
+    heading: "Frequently asked questions",
+    items: [
+      {
+        question: "How much does a bookkeeper or accountant cost?",
+        answer:
+          "Fees are not published; they are agreed after the free introductory call, once Sabina knows what you need.",
+      },
+      {
+        question: "Do you work in English and Polish?",
+        answer:
+          "Yes. I work remotely with clients across the UK, in English or Polish, whichever you prefer.",
+      },
+    ],
+  },
 };
 
 export const pl: Content = {
@@ -328,6 +351,21 @@ export const pl: Content = {
     hmrcLink: "Wskazówki HMRC",
     facebookLink: "Facebook",
     privacyLink: "Polityka prywatności",
+  },
+  faq: {
+    heading: "Najczęściej zadawane pytania",
+    items: [
+      {
+        question: "Ile kosztuje księgowa?",
+        answer:
+          "Cennika nie publikuję — wynagrodzenie ustalamy razem po bezpłatnej rozmowie wstępnej, kiedy poznam Twoje potrzeby.",
+      },
+      {
+        question: "Czy obsługujecie klientów z całej Wielkiej Brytanii?",
+        answer:
+          "Sabina Krajewska to polskojęzyczna księgowa z St Helens, która zdalnie obsługuje klientów z całej Wielkiej Brytanii: księgowość, VAT, Self Assessment, płace i korespondencję z HMRC.",
+      },
+    ],
   },
 };
 
