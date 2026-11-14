@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import { CheckCircle } from "@/components/ui/icons";
 import type { Locale } from "@/content/copy";
 import {
+  COMPARISON_CHECKED_ON,
   FIGURES_CHECKED_ON,
   QUARTERS,
   mtdCopy,
@@ -346,6 +347,85 @@ export default function MtdIncomeTax({ locale }: { locale: Locale }) {
                 </p>
               )}
             </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* MTD for VAT vs MTD for Income Tax comparison (T3.3) */}
+      <section
+        className="py-20 bg-surface-container-lowest"
+        aria-labelledby="mtd-vat-vs-income-tax"
+        data-testid="mtd-vat-vs-income-tax"
+      >
+        <div className="max-w-7xl mx-auto px-5 md:px-16">
+          <h2
+            id="mtd-vat-vs-income-tax"
+            className="font-serif text-3xl font-semibold text-primary mb-4"
+          >
+            {c.comparisonHeading}
+          </h2>
+          <p className="text-on-surface-variant max-w-3xl mb-8">
+            {c.comparisonIntro}
+          </p>
+
+          <div className="overflow-x-auto mb-6">
+            <table className="w-full text-left text-on-surface-variant bg-surface rounded-lg">
+              <caption className="font-semibold text-primary mb-4 text-left px-2 pt-2">
+                {c.comparisonTableCaption}
+              </caption>
+              <thead>
+                <tr className="text-sm">
+                  <th scope="col" className="p-3 font-semibold">
+                    {c.comparisonColAspect}
+                  </th>
+                  <th scope="col" className="p-3 font-semibold">
+                    {c.comparisonColVat}
+                  </th>
+                  <th scope="col" className="p-3 font-semibold">
+                    {c.comparisonColIncomeTax}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {c.comparisonRows.map((row) => (
+                  <tr key={row.aspect} className="border-t border-outline-variant align-top">
+                    <th scope="row" className="p-3 font-semibold text-primary whitespace-nowrap">
+                      {row.aspect}
+                    </th>
+                    <td className="p-3">{row.vat}</td>
+                    <td className="p-3">{row.incomeTax}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="max-w-3xl text-on-surface-variant space-y-4">
+            <p className="font-medium text-primary">{c.comparisonNote}</p>
+            {bookkeepingHref && (
+              <p>
+                <a href={bookkeepingHref} className={linkClass}>
+                  {c.vatBoxLink}
+                </a>
+              </p>
+            )}
+            <p className="text-sm" data-testid="mtd-comparison-disclaimer">
+              {c.comparisonDisclaimer(formatDate(COMPARISON_CHECKED_ON, locale))}
+            </p>
+            <div className="text-sm">
+              <h3 className="font-semibold text-primary mb-2">
+                {c.comparisonSourcesHeading}
+              </h3>
+              <ul className="list-disc pl-5 space-y-1">
+                {c.comparisonSources.map((s) => (
+                  <li key={s.href}>
+                    <a href={s.href} className={linkClass}>
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
